@@ -13,8 +13,10 @@ public function index()
     $data['title'] = 'Register new account';
 
     $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|max_length[20]|xss_clean|is_unique[members.UserName]');
-    $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]|max_length[15]|md5');
-    $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|max_length[50]|is_unique[members.EmailAddress]');
+    $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]|max_length[15]|xss_clean|sha1');
+    $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|max_length[50]|xss_clean|is_unique[members.EmailAddress]');
+
+    $isBusiness = $this->input->post('is_business');//check to see if we need to show the extended reg form for businesses
 
     if ($this->form_validation->run() === FALSE)
     {
@@ -25,9 +27,17 @@ public function index()
     }
     else
     {
+        if ($isBusiness == 0) //not a business registration so go to logged-in home
+            {
+                $this->Signup_model->register_user();
+                $this->load->view('home');
+            }
 
-        $this->Signup_model->register_user();
-        $this->load->view('home');
+        else //business registration so continue the registration process
+            {
+                $this->Signup_model->register_user();
+                $this->load->view('business_registration');
+            }
     }
 }
 

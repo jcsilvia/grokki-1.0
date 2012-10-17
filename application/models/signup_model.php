@@ -7,9 +7,6 @@ class Signup_model extends CI_Model {
 
     }
 
-    function ConvertCheckboxValue($value) {
-        return $value == "on" ? 1 : 0;
-    }
 
     public function register_user()
 {
@@ -25,5 +22,7 @@ class Signup_model extends CI_Model {
 
     return $this->db->insert('members', $data);
 }
+
+
 
 }
