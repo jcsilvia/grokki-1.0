@@ -1,6 +1,6 @@
 h1 {font-size:1.25em;font-family:"helvetica",sans-serif;}
 p {font-size:.9em;font-family:"helvetica",sans-serif;}
-.header-bar {background-color:black; border-radius: 0px 0px 10px 10px; -moz-border-radius: 0px 0px 10px 10px; -webkit-border-radius: 0px 0px 10px 10px;}
+.header-bar {background-color: rgba(0,0,0,0.85); border-radius: 0px 0px 10px 10px; -moz-border-radius: 0px 0px 10px 10px; -webkit-border-radius: 0px 0px 10px 10px;filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#D8000000', EndColorStr='#D8000000');}
 .logo {padding-left:10px;}
 body {margin:0;padding:0;}
 .footer-bar {background-color:black; border-radius: 10px 10px 0px 0px; -moz-border-radius: 10px 10px 0px 0px; -webkit-border-radius: 10px 10px 0px 0px;}
