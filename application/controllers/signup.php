@@ -12,6 +12,8 @@ public function index()
 
     $data['title'] = 'Register new account';
 
+    $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+
     $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|max_length[20]|xss_clean|is_unique[members.UserName]');
     $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]|max_length[15]|xss_clean|sha1');
     $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|max_length[50]|xss_clean|is_unique[members.EmailAddress]');
