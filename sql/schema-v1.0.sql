@@ -183,3 +183,14 @@ CREATE TABLE grokki.messages_queue_1 (
 
 ALTER TABLE grokki.messages_queue_1
   ADD INDEX message_queue_mid_idx (MessageId);
+
+# Codeigniter session table for tracking user sessions in the DB  
+  CREATE TABLE `grokki`.`ci_sessions` (
+	session_id varchar(40) DEFAULT '0' NOT NULL,
+	ip_address varchar(45) DEFAULT '0' NOT NULL,
+	user_agent varchar(120) NOT NULL,
+	last_activity int(10) unsigned DEFAULT 0 NOT NULL,
+	user_data text,
+	PRIMARY KEY (session_id),
+	KEY `last_activity_idx` (`last_activity`)
+) ENGINE=INNODB DEFAULT CHARSET=utf8;

@@ -54,4 +54,46 @@ public function index()
     }
 }
 
+public function business_reg()
+        {
+
+            $this->load->helper(array('form', 'url'));
+            $this->load->library('form_validation');
+            $this->load->model('Signup_model');
+            $this->load->database();
+
+            $data['title'] = 'Complete business account registration';
+
+            $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+
+            $this->form_validation->set_rules('businessname', 'Business name', 'trim|required|max_length[50]|xss_clean');
+            $this->form_validation->set_rules('business_category', 'Business category', 'trim|required|xss_clean');
+            $this->form_validation->set_rules('address1', 'Address 1', 'trim|required|max_length[50]|xss_clean');
+            $this->form_validation->set_rules('address2', 'Address 2', 'trim|xss_clean|max_length[50]');
+            $this->form_validation->set_rules('city', 'City', 'trim|xss_clean|max_length[50]|required');
+            $this->form_validation->set_rules('state', 'State', 'trim|xss_clean|required');
+            $this->form_validation->set_rules('phone', 'Phone', 'trim|xss_clean|min_length[10]|max_length[11]|required');
+            $this->form_validation->set_rules('fname', 'First Name', 'trim|xss_clean|min_length[2]|max_length[50]|required');
+            $this->form_validation->set_rules('lname', 'Last Name', 'trim|xss_clean|min_length[2]|max_length[50]|required');
+
+
+            if ($this->form_validation->run() === FALSE)
+            {
+                $results['categories'] = $this->Signup_model->load_business_categories();
+                $this->load->view('templates/header', $data);
+                $this->load->view('business_registration', $results);
+                $this->load->view('templates/footer');
+
+            }
+            else
+            {
+                $data['title'] = 'Home';
+
+                $this->Signup_model->register_business();
+                $this->load->view('templates/header', $data);
+                $this->load->view('home');
+                $this->load->view('templates/footer');
+            }
+        }
+
 }
