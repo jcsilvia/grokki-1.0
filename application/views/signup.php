@@ -18,6 +18,11 @@
 <?php echo form_error('email'); ?><br />
 </p>
 <p>
+    <label for="zipcode">Zipcode</label>
+    <input type="text" name="zipcode" size="6" value="<?php echo set_value('zipcode'); ?>" />
+    <?php echo form_error('zipcode'); ?><br />
+</p>
+<p>
 <label for="is_business">Check if this is a business account</label>
 <input type="checkbox" name="is_business" value="1" /><br />
 </p>

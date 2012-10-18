@@ -62,6 +62,7 @@ CREATE TABLE grokki.members (
   `EmailAddress` varchar(50) NOT NULL,
   `FaceBookId`  varchar(50),
   `IsBusiness`   smallint(1) NOT NULL DEFAULT '0',
+  `BusinessName` varchar(50),
   `CreatedDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (MemberId)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8;
@@ -70,7 +71,7 @@ CREATE TABLE grokki.members (
 CREATE TABLE grokki.addresses (
   `AddressId`  int(10) NOT NULL AUTO_INCREMENT,
   `MemberId` int(10) NOT NULL,
-  `Address1` varchar(50) NOT NULL,
+  `Address1` varchar(50),
   `Address2`  varchar(50),
   `City`   varchar(50),
   `State` varchar(2),

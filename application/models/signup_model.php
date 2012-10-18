@@ -10,17 +10,27 @@ class Signup_model extends CI_Model {
 
     public function register_user()
 {
-    $this->load->helper('url');
-    $data = array(
+
+    $memberdata = array(
         'UserName' => $this->input->post('username'),
         'UserPassword' => $this->input->post('password'),
         'EmailAddress' => $this->input->post('email'),
         'IsBusiness' => $this->input->post('is_business')
     );
 
+    $this->db->insert('members', $memberdata);
 
+    $this->db->select('MemberId');
+    $this->db->from('members');
+    $this->db->where('EmailAddress',$this->input->post('email'));
+        $query = $this->db->get();
+            $row = $query->row('MemberId');
 
-    return $this->db->insert('members', $data);
+    $addressdata = array('MemberId' => $row,
+                  'Zipcode' => $this->input->post('zipcode')
+     );
+
+    return $this->db->insert('addresses', $addressdata);
 }
 
 
