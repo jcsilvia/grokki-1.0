@@ -6,7 +6,7 @@ body {margin:0;padding:0;}
 .footer-bar {background-color:black; border-radius: 10px 10px 0px 0px; -moz-border-radius: 10px 10px 0px 0px; -webkit-border-radius: 10px 10px 0px 0px;}
 .copyright {color:white;font-family:"helvetica",sans-serif;font-size:0.7em;padding-right:10px;}
 .form{padding-left:5px;padding-right:5px;background-color:#d3d3d3;border-style:solid;border-width:thin;border-color:black;border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;}
-.button{font-size:1em;font-family:"helvetica",sans-serif;background-color:#d3d3d3;
-border:1px solid; border-radius: 5px 5px 5px 5px;}
+.button{font-size:1.25em;font-family:"helvetica",sans-serif;background-color:#d3d3d3;
+border:1px solid; border-radius: 5px 5px 5px 5px;position: absolute; right: 40px;}
 .button:hover {background-color:#a9a9a9;}
 .error{font-family:"helvetica",sans-serif;color:red; text-align: left; padding-left:10px; font-size:.75em; font-weight: bold;}

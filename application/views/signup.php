@@ -3,7 +3,7 @@
 
 <td>
 
-<div><h1>Sign up with Grokki now.</h1></div>
+<div><h1>Sign up with Grokki today.</h1></div>
 <div class="form" >
 <p>
 <label for="username">Username</label>

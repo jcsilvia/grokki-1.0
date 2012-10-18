@@ -32,14 +32,24 @@ public function index()
     {
         if ($isBusiness == 0) //not a business registration so go to logged-in home
             {
+                $data['title'] = 'Home';
+
                 $this->Signup_model->register_user();
+                $this->load->view('templates/header', $data);
                 $this->load->view('home');
+                $this->load->view('templates/footer');
             }
 
         else //business registration so continue the registration process
             {
+                $data['title'] = 'Register business account';
+
                 $this->Signup_model->register_user();
-                $this->load->view('business_registration');
+                $results['categories'] = $this->Signup_model->load_business_categories();
+
+                $this->load->view('templates/header', $data);
+                $this->load->view('business_registration', $results);
+                $this->load->view('templates/footer');
             }
     }
 }

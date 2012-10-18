@@ -10,4 +10,4 @@
             <div class="logo" align="left"><img src="/images/grokki_logo_icon_red.gif" alt="grokki logo"></div>
         </td>
     </table>
-    <table class="main-content" height="90%" width="90%" border="0" cellpadding="5" align="center">
+    <table class="main-content" height="100%" width="90%" border="0" cellpadding="5" align="center">

@@ -33,6 +33,17 @@ class Signup_model extends CI_Model {
             return $this->db->insert('addresses', $addressdata);
     }
 
+    public function load_business_categories()
+    {
+        $query = $this->db->query('select CategoryId, CategoryName from categories');
+        $result = array();
 
+        foreach ($query->result() as $row)
+        {
+            $result[$row->CategoryId]= $row->CategoryName;
+        }
+        return $result;
+    }
 
 }
+
