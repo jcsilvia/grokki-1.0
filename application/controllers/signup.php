@@ -2,58 +2,77 @@
 
 class Signup extends CI_Controller {
 
+function __construct()
+    {
+        parent::__construct();
+    }
+
 
 public function index()
 {
-    $this->load->helper(array('form', 'url'));
-    $this->load->library('form_validation');
-    $this->load->model('Signup_model');
-    $this->load->database();
+    //test to see if a user is already logged in and reroute to home
+    if ($this->session->userdata('memberid') == false)
+        {
 
-    $data['title'] = 'Register new account';
 
-    $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+            $this->load->helper(array('form', 'url'));
+            $this->load->library('form_validation');
+            $this->load->model('Signup_model');
+            $this->load->database();
 
-    $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|max_length[20]|xss_clean|is_unique[members.UserName]');
-    $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]|max_length[15]|xss_clean|sha1');
-    $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|max_length[50]|xss_clean|is_unique[members.EmailAddress]');
-    $this->form_validation->set_rules('zipcode', 'Zipcode', 'trim|required|min-length[5]|numeric|xss_clean');
+            $data['title'] = 'Register new account';
 
-    $isBusiness = $this->input->post('is_business');//check to see if we need to show the extended reg form for businesses
+            $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 
-    if ($this->form_validation->run() === FALSE)
-    {
-        $this->load->view('templates/header', $data);
-        $this->load->view('signup');
-        $this->load->view('templates/footer');
+            $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|max_length[20]|xss_clean|is_unique[members.UserName]');
+            $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]|max_length[15]|xss_clean');
+            $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|max_length[50]|xss_clean|is_unique[members.EmailAddress]');
+            $this->form_validation->set_rules('zipcode', 'Zipcode', 'trim|required|min-length[5]|numeric|xss_clean');
 
-    }
+            $isBusiness = $this->input->post('is_business');//check to see if we need to show the extended reg form for businesses
+
+            if ($this->form_validation->run() === FALSE)
+                {
+                    $this->load->view('templates/header', $data);
+                    $this->load->view('signup');
+                    $this->load->view('templates/footer');
+                }
+            else
+                {
+                    if ($isBusiness == 0) //not a business registration so go to logged-in home
+                        {
+                            $data['title'] = 'Home';
+
+                            $this->Signup_model->register_user();
+                            $this->load->view('templates/header', $data);
+                            $this->load->view('home');
+                            $this->load->view('templates/footer');
+                        }
+
+                    else //business registration so continue the registration process
+                        {
+                            $data['title'] = 'Register business account';
+
+                            $this->Signup_model->register_user();
+                            $results['categories'] = $this->Signup_model->load_business_categories();
+
+                            $this->load->view('templates/header', $data);
+                            $this->load->view('business_registration', $results);
+                            $this->load->view('templates/footer');
+                        }
+                }
+        }
+
     else
-    {
-        if ($isBusiness == 0) //not a business registration so go to logged-in home
-            {
-                $data['title'] = 'Home';
+        {
 
-                $this->Signup_model->register_user();
-                $this->load->view('templates/header', $data);
-                $this->load->view('home');
-                $this->load->view('templates/footer');
-            }
+            $data['title'] = 'Home';
+            $this->load->view('templates/header', $data);
+            $this->load->view('home');
+            $this->load->view('templates/footer');
 
-        else //business registration so continue the registration process
-            {
-                $data['title'] = 'Register business account';
-
-                $this->Signup_model->register_user();
-                $results['categories'] = $this->Signup_model->load_business_categories();
-
-                $this->load->view('templates/header', $data);
-                $this->load->view('business_registration', $results);
-                $this->load->view('templates/footer');
-            }
-    }
+        }
 }
-
 public function business_reg()
         {
 
@@ -78,22 +97,22 @@ public function business_reg()
 
 
             if ($this->form_validation->run() === FALSE)
-            {
-                $results['categories'] = $this->Signup_model->load_business_categories();
-                $this->load->view('templates/header', $data);
-                $this->load->view('business_registration', $results);
-                $this->load->view('templates/footer');
+                {
+                    $results['categories'] = $this->Signup_model->load_business_categories();
+                    $this->load->view('templates/header', $data);
+                    $this->load->view('business_registration', $results);
+                    $this->load->view('templates/footer');
 
-            }
+                }
             else
-            {
-                $data['title'] = 'Home';
+                {
+                    $data['title'] = 'Home';
 
-                $this->Signup_model->register_business();
-                $this->load->view('templates/header', $data);
-                $this->load->view('home');
-                $this->load->view('templates/footer');
-            }
+                    $this->Signup_model->register_business();
+                    $this->load->view('templates/header', $data);
+                    $this->load->view('home');
+                    $this->load->view('templates/footer');
+                }
         }
 
 }

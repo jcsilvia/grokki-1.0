@@ -1,10 +1,10 @@
-</table>
- <table class="footer-bar" height="30px" width="100%" border="0" cellpadding="0" align="center">
-     <td valign="middle">
-                    <div class="copyright" align="right" style="clear:both"
-                        <p>&copy;2012 Grokki</p>
-                    </div>
-    </td>
- </table>
-</body>
+        </div> <!-- end main-content div started in header -->
+        <div class="footer">
+            <div class="copyright" align="right" style="clear:both"
+                <p>&copy;2012 Grokki</p>
+            </div>
+         </div>
+        <div class="clear-footer"></div>
+        </div> <!-- end container div started in header -->
+    </body>
 </html>

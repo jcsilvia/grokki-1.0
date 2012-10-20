@@ -1,7 +1,7 @@
 <?php $this->load->helper('form'); ?>
 <?php echo form_open('signup/business_reg') ?>
 
-<td>
+
 
     <div><h1>Your business account has been created.</h1></div>
     <div><p>Now we just need a few more details about your business and we'll be ready to start connecting you with consumers in your area.</p></div>
@@ -116,5 +116,3 @@
 
         </p>
     </form>
-
-</td>

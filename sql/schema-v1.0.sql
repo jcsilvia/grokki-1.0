@@ -6,7 +6,7 @@
 # Primary message repository
 CREATE TABLE grokki.messages (
   `MessageId` bigint(19) NOT NULL AUTO_INCREMENT,
-  `MemberId` int(10) NOT NULL,
+  `MemberId` bigint(19) NOT NULL,
   `CreatedDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `Subject` varchar(50) DEFAULT NULL,
   `Content` varchar(255) DEFAULT NULL,
@@ -30,9 +30,9 @@ ALTER TABLE grokki.messages
 # Members Inbox
 CREATE TABLE grokki.message_inbox (
   `MessageId` bigint(19) NOT NULL,
-  `MemberId` int(10) NOT NULL,
+  `MemberId` bigint(19) NOT NULL,
   `CreatedDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `SenderId` int(10) DEFAULT NULL,
+  `SenderId` bigint(19) DEFAULT NULL,
   `IsRead` smallint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (MessageId, MemberId)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8;
@@ -44,7 +44,7 @@ ALTER TABLE grokki.message_inbox
 # Members Sent Messages  
 CREATE TABLE grokki.message_sent (
   `MessageId` bigint(19) NOT NULL,
-  `MemberId` int(10) NOT NULL,
+  `MemberId` bigint(19) NOT NULL,
   `CreatedDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (MessageId, MemberId)
 ) ENGINE=MYISAM DEFAULT CHARSET=utf8;
@@ -53,10 +53,10 @@ CREATE TABLE grokki.message_sent (
 # Member repository - includes both consumers and businesses
 CREATE TABLE grokki.members (
   `ShardId` int(3) NOT NULL DEFAULT 1,
-  `MemberId` int(10) NOT NULL AUTO_INCREMENT,
+  `MemberId` bigint(19) NOT NULL AUTO_INCREMENT,
   `UserName` varchar(20) NOT NULL,
   `UserPassword` varchar(255) NOT NULL,
-  `PasswordSalt` int(10),
+  `PasswordSalt` bigint(19),
   `FirstName`  varchar(50),
   `LastName`   varchar(50),
   `EmailAddress` varchar(50) NOT NULL,
@@ -64,13 +64,16 @@ CREATE TABLE grokki.members (
   `IsBusiness`   smallint(1) NOT NULL DEFAULT '0',
   `BusinessName` varchar(50),
   `CreatedDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `IsEmailVerified` smallint(1) DEFAULT '0',
+  `IsActiveAccount` smallint(1) NOT NULL DEFAULT '1',
+  `last_login` datetime DEFAULT NULL,
   PRIMARY KEY (MemberId)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 # Member address repository - businesses will be able to use lat/lng for geolocation
 CREATE TABLE grokki.addresses (
-  `AddressId`  int(10) NOT NULL AUTO_INCREMENT,
-  `MemberId` int(10) NOT NULL,
+  `AddressId`  bigint(19) NOT NULL AUTO_INCREMENT,
+  `MemberId` bigint(19) NOT NULL,
   `Address1` varchar(50),
   `Address2`  varchar(50),
   `City`   varchar(50),
@@ -93,8 +96,9 @@ ALTER TABLE grokki.addresses
 # Business category association  
 CREATE TABLE grokki.business_categories (
   `CategoryId` int(10) NOT NULL,
-  `MemberId` int(10) NOT NULL,
+  `MemberId` bigint(19) NOT NULL,
   `CreatedDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `business_category_type` enum('primary','alternate') NOT NULL DEFAULT 'primary',
   PRIMARY KEY (MemberId, CategoryId)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8;  
 
@@ -113,17 +117,17 @@ ALTER TABLE grokki.categories
 
 # Associations between members and businesses - like Facebook friends
 CREATE TABLE grokki.member_associations (
-  `MemberId` int(10) NOT NULL,
-  `AssociateId` int(10) NOT NULL,
+  `MemberId` bigint(19) NOT NULL,
+  `AssociateId` bigint(19) NOT NULL,
   `CreatedDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (MemberId, AssociateId)
 ) ENGINE=MYISAM DEFAULT CHARSET=utf8;    
 
 # Ratings repository per member interaction - used for sort, recommendations etc
 CREATE TABLE grokki.member_ratings (
-  `RatingId`  int(10) NOT NULL AUTO_INCREMENT,
-  `MemberId` int(10) NOT NULL,
-  `ReviewerId`  int(10) NOT NULL,
+  `RatingId`  bigint(19) NOT NULL AUTO_INCREMENT,
+  `MemberId` bigint(19) NOT NULL,
+  `ReviewerId`  bigint(19) NOT NULL,
   `Rating` int(2) NOT NULL,
   `CreatedDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (RatingId)
@@ -137,9 +141,9 @@ ALTER TABLE grokki.member_ratings
 
 # Reviews repository - for member reviews of businesses
 CREATE TABLE grokki.member_reviews (
-  `ReviewId`  int(10) NOT NULL AUTO_INCREMENT,
-  `MemberId` int(10) NOT NULL,
-  `ReviewerId`  int(10) NOT NULL,
+  `ReviewId`  bigint(19) NOT NULL AUTO_INCREMENT,
+  `MemberId` bigint(19) NOT NULL,
+  `ReviewerId`  bigint(19) NOT NULL,
   `Content` varchar(255) NOT NULL,
   `CreatedDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (ReviewId)
@@ -153,7 +157,7 @@ ALTER TABLE grokki.member_reviews
   
 # Member Aggregate data - should be calculated nightly  
 CREATE TABLE grokki.member_aggregates (
-  `MemberId` int(10) NOT NULL,
+  `MemberId` bigint(19) NOT NULL,
   `Rating`  decimal(2,2),
   `TotalRates` int(5),
   `PositiveReviews` int(5),
@@ -164,7 +168,7 @@ CREATE TABLE grokki.member_aggregates (
 
 # Message counts - should be updated every message transaction
 CREATE TABLE grokki.message_aggregates (
-  `MemberId` int(10) NOT NULL,
+  `MemberId` bigint(19) NOT NULL,
   `InBoxUnread` int(5),
   `InBoxTotal`  int(5),
   `SentTotal`   int(5),
@@ -189,7 +193,7 @@ ALTER TABLE grokki.messages_queue_1
 	session_id varchar(40) DEFAULT '0' NOT NULL,
 	ip_address varchar(45) DEFAULT '0' NOT NULL,
 	user_agent varchar(120) NOT NULL,
-	last_activity int(10) unsigned DEFAULT 0 NOT NULL,
+	last_activity bigint(10) unsigned DEFAULT 0 NOT NULL,
 	user_data text,
 	PRIMARY KEY (session_id),
 	KEY `last_activity_idx` (`last_activity`)

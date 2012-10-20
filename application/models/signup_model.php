@@ -10,28 +10,41 @@ class Signup_model extends CI_Model {
 
     public function register_user()
     {
+        //generate random numbers to use as salt for password hashing
+        $random1 = substr(number_format(time() * rand(),0,'',''),0,5);
+        $random2 = substr(number_format(time() * rand(),0,'',''),0,5);
+        $random = $random1 . $random2;
+
+        $password = sha1($random1 . $this->input->post('password') . $random2);
+
         //form data to insert
             $memberdata = array(
                 'UserName' => $this->input->post('username'),
-                'UserPassword' => $this->input->post('password'),
+                'UserPassword' => $password,
                 'EmailAddress' => $this->input->post('email'),
-                'IsBusiness' => $this->input->post('is_business')
+                'IsBusiness' => $this->input->post('is_business'),
+                'PasswordSalt' => $random
             );
+
         //insert member data
             $this->db->insert('members', $memberdata);
+
         //build memberid query
             $this->db->select('MemberId');
             $this->db->from('members');
             $this->db->where('EmailAddress',$this->input->post('email'));
                 $query = $this->db->get();
                     $row = $query->row('MemberId');
+
         //address data and memberid from previous insert
             $addressdata = array('MemberId' => $row,
                           'Zipcode' => $this->input->post('zipcode')
              );
 
             $this->session->set_userdata('memberid', $row); //set the session userdata to the memberid for future lookups
-            return $this->db->insert('addresses', $addressdata);
+            $this->db->insert('addresses', $addressdata);
+
+            return true;
     }
 
     public function load_business_categories()
@@ -78,7 +91,9 @@ class Signup_model extends CI_Model {
             'MemberId' => $memberid
         );
 
-        RETURN $this->db->insert('business_categories', $cdata);
+         $this->db->insert('business_categories', $cdata);
+
+        return true;
 
     }
 

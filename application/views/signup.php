@@ -1,7 +1,7 @@
 <?php $this->load->helper('form'); ?>
 <?php echo form_open('signup/index') ?>
 
-<td>
+
 
 <div><h1>Sign up with Grokki today.</h1></div>
 <div class="form" >
@@ -37,4 +37,4 @@
 </div>
 </form>
 
-</td>
+
