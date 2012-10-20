@@ -44,9 +44,10 @@ public function index()
                             $data['title'] = 'Home';
 
                             $this->Signup_model->register_user();
-                            $this->load->view('templates/header', $data);
-                            $this->load->view('home');
-                            $this->load->view('templates/footer');
+                         //   $this->load->view('templates/header', $data);
+                         //   $this->load->view('home');
+                         //   $this->load->view('templates/footer');
+                            redirect('home', 'refresh');
                         }
 
                     else //business registration so continue the registration process
@@ -66,10 +67,11 @@ public function index()
     else
         {
 
-            $data['title'] = 'Home';
-            $this->load->view('templates/header', $data);
-            $this->load->view('home');
-            $this->load->view('templates/footer');
+            //$data['title'] = 'Home';
+            //$this->load->view('templates/header', $data);
+            //$this->load->view('home');
+            //$this->load->view('templates/footer');
+            redirect('home', 'refresh');
 
         }
 }
@@ -106,12 +108,13 @@ public function business_reg()
                 }
             else
                 {
-                    $data['title'] = 'Home';
+                    //$data['title'] = 'Home';
 
                     $this->Signup_model->register_business();
-                    $this->load->view('templates/header', $data);
-                    $this->load->view('home');
-                    $this->load->view('templates/footer');
+                    //$this->load->view('templates/header', $data);
+                    //$this->load->view('home');
+                    //$this->load->view('templates/footer');
+                    redirect('home', 'refresh');
                 }
         }
 

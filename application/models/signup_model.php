@@ -33,16 +33,23 @@ class Signup_model extends CI_Model {
             $this->db->select('MemberId');
             $this->db->from('members');
             $this->db->where('EmailAddress',$this->input->post('email'));
-                $query = $this->db->get();
-                    $row = $query->row('MemberId');
+            $query = $this->db->get();
+
+            $row = $query->row();
+            $memberid = $row->MemberId;
+            $username = $this->input->post('username');
+
 
         //address data and memberid from previous insert
-            $addressdata = array('MemberId' => $row,
+            $addressdata = array('MemberId' => $memberid,
                           'Zipcode' => $this->input->post('zipcode')
              );
 
-            $this->session->set_userdata('memberid', $row); //set the session userdata to the memberid for future lookups
-            $this->db->insert('addresses', $addressdata);
+        $this->db->insert('addresses', $addressdata);
+
+        $this->session->set_userdata('memberid', $memberid); //set the session userdata to the memberid for future lookups
+        $this->session->set_userdata('username', $username);
+
 
             return true;
     }
@@ -92,6 +99,8 @@ class Signup_model extends CI_Model {
         );
 
          $this->db->insert('business_categories', $cdata);
+
+        $this->session->set_userdata('businessname', $this->input->post('businessname'));
 
         return true;
 

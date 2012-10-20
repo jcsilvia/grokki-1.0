@@ -19,6 +19,7 @@ function index()
            {
 
              $session_data = $this->session->userdata('logged_in');
+             $data['title'] = 'Home';
              $data['username'] = $session_data['username'];
 
              $this->load->view('templates/header', $data);
@@ -40,7 +41,7 @@ function index()
 
 
 
-public function logout_user()
+public function logout()
     {
         $this->session->unset_userdata('memberid', 'username');
         $this->session->sess_destroy();

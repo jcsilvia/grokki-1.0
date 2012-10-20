@@ -40,10 +40,7 @@ public function index($msg = NULL)
 
                     if( $this->Login_model->login_user() === TRUE)
                     {
-                        $data['title'] = 'Home';
-                        $this->load->view('templates/header', $data);
-                        $this->load->view('home');
-                        $this->load->view('templates/footer');
+                        redirect('home', 'refresh');
                     }
                     else
                     {
@@ -56,11 +53,7 @@ public function index($msg = NULL)
             }
         else
             {
-
-                $data['title'] = 'Home';
-                $this->load->view('templates/header', $data);
-                $this->load->view('home');
-                $this->load->view('templates/footer');
+                redirect('home', 'refresh');
 
             }
     }
