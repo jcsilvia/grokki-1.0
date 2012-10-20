@@ -2,9 +2,31 @@
 <?php echo form_open('signup/business_reg') ?>
 
 
-
+<div class="form-container" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+     xmlns="http://www.w3.org/1999/html">
     <div><h1>Your business account has been created.</h1></div>
-    <div><p>Now we just need a few more details about your business and we'll be ready to start connecting you with consumers in your area.</p></div>
+    <div><p>Now we just need a few more details about your business and we'll be ready to<br> start connecting you with consumers in your area.</p></div>
+        <div class="marketing-text" style="
+        font-size:.95em;
+        color:white;
+        position:absolute;
+        left:550;
+        top:85;
+        width:250px;
+        padding-left:5px;
+        padding-right:5px;
+        padding-top:5px;
+        padding-bottom:5px;
+        background-color:rgba(0,0,0,0.85);
+        border-style:solid;
+        border-width:thin;
+        border-color:black;
+        border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;">
+            <p><b>70% of all mobile searches</b> <br>result in action within 1 hour. 70% of online searches result in action in one month. (Mobile Marketer, 2012)<p/>
+            <p><b>9 out of 10 mobile searches</b> <br>lead to action, over half leading to purchase. (Search Engine Land, 2012)</p>
+            <p><b>61% of local searches</b> <br>on a mobile phone result in a phone call. (Google, 2012)</p>
+            <p><b>52% of all mobile ads</b> <br>result in a phone call. (xAd, 2012)</p>
+        </div>
     <div class="form" >
         <p>
             <label for="businessname">Business Name</label>
@@ -107,12 +129,12 @@
             <?php echo form_error('lname'); ?>
         </p>
     </div>
+
     <div>
         <p>
             <input class="button" type="submit" name="submit" value="Complete my registration" />
         </p>
     </div>
-        <p>
-
-        </p>
+    </div>
     </form>
+

@@ -8,7 +8,7 @@
         <div class="container">
             <div class="header">
                         <div class="logo" align="left">
-                            <img src="/images/grokki_logo_icon_red.gif" alt="grokki logo">
+                            <a href="/home/"><img src="/images/grokki_logo_icon_red.gif" alt="grokki logo"></a>
                        </div>
                 <?php if ($this->session->userdata('memberid') == TRUE )
                         {
