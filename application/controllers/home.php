@@ -33,7 +33,11 @@ function index()
 
              //If no session, redirect to login page
 
-             redirect('login', 'refresh');
+            // redirect('login', 'refresh');
+               $data['title'] = 'Welcome';
+               $this->load->view('templates/homepage_header', $data);
+               $this->load->view('home_not_logged_in');
+               $this->load->view('templates/footer');
 
            }
 
@@ -43,7 +47,7 @@ function index()
 
 public function logout()
     {
-        $this->session->unset_userdata('memberid', 'username');
+        $this->session->unset_userdata('memberid', 'username', 'logged_in');
         $this->session->sess_destroy();
         redirect('login', 'refresh');
     }

@@ -20,7 +20,7 @@ public function index()
             $this->load->model('Signup_model');
             $this->load->database();
 
-            $data['title'] = 'Register new account';
+            $data['title'] = 'Register';
 
             $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 
@@ -41,18 +41,15 @@ public function index()
                 {
                     if ($isBusiness == 0) //not a business registration so go to logged-in home
                         {
-                            $data['title'] = 'Home';
+
 
                             $this->Signup_model->register_user();
-                         //   $this->load->view('templates/header', $data);
-                         //   $this->load->view('home');
-                         //   $this->load->view('templates/footer');
                             redirect('home', 'refresh');
                         }
 
                     else //business registration so continue the registration process
                         {
-                            $data['title'] = 'Register business account';
+                            $data['title'] = 'Register business';
 
                             $this->Signup_model->register_user();
                             $results['categories'] = $this->Signup_model->load_business_categories();
@@ -67,10 +64,6 @@ public function index()
     else
         {
 
-            //$data['title'] = 'Home';
-            //$this->load->view('templates/header', $data);
-            //$this->load->view('home');
-            //$this->load->view('templates/footer');
             redirect('home', 'refresh');
 
         }
@@ -83,7 +76,7 @@ public function business_reg()
             $this->load->model('Signup_model');
             $this->load->database();
 
-            $data['title'] = 'Complete business account registration';
+            $data['title'] = 'Complete business registration';
 
             $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 
@@ -108,12 +101,10 @@ public function business_reg()
                 }
             else
                 {
-                    //$data['title'] = 'Home';
+
 
                     $this->Signup_model->register_business();
-                    //$this->load->view('templates/header', $data);
-                    //$this->load->view('home');
-                    //$this->load->view('templates/footer');
+
                     redirect('home', 'refresh');
                 }
         }

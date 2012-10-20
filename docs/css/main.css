@@ -26,7 +26,7 @@ html, body {
 
 .header {
     background-color: rgba(0,0,0,0.85);
-    border-radius: 0px 0px 10px 10px; -moz-border-radius: 0px 0px 10px 10px; -webkit-border-radius: 0px 0px 10px 10px; filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#D8000000', EndColorStr='#D8000000');
+    border-radius: 0px 0px 10px 10px; -moz-border-radius: 0px 0px 10px 10px; -webkit-border-radius: 0px 0px 10px 10px;
     height: 40px;
     width: 100%;
 }
