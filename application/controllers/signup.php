@@ -31,6 +31,8 @@ public function index()
 
             $isBusiness = $this->input->post('is_business');//check to see if we need to show the extended reg form for businesses
 
+
+
             if ($this->form_validation->run() === FALSE)
                 {
                     $this->load->view('templates/header', $data);

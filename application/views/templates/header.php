@@ -3,6 +3,12 @@
         <title>grokki - <?php echo $title ?></title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <link href="/css/main.css" rel="stylesheet" type="text/css">
+        <style>
+            a:link {text-decoration:none;color:white;}
+            a:visited {text-decoration:none;color:white;}
+            a:hover {text-decoration:none;color:red;}
+            a:active {text-decoration:none;}
+        </style>
     </head>
     <body>
         <div class="container">
@@ -15,5 +21,6 @@
                             echo '<div class="logout" align="right"><a href="/home/logout">Logout</a></div>';
                         } ?>
             </div>
-            <div class="main-content">
+
+
 

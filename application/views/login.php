@@ -1,4 +1,7 @@
 <?php $this->load->helper('form'); ?>
+
+<div class="main-content">
+
 <?php echo form_open('login/index') ?>
 
 

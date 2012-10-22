@@ -13,10 +13,7 @@
         left:550;
         top:85;
         width:250px;
-        padding-left:5px;
-        padding-right:5px;
-        padding-top:5px;
-        padding-bottom:5px;
+        padding:5px;
         background-color:rgba(0,0,0,0.85);
         border-style:solid;
         border-width:thin;

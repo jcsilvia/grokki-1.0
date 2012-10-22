@@ -6,8 +6,8 @@ html, body {
 
 .container {
     min-height: 100%;
-
     position: relative;
+    min-width: 750px;
 }
 
 .clear-footer {
@@ -20,8 +20,9 @@ html, body {
     width: 100%;
     position: absolute;
     bottom:0;
-    background-color:black;
+    background-color:rgba(0,0,0,0.85);
     border-radius: 10px 10px 0px 0px; -moz-border-radius: 10px 10px 0px 0px; -webkit-border-radius: 10px 10px 0px 0px;
+    margin:0;
 }
 
 .header {
@@ -29,8 +30,23 @@ html, body {
     border-radius: 0px 0px 10px 10px; -moz-border-radius: 0px 0px 10px 10px; -webkit-border-radius: 0px 0px 10px 10px;
     height: 40px;
     width: 100%;
+    margin:0;
 }
 
+.sub-nav {
+    background-color: rgba(0,0,0,.85);
+    border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;
+    height: 40px;
+    width: 450;
+    position:absolute;
+    left:150;
+    top:20;
+    color:white;
+    font-size:.85em;
+    font-family:"helvetica",sans-serif;
+    white-space:pre;
+    text-align: center;
+}
 
 h1 {
     font-size:1.25em;
@@ -47,12 +63,22 @@ p {
 }
 
 .logout {
-    color:black;
+    color:white;
     font-family:"helvetica",sans-serif;
     padding-right:10px;
     padding-top: 10px;
     font-size:1em;
+    font-weight: bold;
+    position:absolute;
+    top:0;
+    right:0;
 }
+
+a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover {text-decoration:none;color:red;}
+a:active {text-decoration:none;}
+
 
 .copyright {
     color:white;
@@ -123,9 +149,45 @@ p {
 
 .main-content {
     padding:20px;
-    padding-bottom: 45px;
+    margin-left:auto;
+    margin-right:auto;
+    width:800px;
+    display: block;
+    min-width: 800px;
 }
 
 .form-container {
     position:relative;
+}
+
+.username {
+    position:absolute;
+    top:40;
+    right:10;
+    width:175px;
+    text-align: right;
+    font-weight: bold;
+    font-family:"helvetica",sans-serif;
+    font-size:.95em;
+}
+
+.messages-window {
+    left:50px;
+    width:710px;
+    min-height: 200px;
+    padding:5px;
+    background-color:#d3d3d3;
+    border-style:solid;
+    border-width:thin;
+    border-color:black;
+    border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;
+    font-family:"helvetica",sans-serif;
+    font-size:.95em;
+}
+
+.message-detail {
+    position:relative;
+    border-color:#808080;
+    border-width:thin;
+    border-bottom-style: solid;
 }

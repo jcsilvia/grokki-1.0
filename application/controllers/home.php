@@ -6,6 +6,8 @@ class Home extends CI_Controller {
     function __construct()
     {
         parent::__construct();
+        $this->load->helper('url');
+        $this->load->database();
     }
 
 
@@ -18,11 +20,13 @@ function index()
 
            {
 
-             $session_data = $this->session->userdata('logged_in');
              $data['title'] = 'Home';
-             $data['username'] = $session_data['username'];
+             $data['username'] = $this->session->userdata('username');
+             $this->load->model('Message_model');
+             $data['messages'] = $this->Message_model->get_messages();
 
              $this->load->view('templates/header', $data);
+             $this->load->view('templates/sub_nav.php', $data);
              $this->load->view('home', $data);
              $this->load->view('templates/footer');
            }
@@ -47,10 +51,17 @@ function index()
 
 public function logout()
     {
-        $this->session->unset_userdata('memberid', 'username', 'logged_in');
+        $this->session->unset_userdata('memberid', 'username');
         $this->session->sess_destroy();
         redirect('login', 'refresh');
     }
 
+
+public function get_message_details()
+    {
+
+        //$messageid = $this->uri->segment(3,0);
+
+    }
 
 }
