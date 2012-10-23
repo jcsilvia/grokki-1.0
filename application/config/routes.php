@@ -40,11 +40,12 @@
 
 
 $route['default_controller'] = "home";
-$route['404_override'] = '';
+//$route['404_override'] = '';
 
-$route['signup'] = 'signup';
-$route['login'] = 'login';
-$route['home'] = 'home';
+$route['signup'] = "signup";
+$route['login'] = "login";
+$route['home'] = "home";
+$route['home/message_detail/:num'] = "home/get_message_details/$1";
 
 
 /* End of file routes.php */
