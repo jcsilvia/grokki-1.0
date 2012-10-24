@@ -34,7 +34,7 @@ class Message_model extends CI_Model {
 
                 {
 
-                        $this->db->select('`message_inbox`.MemberId as `MemberId`, `message_inbox`.MessageId as `MessageId`, `message_inbox`.CreatedDate as `CreatedDate`, date_format(`message_inbox`.CreatedDate, "%b-%d-%Y") as `DateFormatted`, `message_inbox`.SenderId as `SenderId`, `message_inbox`.IsRead as `IsRead`, `members`.UserName as `SenderName`, `messages`.Content as `Content`, `messages`.ParentMessageId as `ParentMessage`, `categories`.CategoryName as `CategoryName`',FALSE);
+                        $this->db->select('`message_inbox`.MemberId as `MemberId`, `message_inbox`.MessageId as `MessageId`, `message_inbox`.CreatedDate as `CreatedDate`, date_format(`message_inbox`.CreatedDate, "%b-%d-%Y") as `DateFormatted`, `message_inbox`.SenderId as `SenderId`, `message_inbox`.IsRead as `IsRead`, `members`.UserName as `SenderName`, `messages`.Content as `Content`, `messages`.ParentMessageId as `ParentMessage`, `categories`.CategoryName as `CategoryName`, `categories`.CategoryId as `CategoryId`',FALSE);
                         $this->db->from('message_inbox');
                         $this->db->join('messages', 'messages.MessageId = message_inbox.MessageId', 'inner');
                         $this->db->join('members', 'members.MemberId = message_inbox.SenderId', 'inner');
@@ -73,6 +73,28 @@ class Message_model extends CI_Model {
             $query = $this->db->count_all_results();
             return $query;
 
+        }
+
+    public function delete_messages($messageid)
+        {
+
+            $this->db->where('message_inbox.MemberId', $this->session->userdata('memberid'));
+            $this->db->where('message_inbox.MessageId', $messageid);
+            $this->db->delete('message_inbox');
+            return true;
+
+        }
+
+    public function reply_messages($messageid)
+        {   $data = array(
+                            'MemberId' => $this->session->userdata('memberid'),
+                            'Content' => $this->input->post('content'),
+                            'ParentMessageId' => $this->input->post('parentmessage'),
+                            'RecipientId' => $this->input->post('senderid'),
+                            'CategoryId' => $this->input->post('categoryid')
+                            );
+            $this->db->insert('messages', $data);
+            return true;
         }
 
 

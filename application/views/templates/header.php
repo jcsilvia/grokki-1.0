@@ -2,6 +2,7 @@
     <head>
         <title>grokki - <?php echo $title ?></title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <?php if ($title == 'Home') {echo'<meta http-equiv="refresh" content="30" >';} ?>
         <link href="/css/main.css" rel="stylesheet" type="text/css">
         <style>
             a:link {text-decoration:none;color:white;}
