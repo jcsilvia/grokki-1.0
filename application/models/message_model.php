@@ -12,7 +12,7 @@ class Message_model extends CI_Model {
     public function get_messages($messageid, $limit, $start)
         {
 
-            if ($messageid == 0)
+            if ($messageid == 0)// get all messages in inbox
 
                 {
 
@@ -30,11 +30,11 @@ class Message_model extends CI_Model {
                         return $query->result_array();
 
                 }
-            else
+            else    //get the message record for the id passed
 
                 {
 
-                        $this->db->select('`message_inbox`.MemberId as `MemberId`, `message_inbox`.MessageId as `MessageId`, `message_inbox`.CreatedDate as `CreatedDate`, date_format(`message_inbox`.CreatedDate, "%b-%d-%Y") as `DateFormatted`, `message_inbox`.SenderId as `SenderId`, `message_inbox`.IsRead as `IsRead`, `members`.UserName as `SenderName`, `messages`.Content as `Content`, `messages`.ParentMessageId as `ParentMessage`, `categories`.CategoryName as `CategoryName`, `categories`.CategoryId as `CategoryId`',FALSE);
+                        $this->db->select('`message_inbox`.MemberId as `MemberId`, `message_inbox`.MessageId as `MessageId`, `message_inbox`.CreatedDate as `CreatedDate`, date_format(`message_inbox`.CreatedDate, "%b-%d-%Y") as `DateFormatted`, `message_inbox`.SenderId as `SenderId`, `message_inbox`.IsRead as `IsRead`, `members`.UserName as `SenderName`, `messages`.Content as `Content`, `messages`.ParentMessageId as `ParentMessage`, `categories`.CategoryName as `CategoryName`, `categories`.CategoryId as `CategoryId`, `members`.IsBusiness as `IsBusiness`',FALSE);
                         $this->db->from('message_inbox');
                         $this->db->join('messages', 'messages.MessageId = message_inbox.MessageId', 'inner');
                         $this->db->join('members', 'members.MemberId = message_inbox.SenderId', 'inner');
@@ -85,7 +85,7 @@ class Message_model extends CI_Model {
 
         }
 
-    public function reply_messages($messageid)
+    public function reply_messages()
         {   $data = array(
                             'MemberId' => $this->session->userdata('memberid'),
                             'Content' => $this->input->post('content'),
@@ -97,5 +97,19 @@ class Message_model extends CI_Model {
             return true;
         }
 
+
+    public function get_business($senderid)
+        {
+
+            $this->db->select('members.BusinessName as `BusinessName`, members.EmailAddress as `Email`, concat(members.FirstName, " ", members.LastName) as `ContactName`, addresses.Address1, addresses.Address2, addresses.City, addresses.State, addresses.Zipcode, addresses.PhoneNumber', FALSE);
+            $this->db->from('members');
+            $this->db->join('addresses', 'addresses.MemberId = members.MemberId', 'inner');
+            $this->db->where('members.MemberId', $senderid);
+            $this->db->where('members.IsBusiness', 1);
+            $this->db->where('addresses.AddressType', 'primary');
+
+            $query = $this->db->get();
+            return $query->row();
+        }
 
 }

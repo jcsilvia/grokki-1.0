@@ -71,7 +71,20 @@ public function logout()
         $this->not_logged_in();
     }
 
+function phone ($str)
+    {
+        $strPhone = preg_replace("[^0-9]",'', $str);
+        if (strlen($strPhone) != 10)
+            return $strPhone;
 
+        $strArea = substr($strPhone, 0, 3);
+        $strPrefix = substr($strPhone, 3, 3);
+        $strNumber = substr($strPhone, 6, 4);
+
+        $strPhone = "(".$strArea.") ".$strPrefix."-".$strNumber;
+
+        return ($strPhone);
+    }
 
 
 public function get_message_details()
@@ -88,6 +101,7 @@ public function get_message_details()
                 $data['username'] = $this->session->userdata('username');
                 $this->load->model('Message_model');
                 $data['messages'] = $this->Message_model->get_messages($messageid, 0, 0);
+
 
                 //check to see if query returned FALSE result
                 if ($data['messages'] == FALSE )
@@ -107,10 +121,26 @@ public function get_message_details()
                             // if message has IsRead state of unread, update it before loading the detail page
                             if ($data['messages']->IsRead == 0) { $this->Message_model->update_message_status($messageid); }
 
-                            $this->load->view('templates/header', $data);
-                            $this->load->view('templates/sub_nav.php', $data);
-                            $this->load->view('message_detail', $data);
-                            $this->load->view('templates/footer');
+                            if ($data['messages']->IsBusiness == 1)
+                                {
+                                    $data['business'] = $this->Message_model->get_business($data['messages']->SenderId);
+
+                                    $phone = $this->phone($data['business']->PhoneNumber);
+                                    $data['phone'] = $phone;
+
+                                    $this->load->view('templates/header', $data);
+                                    $this->load->view('templates/sub_nav.php', $data);
+                                    $this->load->view('biz_message_detail', $data);
+                                    $this->load->view('templates/footer');
+                                }
+                            else
+                                {
+                                    $this->load->view('templates/header', $data);
+                                    $this->load->view('templates/sub_nav.php', $data);
+                                    $this->load->view('message_detail', $data);
+                                    $this->load->view('templates/footer');
+                                }
+
 
 
                     }
@@ -192,7 +222,7 @@ public function reply_message()
                 }
             else
                 {
-                    $this->Message_model->reply_messages($messageid);
+                    $this->Message_model->reply_messages();
                     redirect('home', 'refresh');
                 }
 
@@ -204,5 +234,7 @@ public function reply_message()
         }
 
     }
+
+
 
 }

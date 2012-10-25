@@ -174,7 +174,7 @@ a:active {text-decoration:none;}
 .messages-window {
     left:50px;
     width:710px;
-    min-height: 200px;
+    min-height: 250px;
     padding:5px;
     background-color:#d3d3d3;
     border-style:solid;
