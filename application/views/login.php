@@ -23,12 +23,14 @@
             <?php echo $msg ?>
             </div>
         </p>
+        <div><p>Don't have an account? <a href="/signup/">Create one here.</a></p></div>
     </div>
     <div>
         <p>
             <input class="button_login_form" type="submit" name="submit" value="Sign in" />
         </p>
     </div>
+
 
 </form>
 

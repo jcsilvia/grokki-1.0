@@ -2,17 +2,20 @@
 
 <div class="main-content">
 
-<h1>Reply to Message</h1>
+<h1>Reply to Message</h1><br>
 
-<div class="messages-window">
+    <div style="position: absolute;top:60;left:25;"><p><b>From:</b></p></div><div style="position: absolute;top:60;left:300;"><p><b>Category:</b></b></p></div><div style="position: absolute;top:60;left:655;"><p><b>Received:</b></p></div>
+
+
+    <div class="messages-window">
 
 
 
 
     <div class="message-detail">
-        <div style="text-align:left;">From: <?php  echo $messages->SenderName ?></div>
-        <div style="text-align:center; position:absolute;left:275;top:0;">Category: <?php  echo $messages->CategoryName ?></div>
-        <div style="text-align: right; position:absolute;right:0;top:0;">Date: <?php  echo $messages->DateFormatted ?></div>
+        <div style="text-align:left;"> <?php  echo $messages->SenderName ?></div>
+        <div style="text-align:center; position:absolute;left:275;top:0;"> <?php  echo $messages->CategoryName ?></div>
+        <div style="text-align: right; position:absolute;right:0;top:0;"> <?php  echo $messages->DateFormatted ?></div>
         <div style="text-align: right; position:absolute;top:20;"><a href="javascript:history.back()">Back</a></div>
 
 

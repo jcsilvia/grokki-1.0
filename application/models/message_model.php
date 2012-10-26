@@ -52,7 +52,7 @@ class Message_model extends CI_Model {
                         else
                         {
 
-                            return false;
+                            return FALSE;
                         }
 
                 }
@@ -63,7 +63,7 @@ class Message_model extends CI_Model {
             $this->db->set('IsRead', '1', FALSE);
             $this->db->where('MessageId', $messageid);
             $this->db->update('message_inbox');
-            return true;
+            return TRUE;
         }
 
     public function count_all_messages()
@@ -81,7 +81,7 @@ class Message_model extends CI_Model {
             $this->db->where('message_inbox.MemberId', $this->session->userdata('memberid'));
             $this->db->where('message_inbox.MessageId', $messageid);
             $this->db->delete('message_inbox');
-            return true;
+            return TRUE;
 
         }
 
@@ -94,7 +94,7 @@ class Message_model extends CI_Model {
                             'CategoryId' => $this->input->post('categoryid')
                             );
             $this->db->insert('messages', $data);
-            return true;
+            return TRUE;
         }
 
 
@@ -110,6 +110,51 @@ class Message_model extends CI_Model {
 
             $query = $this->db->get();
             return $query->row();
+        }
+
+    public function create_message()
+        {
+            //convert the given zip to a lat lng
+            $query = $this->db->query("SELECT latitude AS `lat`, longitude AS `lng` FROM zipcodes WHERE zip = '" .$this->input->post('zipcode'). "'");
+
+            if ($query->num_rows() > 0)
+                {
+                    $row = $query->row();
+                    $GeoLat = $row->lat;
+                    $GeoLng = $row->lng;
+
+                    $data = array(
+                        'MemberId' => $this->session->userdata('memberid'),
+                        'Content' => $this->input->post('content'),
+                        'GeoLat' => $GeoLat,
+                        'GeoLng' => $GeoLng,
+                        'CategoryId' => $this->input->post('category')
+                    );
+                    $this->db->insert('messages', $data);
+                    return TRUE;
+                }
+            else
+                {return FALSE;}
+        }
+
+    public function load_business_categories()
+        {   // get the categories from the db
+            $query = $this->db->query('select CategoryId, CategoryName from categories');
+            $result = array();
+            //create the proper array for the view
+            foreach ($query->result() as $row)
+            {
+                $result[$row->CategoryId]= $row->CategoryName;
+            }
+            return $result;
+        }
+
+    public function get_user_zipcode($memberid)
+        {
+
+            $query = $this->db->query("SELECT ZipCode FROM `addresses` WHERE AddressType = 'primary' AND MemberId = " . $memberid);
+            return $query->row();
+
         }
 
 }

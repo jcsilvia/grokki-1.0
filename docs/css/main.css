@@ -21,7 +21,6 @@ html, body {
     position: absolute;
     bottom:0;
     background-color:rgba(0,0,0,0.85);
-    border-radius: 10px 10px 0px 0px; -moz-border-radius: 10px 10px 0px 0px; -webkit-border-radius: 10px 10px 0px 0px;
     margin:0;
 }
 
@@ -74,10 +73,10 @@ p {
     right:0;
 }
 
-a:link {text-decoration:none;}
-a:visited {text-decoration:none;}
+a:link {text-decoration:none;color:white;}
+a:visited {text-decoration:none;color:white;}
 a:hover {text-decoration:none;color:red;}
-a:active {text-decoration:none;}
+a:active {text-decoration:none;color:white;}
 
 
 .copyright {
@@ -124,7 +123,7 @@ a:active {text-decoration:none;}
 
 .login_form{
     left:50px;
-    width:300px;
+    width:400px;
     padding-left:5px;
     padding-right:5px;
     background-color:#d3d3d3;
@@ -154,6 +153,8 @@ a:active {text-decoration:none;}
     width:800px;
     display: block;
     min-width: 800px;
+    position:absolute;
+    top:50;
 }
 
 .form-container {
@@ -190,4 +191,23 @@ a:active {text-decoration:none;}
     border-color:#808080;
     border-width:thin;
     border-bottom-style: solid;
+}
+
+.compose {
+    color:white;
+    font-family:"helvetica",sans-serif;
+    padding-right:10px;
+    padding-top: 10px;
+    font-size:1em;
+    font-weight: bold;
+    position:absolute;
+    top:0;
+    right:100;
+}
+
+.chrome-optimized{
+    color:white;
+    font-family:"helvetica",sans-serif;
+    font-size:0.7em;
+
 }

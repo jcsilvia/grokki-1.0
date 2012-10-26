@@ -11,12 +11,10 @@ class Login_model extends CI_Model
     public function login_user()
         {
 
-            //$this->db->select("`MemberId`, left(`PasswordSalt`, 5) as 'Lsalt', right(`PasswordSalt`, 5) as 'Rsalt'", FALSE);
-            //$this->db->where('UserName', $this->input->post('username'));
-            //$query = $this->db->get('members');
+            // get the user record
             $user = $this->input->post('username');
             $pass = $this->input->post('password');
-            $query = $this->db->query("SELECT `MemberId`, LEFT(`PasswordSalt`, 5) as `Lsalt`, RIGHT(`PasswordSalt`, 5) as `Rsalt` FROM `members` WHERE `UserName` = '" .$user. "'");
+            $query = $this->db->query("SELECT `MemberId`, LEFT(`PasswordSalt`, 5) as `Lsalt`, RIGHT(`PasswordSalt`, 5) as `Rsalt`, IsBusiness as `IsBusiness`  FROM `members` WHERE `UserName` = '" .$user. "'");
 
             if ($query->num_rows() > 0)
                 {
@@ -35,7 +33,7 @@ class Login_model extends CI_Model
                             $this->session->sess_create();
                             $this->session->set_userdata('memberid', $row->MemberId);
                             $this->session->set_userdata('username', $user);
-
+                            $this->session->set_userdata('is_business', $row->IsBusiness);
                             $this->db->query('UPDATE `members` SET last_login = NOW() WHERE MemberId = ' . $row->MemberId);
 
                             return TRUE;

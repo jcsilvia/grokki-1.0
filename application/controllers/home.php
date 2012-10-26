@@ -236,5 +236,47 @@ public function reply_message()
     }
 
 
+public function create_message()
+    {
+        if($this->session->userdata('memberid'))
+            {
+
+                $this->load->helper(array('form', 'url'));
+                $this->load->library('form_validation');
+                $this->load->model('Message_model');
+
+                $data['title'] = 'Create New Message';
+                $data['username'] = $this->session->userdata('username');
+
+                $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+                $this->form_validation->set_rules('content', 'Content', 'trim|required|xss_clean');
+                $this->form_validation->set_rules('zipcode', 'Zipcode', 'trim|required|min-length[5]|numeric|xss_clean');
+                $this->form_validation->set_rules('category', 'Category', 'trim|required|xss_clean');
+
+
+                if ($this->form_validation->run() === FALSE)
+                {
+                    $data['categories'] = $this->Message_model->load_business_categories();
+                    $data['zipcode'] = $this->Message_model->get_user_zipcode($this->session->userdata('memberid'));
+                    $this->load->view('templates/header', $data);
+                    $this->load->view('templates/sub_nav.php', $data);
+                    $this->load->view('create_message', $data);
+                    $this->load->view('templates/footer');
+                }
+                else
+                {
+                    $this->Message_model->create_message();
+                    redirect('home', 'refresh');
+                }
+
+            }
+        else
+        {
+            //If no session, redirect to login page
+            $this->not_logged_in();
+        }
+
+    }
+
 
 }

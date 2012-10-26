@@ -32,6 +32,9 @@
 <label for="is_business">Check if this is a business account</label>
 <input type="checkbox" name="is_business" value="1" />
 </p>
+<p>
+        Already have an account? <a href="/login/">Sign in here.</a>
+</p>
 </div>
 <div>
 <p>
