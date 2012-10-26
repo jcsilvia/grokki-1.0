@@ -3,6 +3,9 @@
 * Author: J. Silvia
 */
 
+# create the grokki database. Uncomment only if this is a fresh mysql install
+# CREATE DATABASE grokki;
+
 # Primary message repository
 CREATE TABLE grokki.messages (
   `MessageId` bigint(19) NOT NULL AUTO_INCREMENT,
