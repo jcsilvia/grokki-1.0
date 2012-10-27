@@ -200,3 +200,20 @@ ALTER TABLE grokki.messages_queue_1
 	PRIMARY KEY (session_id),
 	KEY `last_activity_idx` (`last_activity`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8;
+
+# table for converting zips to lat/longs
+CREATE TABLE `zipcodes` (
+  `id` mediumint(6) NOT NULL AUTO_INCREMENT,
+  `zip` varchar(5) CHARACTER SET ascii NOT NULL DEFAULT '',
+  `latitude` varchar(11) CHARACTER SET ascii NOT NULL DEFAULT '',
+  `longitude` varchar(11) CHARACTER SET ascii NOT NULL DEFAULT '',
+  `city` varchar(40) CHARACTER SET ascii NOT NULL DEFAULT '',
+  `state` char(2) CHARACTER SET ascii NOT NULL DEFAULT '',
+  `fullstate` varchar(30) CHARACTER SET ascii NOT NULL DEFAULT '',
+  `county` varchar(40) CHARACTER SET ascii NOT NULL DEFAULT '',
+  `zipclass` varchar(20) CHARACTER SET ascii NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`),
+  KEY `zip` (`zip`),
+  KEY `city` (`city`,`state`),
+  KEY `state` (`state`,`city`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
