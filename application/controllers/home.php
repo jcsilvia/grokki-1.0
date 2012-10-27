@@ -266,6 +266,7 @@ public function create_message()
                 else
                 {
                     $this->Message_model->create_message();
+                    $this->Message_model->route_messages();
                     redirect('home', 'refresh');
                 }
 

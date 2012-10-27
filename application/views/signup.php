@@ -15,7 +15,7 @@
 </p>
 <p>
 <label for="password">Password</label>
-<input type="text" name="password" size="15" />
+<input type="password" name="password" size="15" />
 <?php echo form_error('password'); ?>
 </p>
 <p>

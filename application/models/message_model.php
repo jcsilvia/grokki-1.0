@@ -157,4 +157,13 @@ class Message_model extends CI_Model {
 
         }
 
+    public function route_messages()
+    {
+
+        $this->db->query("CALL message_router()");
+        return TRUE;
+
+    }
+
+
 }
