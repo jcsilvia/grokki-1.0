@@ -128,6 +128,7 @@ class Message_model extends CI_Model {
                         'Content' => $this->input->post('content'),
                         'GeoLat' => $GeoLat,
                         'GeoLng' => $GeoLng,
+                        'Zipcode' => $this->input->post('zipcode'),
                         'CategoryId' => $this->input->post('category')
                     );
                     $this->db->insert('messages', $data);

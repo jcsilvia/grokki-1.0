@@ -17,6 +17,7 @@ CREATE TABLE grokki.messages (
   `GeoLng` decimal(10,6) DEFAULT NULL,
   `RecipientId` int(10) DEFAULT NULL,
   `CategoryId` int(10) DEFAULT NULL,
+  `Zipcode` varchar(15) DEFAULT NULL,
   PRIMARY KEY (MessageId)
 ) ENGINE=MYISAM DEFAULT CHARSET=utf8;
 

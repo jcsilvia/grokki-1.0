@@ -3,6 +3,7 @@ CREATE PROCEDURE message_router ()
 BEGIN
 	
 DECLARE var_message_id INT;
+DECLARE var_errmessage_id INT;
 DECLARE var_sender_id INT;
 DECLARE var_zipcode INT;
 DECLARE var_category INT;
@@ -24,9 +25,9 @@ cur_loop:REPEAT
     FETCH cur1 INTO var_message_id, var_sender_id, var_category;
       
     IF NOT no_more_records THEN
-        # get the senders zipcode to compare to businesses in the same zip
-        SELECT a.zipcode INTO var_zipcode FROM addresses a 
-          WHERE a.AddressType = 'Primary' AND a.MemberId = var_sender_id;
+        # get the message zipcode to compare to businesses in the same zip
+        SELECT m.zipcode INTO var_zipcode FROM messages m 
+           WHERE m.MessageId = var_message_id;
         # do a check to see if there are any matches before we process the message
         
         SET var_count = 0;
@@ -59,9 +60,15 @@ cur_loop:REPEAT
           INSERT INTO messages(MemberId, Content, RecipientId, CategoryId)
           VALUES(1, 'There were no businesses of that type in your geographic area in our system. Please choose another category or zipcode.', var_sender_id, var_category);
           
+          SET var_errmessage_id = LAST_INSERT_ID();
+          
+          INSERT INTO message_inbox(MessageId, MemberId, SenderId)
+          VALUES(var_errmessage_id,var_sender_id, 1);
+          
           UPDATE messages_queue_1
            SET MessageProcessed=1
-           WHERE MessageId = var_message_id;   
+           WHERE MessageId = var_message_id
+            OR MessageId = var_errmessage_id;   
         
         END IF;
          
