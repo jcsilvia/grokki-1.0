@@ -16,7 +16,16 @@
             <div style="text-align: right; position:absolute;right:0;top:0;"> <?php  echo $messages->DateFormatted ?></div>
             <div style="text-align: right; position:absolute;top:20;"><a href="javascript:history.back()">Back</a></div>
             <div style="text-align: center; position:absolute;right:0;top:20;"><a href="/home/delete_message/<?php echo $messages->MessageId ?>">Delete</a></div>
-            <div style="text-align: left; position: absolute;left:275;top:20;"><a href="/home/reply_message/<?php echo $messages->MessageId ?>">Reply</a></div>
+            <div style="text-align: left; position: absolute;left:275;top:20;">
+                <?php
+                    if ($messages->SenderId <> 1)
+                    {
+                        echo'<a href="/home/reply_message/';
+                        echo $messages->MessageId;
+                        echo'">Reply</a>';
+                    }
+                ?>
+            </div>
             <div style="text-align: left; position: absolute; left:0;top: 40;">Message: <?php  echo $messages->Content ?></div>
 
 

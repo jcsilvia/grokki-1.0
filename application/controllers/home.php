@@ -124,7 +124,7 @@ public function get_message_details()
                             if ($data['messages']->IsBusiness == 1)
                                 {
                                     $data['business'] = $this->Message_model->get_business($data['messages']->SenderId);
-
+                                    //format the phone number before we send it to the view
                                     $phone = $this->phone($data['business']->PhoneNumber);
                                     $data['phone'] = $phone;
 
