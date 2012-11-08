@@ -5,7 +5,7 @@
 
 # create the grokki database. Uncomment only if this is a fresh mysql install
 # CREATE DATABASE grokki;
-
+USE grokki;
 # Primary message repository
 CREATE TABLE grokki.messages (
   `MessageId` bigint(19) NOT NULL AUTO_INCREMENT,
@@ -245,7 +245,7 @@ CREATE TABLE `grokki`.`business_search` (
 ALTER TABLE `grokki`.`business_search`
   ADD INDEX category_idx (CategoryId);
 
-CREATE FULLTEXT INDEX fulltxt_business_idx ON business_search (BusinessName, Sic4CodeDescription);
+CREATE FULLTEXT INDEX fulltxt_business_idx ON grokki.business_search (BusinessName, Sic4CodeDescription);
 
 #table for performing full text search on member businesses
 CREATE TABLE `grokki`.`tags` (
@@ -255,4 +255,4 @@ CREATE TABLE `grokki`.`tags` (
   PRIMARY KEY (MemberId)
 ) ENGINE = MyISAM DEFAULT CHARSET=utf8;
 
-CREATE FULLTEXT INDEX fulltxt_tag_idx ON tags (BusinessName, Tags);
+CREATE FULLTEXT INDEX fulltxt_tag_idx ON grokki.tags (BusinessName, Tags);

@@ -1,3 +1,4 @@
+USE grokki;
 DROP PROCEDURE message_router;
 CREATE PROCEDURE message_router ()
 BEGIN

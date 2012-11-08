@@ -8,7 +8,10 @@ Grokki App Schema setup
 5. Run load_categories.sql
 6. Run zipcodes1.sql
 7. Run zipcodes2.sql
+8. Run seed_data.sql
+9. Run business_search2012.sql
 
 Notes:
 
 *message_trigger and message_router sql will error on first statement if the objects don't exist. This is expected. Continue with config.
+*business_search2012 is a large seed data file and may need to be run via command line: myslq < business_search2012.sql
