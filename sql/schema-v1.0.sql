@@ -202,8 +202,9 @@ ALTER TABLE grokki.messages_queue_1
 	KEY `last_activity_idx` (`last_activity`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8;
 
+
 # table for converting zips to lat/longs
-CREATE TABLE `zipcodes` (
+CREATE TABLE `grokki`.`zipcodes` (
   `id` mediumint(6) NOT NULL AUTO_INCREMENT,
   `zip` varchar(5) CHARACTER SET ascii NOT NULL DEFAULT '',
   `latitude` varchar(11) CHARACTER SET ascii NOT NULL DEFAULT '',
@@ -218,3 +219,40 @@ CREATE TABLE `zipcodes` (
   KEY `city` (`city`,`state`),
   KEY `state` (`state`,`city`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+#table for performing full text search on non-member businesses
+CREATE TABLE `grokki`.`business_search` (
+  `SourceId` bigint(10) NOT NULL AUTO_INCREMENT,
+  `CategoryId` int(9) DEFAULT NULL,
+  `BusinessName` varchar(50) DEFAULT NULL,
+  `Address` varchar(255) DEFAULT NULL,
+  `City` varchar(50) DEFAULT NULL,
+  `State` varchar(20) DEFAULT NULL,
+  `Zipcode` varchar(20) DEFAULT NULL,
+  `County` varchar(255) DEFAULT NULL,
+  `WebAddress` varchar(50) DEFAULT NULL,
+  `PhoneNumber` varchar(20) DEFAULT NULL,
+  `ContactName` varchar(100) DEFAULT NULL,
+  `Title` varchar(50) DEFAULT NULL,
+  `MajorCategory` varchar(255) DEFAULT NULL,
+  `Sic2CodeDescription` varchar(255) DEFAULT NULL,
+  `Sic4Code` varchar(20) DEFAULT NULL,
+  `Sic4CodeDescription` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`SourceId`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+ALTER TABLE `grokki`.`business_search`
+  ADD INDEX category_idx (CategoryId);
+
+CREATE FULLTEXT INDEX fulltxt_business_idx ON business_search (BusinessName, Sic4CodeDescription);
+
+#table for performing full text search on member businesses
+CREATE TABLE `grokki`.`tags` (
+   MemberId BIGINT(11),
+   BusinessName VARCHAR(50),
+   Tags VARCHAR(255),
+  PRIMARY KEY (MemberId)
+) ENGINE = MyISAM DEFAULT CHARSET=utf8;
+
+CREATE FULLTEXT INDEX fulltxt_tag_idx ON tags (BusinessName, Tags);
