@@ -140,7 +140,7 @@ class Message_model extends CI_Model {
 
     public function load_business_categories()
         {   // get the categories from the db
-            $query = $this->db->query('select CategoryId, CategoryName from categories');
+            $query = $this->db->query('select CategoryId, CategoryName from categories order by CategoryName asc');
             $result = array();
             //create the proper array for the view
             foreach ($query->result() as $row)
@@ -157,6 +157,23 @@ class Message_model extends CI_Model {
             return $query->row();
 
         }
+
+    public function get_user_city($memberid)
+    {
+
+        $query = $this->db->query("SELECT city FROM zipcodes where zip = (SELECT Zipcode FROM `addresses` WHERE AddressType = 'primary' AND MemberId = " . $memberid .")");
+        return $query->row();
+
+    }
+
+    public function get_user_state($memberid)
+    {
+
+        $query = $this->db->query("SELECT state FROM zipcodes where zip = (SELECT Zipcode FROM `addresses` WHERE AddressType = 'primary' AND MemberId = " . $memberid .")");
+        return $query->row();
+
+    }
+
 
     public function route_messages()
     {

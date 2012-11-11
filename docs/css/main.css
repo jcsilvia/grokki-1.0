@@ -209,5 +209,22 @@ a:active {text-decoration:none;color:white;}
     color:white;
     font-family:"helvetica",sans-serif;
     font-size:0.7em;
-
 }
+
+.search-detail {
+    position:relative;
+    border-color:#808080;
+    border-width:thin;
+    border-bottom-style: solid;
+    font-family:"helvetica",sans-serif;
+    font-size:.8em;
+    padding-bottom: 5;
+    padding-top: 5;
+    padding-left: 10;
+}
+
+.text {
+    font-family:"helvetica",sans-serif;
+    font-size:.9em;
+}
+

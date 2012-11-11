@@ -18,14 +18,14 @@
 
         <div style="position:absolute; top:0;left:50;">
             <p>
-            <label for="category">Category:</label>
+            <label for="category">Message Category:</label>
             <?php echo form_dropdown('category', $categories, set_value('category'), 'id="category"') ?>
             <?php echo form_error('category'); ?>
             </p>
         </div>
         <div style="position:absolute; top:50;left:50;">
         <p>
-            <label for="zipcode">Zipcode</label>
+            <label for="zipcode">Near Zipcode</label>
             <input type="text" name="zipcode" size="6" value="<?php echo $zipcode->ZipCode; ?>" />
             <?php echo form_error('zipcode'); ?>
         </p>
