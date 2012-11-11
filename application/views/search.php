@@ -101,7 +101,7 @@
         </div>
         <div class="message_form" style="position:absolute; top:100; left:50; ">
             <p>
-                <input type="text" name="content" value="" style="width:400px;height:25px;border:1px solid;border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;" onfocus="this.value=''; setbg('#e5fff3');" onblur="setbg('white')">
+                <input type="text" name="content" value=" Enter search terms here..." style="width:400px;height:25px;border:1px solid;border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;" onfocus="this.value=''; setbg('#e5fff3');" onblur="setbg('white')">
                 <?php echo form_error('content'); ?>
             </p>
         </div>

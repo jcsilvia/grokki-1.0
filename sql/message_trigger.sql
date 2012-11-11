@@ -29,7 +29,8 @@ BEGIN
     INSERT INTO grokki.message_sent(MessageId, MemberId)
      VALUES(new.MessageId, new.MemberId);
     
-    
+    # Dont bother to aggregate message counts for admin user
+    IF new.MemberId != 1 THEN
     # Check to see if there is a record in message_aggregates
     # If present, update, else insert
     SET @message_agg = 0;
@@ -49,5 +50,5 @@ BEGIN
            VALUES (new.MemberId, 1);
      
      END IF;
-        
+     END IF;   
 END;

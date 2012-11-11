@@ -42,4 +42,6 @@ Insert into categories(CategoryId,CategoryName)
 values(17,'Museums and Art Galleries');
 Insert into categories(CategoryId,CategoryName)
 values(4,'Movies and Theaters');
+Insert into categories(CategoryId,CategoryName)
+values(22,'Grokki Admin');
 commit;

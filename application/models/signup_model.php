@@ -51,6 +51,16 @@ class Signup_model extends CI_Model {
         $this->session->set_userdata('username', $username);
 
 
+        //send an initial message to the new user
+        $messagedata = array('MemberId' => 1,
+            'RecipientId' => $memberid,
+            'Content' => 'Welcome to Grokki. To start connecting with local businesses and finding what you need, either click on  <a href="/home/create_message">New Message</a> or <a href="/search">Search</a> now.',
+            'CategoryId' => '22'
+        );
+        $this->db->insert('messages', $messagedata);
+
+
+
             return true;
     }
 

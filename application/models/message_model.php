@@ -140,7 +140,7 @@ class Message_model extends CI_Model {
 
     public function load_business_categories()
         {   // get the categories from the db
-            $query = $this->db->query('select CategoryId, CategoryName from categories order by CategoryName asc');
+            $query = $this->db->query("SELECT CategoryId, CategoryName FROM categories WHERE CategoryName != 'Grokki Admin' ORDER BY CategoryName ASC");
             $result = array();
             //create the proper array for the view
             foreach ($query->result() as $row)
