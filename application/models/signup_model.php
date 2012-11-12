@@ -50,15 +50,26 @@ class Signup_model extends CI_Model {
         $this->session->set_userdata('memberid', $memberid); //set the session userdata to the memberid for future lookups
         $this->session->set_userdata('username', $username);
 
-
-        //send an initial message to the new user
-        $messagedata = array('MemberId' => 1,
-            'RecipientId' => $memberid,
-            'Content' => 'Welcome to Grokki. To start connecting with local businesses and finding what you need, either click on  <a href="/home/create_message">New Message</a> or <a href="/search">Search</a> now.',
-            'CategoryId' => '22'
-        );
-        $this->db->insert('messages', $messagedata);
-
+        if ($this->input->post('is_business') == 0)
+        {
+            //send an initial message to the new user
+            $messagedata = array('MemberId' => 1,
+                'RecipientId' => $memberid,
+                'Content' => 'Welcome to Grokki. To start connecting with local businesses and finding what you need, either click on  <a href="/home/create_message">New Message</a> or <a href="/search">Search</a> now.',
+                'CategoryId' => '22'
+            );
+            $this->db->insert('messages', $messagedata);
+        }
+        else
+        {
+            //send an initial message to the new business
+            $messagedata = array('MemberId' => 1,
+                'RecipientId' => $memberid,
+                'Content' => 'Welcome to Grokki. To start connecting with consumers, ensure your business profile is complete and accurate. To do this click on  <a href="/settings">Settings</a> now. Especially important is the Address, Business Category and Tags, as these help us connect you to local consumers.',
+                'CategoryId' => '22'
+            );
+            $this->db->insert('messages', $messagedata);
+        }
 
 
             return true;
@@ -91,7 +102,7 @@ class Signup_model extends CI_Model {
         $this->db->where('MemberId', $memberid);
         $this->db->update('members', $mdata);
 
-        //create the addresses table update
+        //create the addresses table insert
         $adata = array(
             'Address1' => $this->input->post('address1'),
             'Address2' => $this->input->post('address2'),
@@ -103,12 +114,22 @@ class Signup_model extends CI_Model {
         $this->db->where('MemberId', $memberid);
         $this->db->update('addresses', $adata);
 
+        //create the business_category insert
         $cdata = array(
             'CategoryId' => $this->input->post('business_category'),
             'MemberId' => $memberid
         );
 
          $this->db->insert('business_categories', $cdata);
+
+        //create the tags insert
+        $tdata = array(
+            'Tags' => $this->input->post('tags'),
+            'MemberId' => $memberid,
+            'BusinessName' => $this->input->post('businessname')
+        );
+
+        $this->db->insert('tags', $tdata);
 
         $this->session->set_userdata('businessname', $this->input->post('businessname'));
 

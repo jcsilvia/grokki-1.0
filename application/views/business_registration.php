@@ -117,13 +117,18 @@
         </p>
         <p>
             <label for="fname">Primary Contact First Name</label>
-            <input type="text" name="fname" size="50" value="<?php echo set_value('fname'); ?>" />
+            <input type="text" name="fname" size="25" value="<?php echo set_value('fname'); ?>" />
             <?php echo form_error('fname'); ?>
         </p>
         <p>
             <label for="lname">Primary Contact Last Name</label>
-            <input type="text" name="lname" size="50" value="<?php echo set_value('lname'); ?>" />
+            <input type="text" name="lname" size="25" value="<?php echo set_value('lname'); ?>" />
             <?php echo form_error('lname'); ?>
+        </p>
+        <p>
+            <label for="tags">Tag your business</label>
+            <input type="text" name="tags" size="75" value="<?php echo set_value('tags'); ?>" />
+            <?php echo form_error('tags'); ?>
         </p>
     </div>
 
