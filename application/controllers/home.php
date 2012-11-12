@@ -21,28 +21,31 @@ function index()
            {
             // get the inbox for the member
 
-             $this->load->library('pagination');
-             $this->load->model('Message_model');
-            //config for pagination class
-             $config['base_url'] = base_url() . "home/index";
-             $config['total_rows'] = $this->Message_model->count_all_messages();
-             $config['per_page'] = 10;
-             $config['uri_segment'] = 3;
-            //implement pagination and pass the correct parameters to the model
-             $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-             $data['messages'] = $this->Message_model->get_messages(0, $config["per_page"], $page);
-             $this->pagination->initialize($config);
-            //pass pagination, data and parameters to the view
-             $data["links"] = $this->pagination->create_links();
-             $data['title'] = 'Home';
-             $data['username'] = $this->session->userdata('username');
-             $data['total'] = $config['total_rows'];
-             $data['per_page'] = $config['per_page'];
+                 $this->load->library('pagination');
+                 $this->load->model('Message_model');
 
-             $this->load->view('templates/header', $data);
-             $this->load->view('templates/sub_nav.php', $data);
-             $this->load->view('home', $data);
-             $this->load->view('templates/footer');
+                //config for pagination class
+                 $config['base_url'] = base_url() . "home/index";
+                 $config['total_rows'] = $this->Message_model->count_all_messages();
+                 $config['per_page'] = 10;
+                 $config['uri_segment'] = 3;
+
+                //implement pagination and pass the correct parameters to the model
+                 $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+                 $data['messages'] = $this->Message_model->get_messages(0, $config["per_page"], $page);
+                 $this->pagination->initialize($config);
+
+                //pass pagination, data and parameters to the view
+                 $data["links"] = $this->pagination->create_links();
+                 $data['title'] = 'Home';
+                 $data['username'] = $this->session->userdata('username');
+                 $data['total'] = $config['total_rows'];
+                 $data['per_page'] = $config['per_page'];
+
+                 $this->load->view('templates/header', $data);
+                 $this->load->view('templates/sub_nav.php', $data);
+                 $this->load->view('home', $data);
+                 $this->load->view('templates/footer');
 
            }
 
@@ -53,6 +56,7 @@ function index()
              //If no session, redirect to home_not_logged_in page
 
                $data['title'] = 'Welcome';
+
                $this->load->view('templates/homepage_header', $data);
                $this->load->view('home_not_logged_in');
                $this->load->view('templates/footer');
