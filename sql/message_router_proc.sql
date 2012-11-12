@@ -59,17 +59,11 @@ cur_loop:REPEAT
         ELSE
           # send an error message saying there were no matches
           INSERT INTO messages(MemberId, Content, RecipientId, CategoryId)
-          VALUES(1, 'There were no businesses of that type in your geographic area in our system. Please choose another location or try our <a href="/search">Search</a>.', var_sender_id, var_category);
-          
-          SET var_errmessage_id = LAST_INSERT_ID();
-          
-          INSERT INTO message_inbox(MessageId, MemberId, SenderId)
-          VALUES(var_errmessage_id,var_sender_id, 1);
-          
+          VALUES(1, 'There were no businesses of that type in your geographic area in our system. Please choose another location or try our <a href="/search">Search</a>.', var_sender_id, var_category); 
+        
           UPDATE messages_queue_1
-           SET MessageProcessed=1
-           WHERE MessageId = var_message_id
-            OR MessageId = var_errmessage_id;   
+          SET MessageProcessed=1
+          WHERE MessageId = var_message_id;
         
         END IF;
          
