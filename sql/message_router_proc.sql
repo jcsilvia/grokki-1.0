@@ -7,6 +7,8 @@ DECLARE var_message_id INT;
 DECLARE var_errmessage_id INT;
 DECLARE var_sender_id INT;
 DECLARE var_zipcode INT;
+DECLARE var_city VARCHAR(50);
+DECLARE var_state VARCHAR(4);
 DECLARE var_category INT;
 DECLARE var_count INT;
 DECLARE no_more_records INT;
@@ -26,10 +28,13 @@ cur_loop:REPEAT
     FETCH cur1 INTO var_message_id, var_sender_id, var_category;
       
     IF NOT no_more_records THEN
-        # get the message zipcode to compare to businesses in the same zip
+        # get the message zipcode to lookup the city and state to compare to businesses
         SELECT m.zipcode INTO var_zipcode FROM messages m 
            WHERE m.MessageId = var_message_id;
         # do a check to see if there are any matches before we process the message
+        
+        SELECT city, state INTO var_city, var_state FROM zipcodes z
+          WHERE z.zip = var_zipcode;
         
         SET var_count = 0;
         
@@ -39,7 +44,8 @@ cur_loop:REPEAT
               AND m.MemberId = bc.MemberId
               AND m.IsBusiness=1
               AND bc.CategoryId = var_category
-              AND a.Zipcode = var_zipcode;
+              AND a.City = var_city
+              AND a.State = var_state;
               
         IF var_count > 0 THEN
         # route the message to the proper inbox
@@ -58,8 +64,8 @@ cur_loop:REPEAT
            
         ELSE
           # send an error message saying there were no matches
-          INSERT INTO messages(MemberId, Content, RecipientId, CategoryId)
-          VALUES(1, 'There were no businesses of that type in your geographic area in our system. Please choose another location or try our <a href="/search">Search</a>.', var_sender_id, var_category); 
+          INSERT INTO messages(MemberId, Content, RecipientId, CategoryId, ParentMessageId)
+          VALUES(1, 'There were no businesses of that type in your geographic area in our system. Please choose another location or try our <a href="/search">Search</a>.', var_sender_id, var_category, var_message_id); 
         
           UPDATE messages_queue_1
           SET MessageProcessed=1

@@ -115,20 +115,22 @@ class Message_model extends CI_Model {
     public function create_message()
         {
             //convert the given zip to a lat lng
-            $query = $this->db->query("SELECT latitude AS `lat`, longitude AS `lng` FROM zipcodes WHERE zip = '" .$this->input->post('zipcode'). "'");
+            //$query = $this->db->query("SELECT latitude AS `lat`, longitude AS `lng` FROM zipcodes WHERE zip = '" .$this->input->post('zipcode'). "'");
+            $query = $this->db->query("SELECT zip FROM zipcodes WHERE city = '" .$this->input->post('city'). "' AND state = '" .$this->input->post('state'). "' LIMIT 1");
 
             if ($query->num_rows() > 0)
                 {
                     $row = $query->row();
-                    $GeoLat = $row->lat;
-                    $GeoLng = $row->lng;
+                    $zip = $row->zip;
+                    //$GeoLat = $row->lat;
+                    //$GeoLng = $row->lng;
 
                     $data = array(
                         'MemberId' => $this->session->userdata('memberid'),
                         'Content' => $this->input->post('content'),
-                        'GeoLat' => $GeoLat,
-                        'GeoLng' => $GeoLng,
-                        'Zipcode' => $this->input->post('zipcode'),
+                        //'GeoLat' => $GeoLat,
+                        //'GeoLng' => $GeoLng,
+                        'Zipcode' => $zip,
                         'CategoryId' => $this->input->post('category')
                     );
                     $this->db->insert('messages', $data);

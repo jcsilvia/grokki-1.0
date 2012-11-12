@@ -23,13 +23,84 @@
             <?php echo form_error('category'); ?>
             </p>
         </div>
+
         <div style="position:absolute; top:50;left:50;">
-        <p>
-            <label for="zipcode">Near Zipcode</label>
-            <input type="text" name="zipcode" size="6" value="<?php echo $zipcode->ZipCode; ?>" />
-            <?php echo form_error('zipcode'); ?>
-        </p>
+            <p>
+                <label for="city">Near City:</label>
+                <input type="text" name="city" size="25" value="<?php echo $city->city; ?>" />
+                <?php echo form_error('city'); ?>
+            </p>
         </div>
+        <div style="position:absolute; top:50;left:325;">
+            <p><label for="state">State:</label>
+
+
+                <?php
+
+
+                $options = array(
+                    'AK' => 'Alaska',
+                    'AL' => 'Alabama',
+                    'AR' => 'Arkansas',
+                    'AZ' => 'Arizona',
+                    'CA' => 'California',
+                    'CO' => 'Colorado',
+                    'CT' => 'Connecticut',
+                    'DC' => 'District of Columbia',
+                    'DE' => 'Delaware',
+                    'FL' => 'Florida',
+                    'GA' => 'Georgia',
+                    'HI' => 'Hawaii',
+                    'IA' => 'Iowa',
+                    'ID' => 'Idaho',
+                    'IL' => 'Illinois',
+                    'IN' => 'Indiana',
+                    'KS' => 'Kansas',
+                    'KY' => 'Kentucky',
+                    'LA' => 'Louisiana',
+                    'MA' => 'Massachusetts',
+                    'MD' => 'Maryland',
+                    'ME' => 'Maine',
+                    'MI' => 'Michigan',
+                    'MN' => 'Minnesota',
+                    'MO' => 'Missouri',
+                    'MS' => 'Mississippi',
+                    'MT' => 'Montana',
+                    'NC' => 'North Carolina',
+                    'ND' => 'North Dakota',
+                    'NE' => 'Nebraska',
+                    'NH' => 'New Hampshire',
+                    'NJ' => 'New Jersey',
+                    'NM' => 'New Mexico',
+                    'NV' => 'Nevada',
+                    'NY' => 'New York',
+                    'OH' => 'Ohio',
+                    'OK' => 'Oklahoma',
+                    'OR' => 'Oregon',
+                    'PA' => 'Pennsylvania',
+                    'RI' => 'Rhode Island',
+                    'SC' => 'South Carolina',
+                    'SD' => 'South Dakota',
+                    'TN' => 'Tennessee',
+                    'TX' => 'Texas',
+                    'UT' => 'Utah',
+                    'VA' => 'Virginia',
+                    'VT' => 'Vermont',
+                    'WA' => 'Washington',
+                    'WI' => 'Wisconsin',
+                    'WV' => 'West Virginia',
+                    'WY' => 'Wyoming'
+                );
+
+                echo form_dropdown('state', $options, $state->state);
+
+                ?>
+
+
+                <?php echo form_error('state'); ?>
+            </p>
+        </div>
+
         <div class="message_form" style="position:absolute; top:100; left:50; ">
             <p>
                 <textarea name="content" style="width:500px;height:70px;border:1px solid;border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;" onfocus="this.value=''; setbg('#e5fff3');" onblur="setbg('white')">Enter your message here...

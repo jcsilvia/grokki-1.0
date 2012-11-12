@@ -250,14 +250,17 @@ public function create_message()
 
                 $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
                 $this->form_validation->set_rules('content', 'Content', 'trim|required|xss_clean');
-                $this->form_validation->set_rules('zipcode', 'Zipcode', 'trim|required|min-length[5]|numeric|xss_clean');
+                $this->form_validation->set_rules('city', 'City', 'trim|required|xss_clean');
+                $this->form_validation->set_rules('state', 'State', 'trim|required|xss_clean');
                 $this->form_validation->set_rules('category', 'Category', 'trim|required|xss_clean');
 
 
                 if ($this->form_validation->run() === FALSE)
                 {
                     $data['categories'] = $this->Message_model->load_business_categories();
-                    $data['zipcode'] = $this->Message_model->get_user_zipcode($this->session->userdata('memberid'));
+                    $data['city'] = $this->Message_model->get_user_city($this->session->userdata('memberid'));
+                    $data['state'] = $this->Message_model->get_user_state($this->session->userdata('memberid'));
+
                     $this->load->view('templates/header', $data);
                     $this->load->view('templates/sub_nav.php', $data);
                     $this->load->view('create_message', $data);
