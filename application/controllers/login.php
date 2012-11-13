@@ -5,6 +5,11 @@ class Login extends CI_Controller {
 function __construct()
     {
         parent::__construct();
+        $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
+        $this->load->database();
+        $this->load->model('Login_model');
+
     }
 
 public function index($msg = NULL)
@@ -13,17 +18,10 @@ public function index($msg = NULL)
         if ($this->session->userdata('memberid') == false)
             {
 
-                $this->load->helper(array('form', 'url'));
-                $this->load->library('form_validation');
-                $this->load->model('Login_model');
-                $this->load->database();
-
                 $data['title'] = 'Login';
                 $data['msg'] = $msg;
 
-
                 $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
-
                 $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
                 $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
 

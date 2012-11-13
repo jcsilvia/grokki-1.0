@@ -41,6 +41,6 @@
 <input class="button" type="submit" name="submit" value="Create my account" />
 </p>
 </div>
-</form>
+<?php echo form_close() ?>
 
 

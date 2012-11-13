@@ -5,6 +5,10 @@ class Signup extends CI_Controller {
 function __construct()
     {
         parent::__construct();
+        $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
+        $this->load->database();
+        $this->load->model('Signup_model');
     }
 
 
@@ -13,12 +17,6 @@ public function index()
     //test to see if a user is already logged in and reroute to home
     if ($this->session->userdata('memberid') == false)
         {
-
-
-            $this->load->helper(array('form', 'url'));
-            $this->load->library('form_validation');
-            $this->load->model('Signup_model');
-            $this->load->database();
 
             $data['title'] = 'Register';
 
@@ -72,11 +70,6 @@ public function index()
 }
 public function business_reg()
         {
-
-            $this->load->helper(array('form', 'url'));
-            $this->load->library('form_validation');
-            $this->load->model('Signup_model');
-            $this->load->database();
 
             $data['title'] = 'Complete business registration';
 

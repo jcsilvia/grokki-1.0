@@ -5,6 +5,9 @@ class Search extends CI_Controller {
     function __construct()
     {
         parent::__construct();
+        $this->load->library('pagination');
+        $this->load->database();
+        $this->load->model('Search_model');
     }
 
 
@@ -15,12 +18,8 @@ public function index()
         if($this->session->userdata('memberid'))
             {
 
-
                 $this->load->helper(array('form', 'url'));
                 $this->load->library('form_validation');
-                $this->load->library('pagination');
-                $this->load->database();
-                $this->load->model('Search_model');
                 $this->load->model('Message_model');
 
                 //config for pagination class
@@ -39,8 +38,6 @@ public function index()
 
                 $data['title'] = 'Search';
                 $data['username'] = $this->session->userdata('username');
-
-
 
 
                     $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
@@ -109,9 +106,6 @@ public function results()
 
         if($this->session->userdata('memberid'))
         {
-            $this->load->library('pagination');
-            $this->load->database();
-            $this->load->model('Search_model');
 
             //config for pagination class
             $config['base_url'] = base_url() . "search/results";

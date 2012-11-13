@@ -13,7 +13,8 @@ class Settings_model extends CI_Model {
         if ($this->session->userdata('is_business') == 1)
         {
 
-            $this->db->select('MemberId, UserName, FirstName, LastName, EmailAddress, BusinessName, Address1, Address2, City, State, ZipCode, PhoneNumber, CategoryId, Tags',FALSE);
+            $this->db->select('members.MemberId, members.UserName, members.FirstName, members.LastName, members.EmailAddress, members.BusinessName, addresses.Address1,
+                                addresses.Address2, addresses.City, addresses.State, addresses.ZipCode, addresses.PhoneNumber, business_categories.CategoryId, tags.Tags',FALSE);
             $this->db->from('members');
             $this->db->join('addresses', 'members.MemberId = addresses.MemberId', 'inner');
             $this->db->join('business_categories', 'members.MemberId = business_categories.MemberId', 'inner');
@@ -21,19 +22,18 @@ class Settings_model extends CI_Model {
             $this->db->where('members.MemberId', $this->session->userdata('memberid'));
             $query = $this->db->get();
 
-            return $query->result_array();
-
+            return $query->row();
         }
         else
         {
 
-            $this->db->select('MemberId, UserName, FirstName, LastName, EmailAddress, ZipCode',FALSE);
+            $this->db->select('members.MemberId, members.UserName, members.EmailAddress, addresses.ZipCode',FALSE);
             $this->db->from('members');
             $this->db->join('addresses', 'members.MemberId = addresses.MemberId', 'inner');
             $this->db->where('members.MemberId', $this->session->userdata('memberid'));
             $query = $this->db->get();
 
-            return $query->result_array();
+            return $query->row();
         }
     }
 

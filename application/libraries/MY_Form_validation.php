@@ -16,6 +16,22 @@ class MY_Form_validation extends CI_Form_validation{
     }
 
         return FALSE;
-      }
+    }
+
+
+    function update_unique($value, $params)
+    {
+
+        list($table, $field1, $field2, $current_id) = explode(".", $params);
+
+        $this->CI->form_validation->set_message('update_unique', "Sorry, the %s is already being used.");
+
+        $query = $this->CI->db->select()->from($table)->where($field1, $value)->limit(1)->get();
+
+        if ($query->row() && $query->row()->$field2 != $current_id)
+        {
+            return FALSE;
+        }
+    }
 
 }

@@ -119,4 +119,4 @@
         </p>
     </div>
 
-    </form>
+    <?php echo form_close() ?>
