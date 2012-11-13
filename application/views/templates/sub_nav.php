@@ -7,5 +7,11 @@ else {echo '<a href="/home/">Home     </a><a href="/settings/">     Settings    
     ?>
 
 </div>
-
+<div class="flashMsg">
+<?php if($this->session->flashdata('flashSuccess'))
+{
+    echo "<p>"; echo $this->session->flashdata('flashSuccess'); echo "</p>";
+}
+?>
+</div>
 <div class="username"><?php echo $username ?> </div>

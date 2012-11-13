@@ -6,23 +6,21 @@
 
     <?php echo form_open('settings/index') ?>
 
-
+    <div style="text-align: right; position:absolute;top:100;left:475;"><p><a href="javascript:history.back()">Back</a></p></div>
     <div class="form" >
         <p>
-            <label for="username">Username</label>
+            <label for="username">Username:</label>
             <input type="text" name="username" size="20" value="<?php echo set_value('username',$profile->UserName); ?>"/>
             <?php echo form_error('username'); ?>
         </p>
         <p>
-            <a href="/settings/change_password">Change Password</a>
+            Password: **********  <a href="/settings/change_password"> Change Password</a>
         </p>
         <p>
-            <label for="email">Email Address</label>
-            <input type="text" name="email" size="50" value="<?php echo set_value('email',$profile->EmailAddress); ?>" />
-            <?php echo form_error('email'); ?>
+            Email Address: <?php echo $profile->EmailAddress; ?>    <a href="/settings/change_email"> Change Email</a>
         </p>
         <p>
-            <label for="zipcode">Zipcode</label>
+            <label for="zipcode">Zipcode:</label>
             <input type="text" name="zipcode" size="6" value="<?php echo set_value('zipcode',$profile->ZipCode); ?>" />
             <?php echo form_error('zipcode'); ?>
         </p>

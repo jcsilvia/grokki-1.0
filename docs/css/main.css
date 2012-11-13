@@ -228,3 +228,14 @@ a:active {text-decoration:none;color:white;}
     font-size:.9em;
 }
 
+.flashMsg {
+    position:absolute;
+    top:30;
+    right:100;
+    width:200px;
+    text-align: right;
+    color: red;
+    font-family:"helvetica",sans-serif;
+    font-size:.95em;
+
+}

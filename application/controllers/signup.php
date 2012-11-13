@@ -44,6 +44,7 @@ public function index()
 
 
                             $this->Signup_model->register_user();
+                            $this->session->set_flashdata('flashSuccess', 'Registration successful');
                             redirect('home', 'refresh');
                         }
 
@@ -100,7 +101,7 @@ public function business_reg()
 
 
                     $this->Signup_model->register_business();
-
+                    $this->session->set_flashdata('flashSuccess', 'Registration successful');
                     redirect('home', 'refresh');
                 }
         }

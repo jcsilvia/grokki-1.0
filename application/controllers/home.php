@@ -185,6 +185,7 @@ public function delete_message()
                 $data['username'] = $this->session->userdata('username');
                 $this->load->model('Message_model');
                 $this->Message_model->delete_messages($messageid);
+                $this->session->set_flashdata('flashSuccess', 'Message deleted');
                 redirect('home', 'refresh');
 
             }
@@ -227,6 +228,7 @@ public function reply_message()
             else
                 {
                     $this->Message_model->reply_messages();
+                    $this->session->set_flashdata('flashSuccess', 'Reply sent');
                     redirect('home', 'refresh');
                 }
 
@@ -274,6 +276,7 @@ public function create_message()
                 {
                     $this->Message_model->create_message();
                     $this->Message_model->route_messages();
+                    $this->session->set_flashdata('flashSuccess', 'Message sent');
                     redirect('home', 'refresh');
                 }
 

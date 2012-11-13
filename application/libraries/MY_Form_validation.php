@@ -34,4 +34,25 @@ class MY_Form_validation extends CI_Form_validation{
         }
     }
 
+
+    function valid_value($value, $params)
+    {
+
+        list($table, $field) = explode(".", $params);
+
+        $this->CI->form_validation->set_message('valid_value', "Sorry, the %s is not valid.");
+
+        $query = $this->CI->db->select()->from($table)->where($field, $value)->get();
+
+        if ($query->num_rows() > 0)
+        {
+            return TRUE;
+        }
+        else
+        {
+            return FALSE;
+        }
+    }
+
+
 }
