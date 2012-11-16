@@ -35,7 +35,7 @@ public function index()
             //populate validation email parameters
             $email_to = $this->input->post('email');
             $subject = 'Grokki.com Email Confirmation';
-            $message = 'Thanks for signing up for Grokki.com. Click the link below to validate the email used to register. <br><br>' . anchor('/email/confirmation/' . $validation_string, 'Click here to validate email.') . '<br>Regards, <br>The Grokki.com team';
+            $message = 'Thanks for signing up for Grokki.com. Click the link below to validate the email used to register. <br><br>' . anchor('/email/confirmation/' . $validation_string, 'Click here to validate email.') . '<br><br>Regards, <br>The Grokki.com team';
 
             if ($this->form_validation->run() === FALSE)
                 {
