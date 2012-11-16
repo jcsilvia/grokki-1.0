@@ -3,7 +3,9 @@
     <div class="messages-window">
 
 
-       <div class="err_msg" style = "text-align: center;"> <?php echo $err;?><div><a href="javascript:history.back()">Back</a></div></div>
+       <div class="err_msg" style = "text-align: center;"> <p><?php echo $err;?></p>
+
+       </div>
 
 
 

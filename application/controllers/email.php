@@ -12,7 +12,7 @@ class Email extends CI_Controller {
 
 
 
-    function confirmation()
+    public function confirmation()
         {
             $validation_string = $this->uri->segment(3);
 
@@ -47,5 +47,9 @@ class Email extends CI_Controller {
             }
         }
 
+    public function forgot_password()
+        {
+
+        }
 
 }

@@ -9,9 +9,10 @@
     <div class="content_text">
         <h1>Sign in to Grokki</h1>
     </div>
+    <div style="text-align: right; position:absolute;top:120;left:230;"><p><a href="/email/forgot_password">Forgot Password</a></p></div>
     <div class="login_form" >
         <p>
-            <label for="username">Username</label>
+            <label for="username">Username or Email</label>
             <input type="text" name="username" size="20" value="<?php echo set_value('username'); ?>"/>
             <?php echo form_error('username'); ?>
         </p>
@@ -22,8 +23,9 @@
             <div class="error">
             <?php echo $msg ?>
             </div>
+
         </p>
-        <div><p>Don't have an account? <a href="/signup/">Create one here.</a></p></div>
+        <div><p>Don't have an account? <a href="/signup/"> Create one here.</a></p></div>
     </div>
     <div>
         <p>
