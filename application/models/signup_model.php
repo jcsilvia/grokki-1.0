@@ -8,12 +8,15 @@ class Signup_model extends CI_Model {
     }
 
 
-    public function register_user()
+    public function register_user($validation_string = NULL)
     {
         //generate random numbers to use as salt for password hashing
         $random1 = substr(number_format(time() * rand(),0,'',''),0,5);
         $random2 = substr(number_format(time() * rand(),0,'',''),0,5);
         $random = $random1 . $random2;
+
+        //generate random string for email validation
+
 
         $password = sha1($random1 . $this->input->post('password') . $random2);
 
@@ -23,7 +26,8 @@ class Signup_model extends CI_Model {
                 'UserPassword' => $password,
                 'EmailAddress' => $this->input->post('email'),
                 'IsBusiness' => $this->input->post('is_business'),
-                'PasswordSalt' => $random
+                'PasswordSalt' => $random,
+                'ValidationString' => $validation_string
             );
 
         //insert member data
@@ -136,6 +140,7 @@ class Signup_model extends CI_Model {
         return true;
 
     }
+
 
 }
 

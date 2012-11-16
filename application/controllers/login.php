@@ -38,7 +38,9 @@ public function index($msg = NULL)
 
                     if( $this->Login_model->login_user() === TRUE)
                     {
-                        redirect('home', 'refresh');
+
+                            redirect('home', 'refresh');
+
                     }
                     else
                     {

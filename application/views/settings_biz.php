@@ -17,7 +17,7 @@
             Password: **********  <a href="/settings/change_password"> Change Password</a>
         </p>
         <p>
-            Email Address: <?php echo $profile->EmailAddress; ?>    <a href="/settings/change_email"> Change Email</a>
+            Email Address: <?php echo $profile->EmailAddress; ?>    <a href="/settings/change_email"> Change Email</a> <?php if($profile->IsEmailVerified == 0) { echo '| <a href="/settings/validate_email"> Validate Email</a>';} ?>
         </p>
         <p>
             <label for="zipcode">Zipcode:</label>

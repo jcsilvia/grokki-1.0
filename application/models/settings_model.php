@@ -13,7 +13,7 @@ class Settings_model extends CI_Model {
         if ($this->session->userdata('is_business') == 1)
         {
 
-            $this->db->select('members.MemberId, members.UserName, members.FirstName, members.LastName, members.EmailAddress, members.BusinessName, addresses.Address1,
+            $this->db->select('members.MemberId, members.UserName, members.FirstName, members.LastName, members.EmailAddress, members.BusinessName, members.IsEmailVerified, addresses.Address1,
                                 addresses.Address2, addresses.City, addresses.State, addresses.ZipCode, addresses.PhoneNumber, business_categories.CategoryId, tags.Tags',FALSE);
             $this->db->from('members');
             $this->db->join('addresses', 'members.MemberId = addresses.MemberId', 'inner');
@@ -27,7 +27,7 @@ class Settings_model extends CI_Model {
         else
         {
 
-            $this->db->select('members.MemberId, members.UserName, members.EmailAddress, addresses.ZipCode',FALSE);
+            $this->db->select('members.MemberId, members.UserName, members.EmailAddress, members.IsEmailVerified, addresses.ZipCode',FALSE);
             $this->db->from('members');
             $this->db->join('addresses', 'members.MemberId = addresses.MemberId', 'inner');
             $this->db->where('members.MemberId', $this->session->userdata('memberid'));
@@ -152,6 +152,44 @@ class Settings_model extends CI_Model {
 
     public function change_email()
     {
+
+        $edata = array(
+            'EmailAddress' => $this->input->post('email'),
+            'IsEmailVerified' => 0
+        );
+
+        $this->db->where('MemberId', $this->session->userdata('memberid'));
+        $this->db->update('members', $edata);
+
+        return TRUE;
+
+    }
+
+
+    public function get_email()
+    {
+
+        $this->db->select('members.EmailAddress');
+        $this->db->from('members');
+        $this->db->where('MemberId', $this->session->userdata('memberid'));
+        $query = $this->db->get();
+
+        return $query->row();
+
+    }
+
+
+    public function change_validation_string($validation_string = NULL)
+    {
+
+        $vdata = array(
+            'ValidationString' => $validation_string
+        );
+
+        $this->db->where('MemberId', $this->session->userdata('memberid'));
+        $this->db->update('members', $vdata);
+
+        return TRUE;
 
     }
 

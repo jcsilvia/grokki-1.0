@@ -34,7 +34,7 @@ class Login_model extends CI_Model
                             $this->session->set_userdata('memberid', $row->MemberId);
                             $this->session->set_userdata('username', $user);
                             $this->session->set_userdata('is_business', $row->IsBusiness);
-                            $this->db->query('UPDATE `members` SET last_login = NOW() WHERE MemberId = ' . $row->MemberId);
+                            $this->db->query('UPDATE `members` SET LastLogin = NOW() WHERE MemberId = ' . $row->MemberId);
 
                             return TRUE;
                         }

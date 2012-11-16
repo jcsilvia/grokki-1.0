@@ -2,44 +2,50 @@
 
 class Email extends CI_Controller {
 
-function __construct()
-    {
-        parent::__construct();
-
-    }
-
-
-
-function index()
-    {
-        $config = Array(
-            'protocol' => 'smtp',
-            'smtp_host' => 'ssl://smtp.gmail.com',
-            'smtp_port' => 465,
-            'smtp_user' => 'jsilvia@grokki.com', //for testing only, change this to admin@grokki.com for production
-            'smtp_pass' => '*******', //change this for check in and deployment
-            'mailtype'  => 'html',
-            'charset'   => 'iso-8859-1'
-        );
-        $this->load->library('email', $config);
-        $this->email->set_newline("\r\n");
-
-    // Set to, from, message, etc.
-
-        $this->email->from('jsilvia@grokki.com', 'Administrator');
-        $this->email->to('jon.silvia@gmail.com');
-
-        $this->email->subject('Email Test');
-        $this->email->message('Testing the email class.');
-
-        $this->email->send();
-
-        echo 'Email sent';
-
-    }
+    function __construct()
+        {
+            parent::__construct();
+            $this->load->helper(array('form', 'url', 'email'));
+            $this->load->database();
+            $this->load->model('Email_model');
+        }
 
 
 
+    function confirmation()
+        {
+            $validation_string = $this->uri->segment(3);
+
+            if ($validation_string == '')
+            {
+                $data['err'] = 'The email validation string was incorrect';
+                $data['title'] = 'Error';
+                $this->load->view('templates/header');
+                $this->load->view('templates/err_msg.php');
+                $this->load->view('templates/footer');
+
+            }
+
+            $is_validated = $this->Email_model->validate_email($validation_string);
+
+            if($is_validated)
+            {
+                if ($this->session->userdata('memberid'))
+                {
+                    $this->session->set_flashdata('flashSuccess', 'Email validated successfully');
+                }
+                redirect('home', 'refresh');
+            }
+            else
+            {
+                $data['err'] = 'An error occurred while trying to validate your email.';
+                $data['title'] = 'Error';
+                $this->load->view('templates/header', $data);
+                $this->load->view('templates/err_msg.php', $data);
+                $this->load->view('templates/footer');
+
+            }
+        }
 
 
 }

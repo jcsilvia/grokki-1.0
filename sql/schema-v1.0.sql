@@ -69,7 +69,8 @@ CREATE TABLE grokki.members (
   `CreatedDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `IsEmailVerified` smallint(1) DEFAULT '0',
   `IsActiveAccount` smallint(1) NOT NULL DEFAULT '1',
-  `last_login` datetime DEFAULT NULL,
+  `LastLogin` datetime DEFAULT NULL,
+  `ValidationString` VARCHAR(20),
   PRIMARY KEY (MemberId)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8;
 
