@@ -101,7 +101,7 @@ class Message_model extends CI_Model {
     public function get_business($senderid)
         {
 
-            $this->db->select('members.BusinessName as `BusinessName`, members.EmailAddress as `Email`, concat(members.FirstName, " ", members.LastName) as `ContactName`, addresses.Address1, addresses.Address2, addresses.City, addresses.State, addresses.Zipcode, addresses.PhoneNumber', FALSE);
+            $this->db->select('members.MemberId as `SenderId`, members.BusinessName as `BusinessName`, members.EmailAddress as `Email`, concat(members.FirstName, " ", members.LastName) as `ContactName`, addresses.Address1, addresses.Address2, addresses.City, addresses.State, addresses.Zipcode, addresses.PhoneNumber', FALSE);
             $this->db->from('members');
             $this->db->join('addresses', 'addresses.MemberId = members.MemberId', 'inner');
             $this->db->where('members.MemberId', $senderid);
@@ -185,5 +185,28 @@ class Message_model extends CI_Model {
 
     }
 
+    public function add_connection($associateid)
+    {
+        $this->db->from('member_associations');
+        $this->db->where('member_associations.MemberId', $this->session->userdata('memberid'));
+        $this->db->where('member_associations.AssociateId', $associateid);
+        $query = $this->db->count_all_results();
+
+        if ($query == NULL || $query < 1)
+        {
+
+            $data = array(
+                'MemberId' => $this->session->userdata('memberid'),
+                'AssociateId' => $associateid
+            );
+            $this->db->insert('member_associations', $data);
+            return TRUE;
+
+        }
+        else
+        {
+            return FALSE;
+        }
+    }
 
 }
