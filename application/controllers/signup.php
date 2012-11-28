@@ -29,6 +29,10 @@ public function index()
             $this->form_validation->set_rules('zipcode', 'Zipcode', 'trim|required|min-length[5]|numeric|xss_clean');
 
             $isBusiness = $this->input->post('is_business');//check to see if we need to show the extended reg form for businesses
+			//jQuery mobile support.
+			if ($isBusiness == "on") {
+				$isBusiness = 1;
+			}
 
             $validation_string = $this->generateRandomString();//get the email validation string to send
 
@@ -39,9 +43,16 @@ public function index()
 
             if ($this->form_validation->run() === FALSE)
                 {
-                    $this->load->view('templates/header', $data);
-                    $this->load->view('signup');
-                    $this->load->view('templates/footer');
+	
+				   include 'mobile.php';	
+				   if(Mobile::is_mobile()) {
+		               $this->load->view('mobile/m_signup');
+
+					} else {
+                    	$this->load->view('templates/header', $data);
+                    	$this->load->view('signup');
+                    	$this->load->view('templates/footer');
+					}
                 }
             else
                 {
@@ -51,7 +62,7 @@ public function index()
                             $this->Signup_model->register_user($validation_string);
                             $this->send_grok_email($email_to, $subject, $message);
                             $this->session->set_flashdata('flashSuccess', 'Registration successful');
-                            redirect('home', 'refresh');
+                            redirect('home', 'location');
                         }
 
                     else //business registration so continue the registration process
@@ -62,9 +73,15 @@ public function index()
                             $this->send_grok_email($email_to, $subject, $message);
                             $results['categories'] = $this->Signup_model->load_business_categories();
 
-                            $this->load->view('templates/header', $data);
-                            $this->load->view('business_registration', $results);
-                            $this->load->view('templates/footer');
+						   include 'mobile.php';	
+						   if(Mobile::is_mobile()) {
+				               $this->load->view('mobile/m_business_registration', $results);
+
+							} else {
+                            	$this->load->view('templates/header', $data);
+                            	$this->load->view('business_registration', $results);
+                            	$this->load->view('templates/footer');
+							}
                         }
                 }
         }
@@ -72,7 +89,7 @@ public function index()
     else
         {
 
-            redirect('home', 'refresh');
+            redirect('home', 'location');
 
         }
 }
@@ -98,18 +115,22 @@ public function business_reg()
             if ($this->form_validation->run() === FALSE)
                 {
                     $results['categories'] = $this->Signup_model->load_business_categories();
-                    $this->load->view('templates/header', $data);
-                    $this->load->view('business_registration', $results);
-                    $this->load->view('templates/footer');
 
+					include 'mobile.php';	
+					if(Mobile::is_mobile()) {
+			        	$this->load->view('mobile/m_business_registration', $results);
+
+					} else {
+                    	$this->load->view('templates/header', $data);
+                    	$this->load->view('business_registration', $results);
+                    	$this->load->view('templates/footer');
+					}
                 }
             else
                 {
-
-
                     $this->Signup_model->register_business();
                     $this->session->set_flashdata('flashSuccess', 'Registration successful');
-                    redirect('home', 'refresh');
+                    redirect('home', 'location');
                 }
         }
 

@@ -69,7 +69,7 @@ class Settings extends CI_Controller {
             {
                 $this->Settings_model->set_profile();
                 $this->session->set_flashdata('flashSuccess', 'Profile updated successfully');
-                redirect('home', 'refresh');
+                redirect('home', 'location');
             }
 
         }
@@ -79,7 +79,7 @@ class Settings extends CI_Controller {
         else
         {
 
-            redirect('home', 'refresh');
+            redirect('home', 'location');
 
         }
 
@@ -115,7 +115,7 @@ class Settings extends CI_Controller {
                 if( $this->Settings_model->change_password() === TRUE)
                 {
                     $this->session->set_flashdata('flashSuccess', 'Password updated successfully');
-                    redirect('settings', 'refresh');
+                    redirect('settings', 'location');
                 }
                 else
                 {
@@ -131,7 +131,7 @@ class Settings extends CI_Controller {
          }
         else
         {
-            redirect('home', 'refresh');
+            redirect('home', 'location');
         }
     }
 
@@ -161,7 +161,7 @@ class Settings extends CI_Controller {
             {
                     $this->Settings_model->change_email();
                     $this->session->set_flashdata('flashSuccess', 'Email updated successfully');
-                    redirect('settings', 'refresh');
+                    redirect('settings', 'location');
 
             }
 
@@ -170,7 +170,7 @@ class Settings extends CI_Controller {
         else
         {
 
-            redirect('home', 'refresh');
+            redirect('home', 'location');
 
         }
 
@@ -212,7 +212,7 @@ class Settings extends CI_Controller {
 
 
             $this->session->set_flashdata('flashSuccess', 'Validation email sent to ' . $email_to);
-            redirect('settings', 'refresh');
+            redirect('settings', 'location');
 
 
 
@@ -220,7 +220,7 @@ class Settings extends CI_Controller {
         else
         {
 
-            redirect('home', 'refresh');
+            redirect('home', 'location');
 
         }
 

@@ -34,7 +34,7 @@ class Email extends CI_Controller {
                 {
                     $this->session->set_flashdata('flashSuccess', 'Email validated successfully');
                 }
-                redirect('home', 'refresh');
+                redirect('home', 'location');
             }
             else
             {

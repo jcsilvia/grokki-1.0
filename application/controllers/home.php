@@ -42,10 +42,16 @@ function index()
                  $data['total'] = $config['total_rows'];
                  $data['per_page'] = $config['per_page'];
 
-                 $this->load->view('templates/header', $data);
-                 $this->load->view('templates/sub_nav.php', $data);
-                 $this->load->view('home', $data);
-                 $this->load->view('templates/footer');
+			   	include 'mobile.php';	
+			   	if(Mobile::is_mobile()) {
+	               $this->load->view('mobile/m_home', $data);
+
+				} else {
+                 	$this->load->view('templates/header', $data);
+                 	$this->load->view('templates/sub_nav.php', $data);
+                 	$this->load->view('home', $data);
+                 	$this->load->view('templates/footer');
+				}
 
            }
 
@@ -57,15 +63,17 @@ function index()
 
                $data['title'] = 'Welcome';
 
-               $this->load->view('templates/homepage_header', $data);
-               $this->load->view('home_not_logged_in');
-               $this->load->view('templates/footer');
-
+			   include 'mobile.php';	
+			   if(Mobile::is_mobile()) {
+	               $this->load->view('mobile/m_home_not_logged_in');
+				  
+				} else {
+	               $this->load->view('templates/homepage_header', $data);
+	               $this->load->view('home_not_logged_in');
+	               $this->load->view('templates/footer');
+				}	
            }
-
      }
-
-
 
 public function logout()
     {
@@ -139,10 +147,17 @@ public function get_message_details()
                                 }
                             else
                                 {
-                                    $this->load->view('templates/header', $data);
-                                    $this->load->view('templates/sub_nav.php', $data);
-                                    $this->load->view('message_detail', $data);
-                                    $this->load->view('templates/footer');
+								   include 'mobile.php';	
+								   if(Mobile::is_mobile()) {
+						               $this->load->view('mobile/m_message_detail', $data);
+
+									} else {
+	
+                                    	$this->load->view('templates/header', $data);
+                                    	$this->load->view('templates/sub_nav.php', $data);
+                                    	$this->load->view('message_detail', $data);
+                                    	$this->load->view('templates/footer');
+									}
                                 }
 
 
@@ -168,7 +183,7 @@ public function get_message_details()
 public function not_logged_in()
     {
         //in any case the session is not present, call this function to redirect to the login page
-        redirect('login', 'refresh');
+        redirect('login', 'location');
     }
 
 
@@ -186,7 +201,7 @@ public function delete_message()
                 $this->load->model('Message_model');
                 $this->Message_model->delete_messages($messageid);
                 $this->session->set_flashdata('flashSuccess', 'Message deleted');
-                redirect('home', 'refresh');
+                redirect('home', 'location');
 
             }
         else
@@ -229,7 +244,7 @@ public function reply_message()
                 {
                     $this->Message_model->reply_messages();
                     $this->session->set_flashdata('flashSuccess', 'Reply sent');
-                    redirect('home', 'refresh');
+                    redirect('home', 'location');
                 }
 
         }
@@ -267,17 +282,23 @@ public function create_message()
                     $data['city'] = $this->Message_model->get_user_city($this->session->userdata('memberid'));
                     $data['state'] = $this->Message_model->get_user_state($this->session->userdata('memberid'));
 
-                    $this->load->view('templates/header', $data);
-                    $this->load->view('templates/sub_nav.php', $data);
-                    $this->load->view('create_message', $data);
-                    $this->load->view('templates/footer');
+					include 'mobile.php';	
+					if(Mobile::is_mobile()) {
+			        	$this->load->view('mobile/m_create_message', $data);
+
+					} else {
+						$this->load->view('templates/header', $data);
+                    	$this->load->view('templates/sub_nav.php', $data);
+                    	$this->load->view('create_message', $data);
+                    	$this->load->view('templates/footer');
+					}
                 }
                 else
                 {
                     $this->Message_model->create_message();
                     $this->Message_model->route_messages();
                     $this->session->set_flashdata('flashSuccess', 'Message sent');
-                    redirect('home', 'refresh');
+                   	redirect('home', 'location');
                 }
 
             }

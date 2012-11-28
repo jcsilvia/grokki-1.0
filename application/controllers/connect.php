@@ -29,7 +29,7 @@ class Connect extends CI_Controller {
         else
         {
 
-            redirect('home', 'refresh');
+            redirect('home', 'location');
 
         }
 

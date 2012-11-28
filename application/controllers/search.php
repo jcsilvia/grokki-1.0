@@ -95,7 +95,7 @@ public function index()
         else
             {
 
-                redirect('home', 'refresh');
+                redirect('home', 'location');
 
             }
 
@@ -139,7 +139,7 @@ public function results()
         }
         else
         {
-            redirect('home', 'refresh');
+            redirect('home', 'location');
         }
     }
 

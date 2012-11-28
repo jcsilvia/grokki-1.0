@@ -29,9 +29,15 @@ public function index($msg = NULL)
                 if ($this->form_validation->run() === FALSE)
                 {
 
-                    $this->load->view('templates/header', $data);
-                    $this->load->view('login', $data);
-                    $this->load->view('templates/footer');
+				   include 'mobile.php';	
+				   if(Mobile::is_mobile()) {
+		               $this->load->view('mobile/m_login', $data);
+
+					} else {
+                    	$this->load->view('templates/header', $data);
+                    	$this->load->view('login', $data);
+                    	$this->load->view('templates/footer');
+					}
                 }
                 else
                 {
@@ -39,21 +45,28 @@ public function index($msg = NULL)
                     if( $this->Login_model->login_user() === TRUE)
                     {
 
-                            redirect('home', 'refresh');
+                            redirect('home', 'location');
 
                     }
                     else
                     {
                         $data['msg'] = 'Invalid username or password';
-                        $this->load->view('templates/header', $data);
-                        $this->load->view('login', $data);
-                        $this->load->view('templates/footer');
+
+					   	include 'mobile.php';	
+					   	if(Mobile::is_mobile()) {
+			               $this->load->view('mobile/m_login', $data);
+
+						} else {
+                        	$this->load->view('templates/header', $data);
+                        	$this->load->view('login', $data);
+                        	$this->load->view('templates/footer');
+						}
                     }
                 }
             }
         else
             {
-                redirect('home', 'refresh');
+                redirect('home', 'location');
 
             }
     }
