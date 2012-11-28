@@ -261,7 +261,6 @@ public function create_message()
     {
         if($this->session->userdata('memberid'))
             {
-
                 $this->load->helper(array('form', 'url'));
                 $this->load->library('form_validation');
                 $this->load->model('Message_model');
@@ -310,5 +309,37 @@ public function create_message()
 
     }
 
+
+public function add_connection()
+    {
+        // get the member id stripped from the url
+        $associateid = $this->uri->segment(3,0);
+
+        // check for the session
+        if($this->session->userdata('memberid'))
+        {
+
+            $data['title'] = 'Messages';
+            $data['username'] = $this->session->userdata('username');
+
+            $this->load->model('Message_model');
+            $connect_success = $this->Message_model->add_connection($associateid);
+
+            if ($connect_success == TRUE)
+            {
+                $this->session->set_flashdata('flashSuccess', 'Connection added');
+            }
+            else
+                $this->session->set_flashdata('flashSuccess', 'Connection already exists.');
+
+            redirect('home', 'refresh');
+
+        }
+        else
+        {
+            //If no session, redirect to login page
+            $this->not_logged_in();
+        }
+    }
 
 }
