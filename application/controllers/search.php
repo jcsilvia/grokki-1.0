@@ -57,10 +57,16 @@ public function index()
                         $data['city'] = $this->Message_model->get_user_city($this->session->userdata('memberid'));
                         $data['state'] = $this->Message_model->get_user_state($this->session->userdata('memberid'));
 
-                        $this->load->view('templates/header', $data);
-                        $this->load->view('templates/sub_nav.php', $data);
-                        $this->load->view('search', $data);
-                        $this->load->view('templates/footer');
+					   	include 'mobile.php';	
+					   	if(Mobile::is_mobile()) {
+			               $this->load->view('mobile/m_search', $data);
+
+						} else {
+                        	$this->load->view('templates/header', $data);
+                        	$this->load->view('templates/sub_nav.php', $data);
+                        	$this->load->view('search', $data);
+                        	$this->load->view('templates/footer');
+						}
 
                     }
                     else
@@ -83,10 +89,16 @@ public function index()
                         $data['per_page'] = $config['per_page'];
                         $data['searches'] = $this->Search_model->search($config["per_page"], $page);
 
-                        $this->load->view('templates/header', $data);
-                        $this->load->view('templates/sub_nav.php', $data);
-                        $this->load->view('search_results', $data);
-                        $this->load->view('templates/footer');
+					   	include 'mobile.php';	
+					   	if(Mobile::is_mobile()) {
+			               $this->load->view('mobile/m_search_results', $data);
+
+						} else {
+                        	$this->load->view('templates/header', $data);
+                        	$this->load->view('templates/sub_nav.php', $data);
+                        	$this->load->view('search_results', $data);
+                        	$this->load->view('templates/footer');
+						}
 
                     }
 
@@ -132,10 +144,17 @@ public function results()
             $data['per_page'] = $config['per_page'];
             $data['searches'] = $this->Search_model->search($config["per_page"], $page);
 
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/sub_nav.php', $data);
-            $this->load->view('search_results', $data);
-            $this->load->view('templates/footer');
+
+		   	include 'mobile.php';	
+		   	if(Mobile::is_mobile()) {
+               $this->load->view('mobile/m_search_results', $data);
+
+			} else {
+            	$this->load->view('templates/header', $data);
+            	$this->load->view('templates/sub_nav.php', $data);
+            	$this->load->view('search_results', $data);
+            	$this->load->view('templates/footer');
+			}
         }
         else
         {

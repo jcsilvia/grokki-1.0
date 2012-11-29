@@ -36,10 +36,16 @@ class Connect extends CI_Controller {
             $data['per_page'] = $config['per_page'];
 
             //load views
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/sub_nav.php', $data);
-            $this->load->view('connect', $data);
-            $this->load->view('templates/footer');
+		   	include 'mobile.php';	
+		   	if(Mobile::is_mobile()) {
+               $this->load->view('mobile/m_connect', $data);
+
+			} else {
+            	$this->load->view('templates/header', $data);
+            	$this->load->view('templates/sub_nav.php', $data);
+            	$this->load->view('connect', $data);
+            	$this->load->view('templates/footer');
+			}
 
         }
         else
@@ -66,7 +72,8 @@ class Connect extends CI_Controller {
             $this->load->model('Connect_model');
             $this->Connect_model->delete_connection($associateid);
             $this->session->set_flashdata('flashSuccess', 'Connection deleted');
-            redirect('connect', 'refresh');
+
+            redirect('connect', 'location');
 
         }
         else
@@ -109,11 +116,17 @@ class Connect extends CI_Controller {
             $phone = $this->phone($data['profile']->PhoneNumber);
             $data['phone'] = $phone;
 
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/sub_nav.php', $data);
-            $this->load->view('profile', $data);
-            $this->load->view('templates/footer');
 
+		   	include 'mobile.php';	
+		   	if(Mobile::is_mobile()) {
+               $this->load->view('mobile/m_profile', $data);
+
+			} else {
+            	$this->load->view('templates/header', $data);
+            	$this->load->view('templates/sub_nav.php', $data);
+            	$this->load->view('profile', $data);
+            	$this->load->view('templates/footer');
+			}
 
         }
         else
