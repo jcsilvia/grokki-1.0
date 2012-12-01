@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://grokki.com';
+$config['base_url']	= 'http://www.grokki.com';
 
 /*
 |--------------------------------------------------------------------------

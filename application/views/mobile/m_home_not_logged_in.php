@@ -14,7 +14,7 @@
 	
 <div data-role="page">
 
-	<?php include("m_header.php"); ?>
+    <?php $this->load->view('mobile/m_header.php'); ?>
 
 	<div data-role="content">	
 		<div class="ui-grid-a">
@@ -24,8 +24,8 @@
 		<a href="/signup/" data-role="button">Sign up</a>
 		<a href="/login/" data-role="button">Sign in</a>
 	</div><!-- /content -->
-	
-	<?php include("m_footer.php"); ?>
+
+    <?php $this->load->view("mobile/m_footer.php");?>
 
 </div><!-- /page -->
 

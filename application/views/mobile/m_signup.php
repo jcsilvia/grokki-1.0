@@ -14,7 +14,7 @@
 	
 <div data-role="page">
 
-	<?php include("m_header.php"); ?>
+    <?php $this->load->view('mobile/m_header.php'); ?>
 
 	<div data-role="content">	
 		
@@ -58,8 +58,8 @@
 		</div> <!-- end of class form -->
 		
 	</div><!-- /content -->
-	
-	<?php include("m_footer.php"); ?>
+
+    <?php $this->load->view("mobile/m_footer.php");?>
 
 </div><!-- /page -->
 
