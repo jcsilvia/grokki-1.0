@@ -14,7 +14,7 @@
 	
 <div data-role="page">
 
-	<?php include("m_header.php"); ?>
+    <?php $this->load->view('mobile/m_header.php'); ?>
 
 	<div data-role="content">
 		
@@ -112,7 +112,7 @@
 	</div><!-- /content -->
 	
 	<div data-role="footer" data-position="fixed">
-		<?php include("m_sub_nav.php"); ?>
+        <?php $this->load->view("mobile/m_sub_nav.php");?>
 	</div> <!--footer -->	
 
 </div><!-- /page -->
