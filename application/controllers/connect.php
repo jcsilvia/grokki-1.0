@@ -91,6 +91,43 @@ class Connect extends CI_Controller {
 
     public function message()
     {
+        // get the memberid to send a message to stripped from the url
+        $associateid = $this->uri->segment(3,0);
+
+        if($this->session->userdata('memberid'))
+        {
+
+            $this->load->helper(array('form', 'url'));
+            $this->load->library('form_validation');
+
+            $data['title'] = 'Connections';
+            $data['username'] = $this->session->userdata('username');
+            $data['profile'] = $this->Connect_model->get_profile($associateid);
+
+            $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+            $this->form_validation->set_rules('content', 'Content', 'trim|required|xss_clean');
+
+
+            if ($this->form_validation->run() === FALSE)
+            {
+                $this->load->view('templates/header', $data);
+                $this->load->view('templates/sub_nav.php', $data);
+                $this->load->view('connect_message', $data);
+                $this->load->view('templates/footer');
+            }
+            else
+            {
+                $this->Connect_model->send_message();
+                $this->session->set_flashdata('flashSuccess', 'Message sent');
+                redirect('connect', 'location');
+            }
+
+        }
+        else
+        {
+            //If no session, redirect to login page
+            $this->not_logged_in();
+        }
 
     }
 

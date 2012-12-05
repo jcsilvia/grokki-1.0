@@ -48,7 +48,7 @@ class Connect_model extends CI_Model {
     public function get_profile($associateid)
     {
 
-        $this->db->select('members.MemberId as MemberId, members.UserName as UserName, concat(members.FirstName, " ", members.LastName) as ContactName, members.BusinessName as BusinessName, addresses.Address1 as Address1, addresses.City as City, addresses.State as State, addresses.ZipCode as ZipCode, addresses.PhoneNumber as PhoneNumber, date_format(members.CreatedDate, "%b-%d-%Y") as DateFormatted, categories.CategoryName as CategoryName',FALSE);
+        $this->db->select('members.MemberId as MemberId, members.UserName as UserName, concat(members.FirstName, " ", members.LastName) as ContactName, members.BusinessName as BusinessName, addresses.Address1 as Address1, addresses.City as City, addresses.State as State, addresses.ZipCode as ZipCode, addresses.PhoneNumber as PhoneNumber, date_format(members.CreatedDate, "%b-%d-%Y") as DateFormatted, categories.CategoryName as CategoryName, categories.CategoryId as CategoryId',FALSE);
         $this->db->from('members');
         $this->db->join('addresses', 'addresses.MemberId = members.MemberId', 'inner');
         $this->db->join('business_categories', 'business_categories.MemberId = members.MemberId', 'inner');
@@ -95,4 +95,21 @@ class Connect_model extends CI_Model {
 
 
     }
+
+    public function send_message()
+    {
+
+       $data = array(
+        'MemberId' => $this->input->post('senderid'),
+        'Content' => $this->input->post('content'),
+        'RecipientId' => $this->input->post('associateid'),
+        'CategoryId' => $this->input->post('categoryid')
+    );
+        $this->db->insert('messages', $data);
+        return TRUE;
+
+
+    }
+
+
 }
