@@ -35,18 +35,18 @@ BEGIN
     # If present, update, else insert
     SET @message_agg = 0;
     
-    SELECT 1 INTO @message_agg FROM MESSAGE_AGGREGATES
+    SELECT 1 INTO @message_agg FROM grokki.message_aggregates
       WHERE MemberId = new.MemberId;
       
     IF @message_agg = 1 THEN  
     
-          UPDATE MESSAGE_AGGREGATES
+          UPDATE grokki.message_aggregates
             SET SentTotal = (SentTotal + 1)
               WHERE MemberId = new.MemberId;
         
      ELSEIF @message_agg = 0 THEN
      
-          INSERT INTO MESSAGE_AGGREGATES(MemberId, SentTotal)
+          INSERT INTO grokki.message_aggregates(MemberId, SentTotal)
            VALUES (new.MemberId, 1);
      
      END IF;
