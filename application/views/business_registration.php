@@ -1,9 +1,11 @@
 <?php $this->load->helper('form'); ?>
+
+<div class="main-content">
+
 <?php echo form_open('signup/business_reg') ?>
 
 
-<div class="form-container" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
-     xmlns="http://www.w3.org/1999/html">
+<div class="form-container">
     <div><h1>Your business account has been created.</h1></div>
     <div><p>Now we just need a few more details about your business and we'll be ready to<br> start connecting you with consumers in your area.</p></div>
         <div class="marketing-text" style="

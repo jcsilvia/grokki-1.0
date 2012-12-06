@@ -193,18 +193,17 @@ class Settings extends CI_Controller {
             $config = Array(
                 'protocol' => 'smtp',
                 'smtp_host' => 'ssl://smtp.gmail.com',
-                'smtp_port' => 465,
+                'smtp_port' => '465',
                 'smtp_user' => 'admin@grokki.com', //for testing only, change this to admin@grokki.com for production
                 'smtp_pass' => 'viper123', //change this for check in and deployment
                 'mailtype'  => 'html',
-                'charset'   => 'iso-8859-1',
+                'charset'   => 'utf-8',
                 'newline'  => "\r\n"
             );
             $this->load->library('email', $config);
 
             // Set to, from, message, etc.
             $this->email->from('admin@grokki.com', 'Grokki Administrator'); //change this to admin@grokki.com for production
-            //$this->email->to($email_to);
             $this->email->to($email_to);
             $this->email->subject($subject);
             $this->email->message($message);

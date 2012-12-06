@@ -7,26 +7,23 @@ html, body {
 .container {
     min-height: 100%;
     position: relative;
-    min-width: 750px;
+    min-width: 850px;
 }
 
-.clear-footer {
-    height: 1px;
-    clear: both;
-}
 
 .footer {
     height: 40px;
     width: 100%;
-    position: absolute;
+    position: fixed;
     bottom:0;
     background-color:rgba(0,0,0,0.85);
     margin:0;
+    z-index:999999;
 }
 
 .header {
     background-color: rgba(0,0,0,0.85);
-    border-radius: 0px 0px 10px 10px; -moz-border-radius: 0px 0px 10px 10px; -webkit-border-radius: 0px 0px 10px 10px;
+    border-radius: 0px 0px 0px 0px; -moz-border-radius: 0px 0px 0px 0px; -webkit-border-radius: 0px 0px 0px 0px;
     height: 40px;
     width: 100%;
     margin:0;
@@ -173,6 +170,22 @@ a:active {text-decoration:none;color:white;}
 }
 
 .messages-window {
+    left:50px;
+    width:710px;
+    min-height: 100px;
+    padding:5px;
+    background-color:#d3d3d3;
+    border-style:solid;
+    border-width:thin;
+    border-color:black;
+    border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;
+    font-family:"helvetica",sans-serif;
+    font-size:.95em;
+}
+
+
+
+.profile-window {
     left:50px;
     width:710px;
     min-height: 250px;

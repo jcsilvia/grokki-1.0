@@ -5,7 +5,7 @@
     <div style="position: absolute;top:60;left:25;"><p><b>From:</b></p></div><div style="position: absolute;top:60;left:300;"><p><b>Category:</b></b></p></div><div style="position: absolute;top:60;left:655;"><p><b>Received:</b></p></div>
 
 
-    <div class="messages-window">
+    <div class="profile-window">
 
 
 

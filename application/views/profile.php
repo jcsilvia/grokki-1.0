@@ -3,7 +3,7 @@
     <h1>Connections - Profile for <?php  echo $profile->BusinessName ?></h1><br>
 
 
-    <div class="messages-window">
+    <div class="profile-window">
 
 <div style="position: relative">
     <p>

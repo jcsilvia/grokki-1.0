@@ -4,7 +4,7 @@
 
     <h1>Connections - Send Direct Message</h1><br>
 
-    <div style="position: absolute;top:60;left:25;"><p><b>Business:</b></p></div><div style="position: absolute;top:60;left:300;"><p><b>Category:</b></b></p></div><div style="position: absolute;top:60;left:655;"><p><b>Received:</b></p></div>
+    <div style="position: absolute;top:60;left:25;"><p><b>Business:</b></p></div><div style="position: absolute;top:60;left:300;"><p><b>Category:</b></b></p></div><div style="position: absolute;top:60;left:655;"><p><b>Location:</b></p></div>
 
 
     <div class="messages-window">

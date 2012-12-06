@@ -60,6 +60,8 @@ class Connect_model extends CI_Model {
 
     }
 
+
+
     public function get_latest_reviews($associateid)
     {
 
@@ -111,5 +113,31 @@ class Connect_model extends CI_Model {
 
     }
 
+    public function rate()
+    {
 
+        $data = array(
+            'ReviewerId' => $this->input->post('senderid'),
+            'Rating' => $this->input->post('rating'),
+            'MemberId' => $this->input->post('associateid'),
+        );
+        $this->db->insert('member_ratings', $data);
+        return TRUE;
+
+
+    }
+
+    public function review()
+    {
+
+        $data = array(
+            'ReviewerId' => $this->input->post('senderid'),
+            'Content' => $this->input->post('content'),
+            'MemberId' => $this->input->post('associateid'),
+        );
+        $this->db->insert('member_reviews', $data);
+        return TRUE;
+
+
+    }
 }
