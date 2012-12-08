@@ -65,7 +65,7 @@ class Connect_model extends CI_Model {
     public function get_latest_reviews($associateid)
     {
 
-        $this->db->select('members.UserName as Reviewer, member_reviews.Content as Content, date_format(members.CreatedDate, "%b-%d-%Y") as DateFormatted',FALSE);
+        $this->db->select('members.UserName as Reviewer, member_reviews.Content as Content, date_format(member_reviews.CreatedDate, "%b-%d-%Y") as DateFormatted',FALSE);
         $this->db->from('members');
         $this->db->join('member_reviews', 'member_reviews.ReviewerId = members.MemberId', 'inner');
         $this->db->where('member_reviews.MemberId', $associateid);

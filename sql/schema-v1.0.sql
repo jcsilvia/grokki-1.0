@@ -11,7 +11,7 @@ CREATE TABLE grokki.messages (
   `MessageId` bigint(19) NOT NULL AUTO_INCREMENT,
   `MemberId` bigint(19) NOT NULL,
   `CreatedDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `Content` varchar(255) DEFAULT NULL,
+  `Content` varchar(1000) DEFAULT NULL,
   `ParentMessageId` bigint(19) DEFAULT NULL,
   `GeoLat` decimal(10,6) DEFAULT NULL,
   `GeoLng` decimal(10,6) DEFAULT NULL,

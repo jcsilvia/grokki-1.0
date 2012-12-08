@@ -144,6 +144,11 @@ public function results()
             $data['per_page'] = $config['per_page'];
             $data['searches'] = $this->Search_model->search($config["per_page"], $page);
 
+            //format the phone number before we send it to the view
+            foreach ($data['profile'] as $key => $val) {
+            $data['profile'][$key]->PhoneNumber = $this->phone($data['profile'][key]->PhoneNumber);
+            }
+
 
 		   	include 'mobile.php';	
 		   	if(Mobile::is_mobile()) {
@@ -160,6 +165,22 @@ public function results()
         {
             redirect('home', 'location');
         }
+    }
+
+
+    function phone ($str)
+    {
+        $strPhone = preg_replace("[^0-9]",'', $str);
+        if (strlen($strPhone) != 10)
+            return $strPhone;
+
+        $strArea = substr($strPhone, 0, 3);
+        $strPrefix = substr($strPhone, 3, 3);
+        $strNumber = substr($strPhone, 6, 4);
+
+        $strPhone = "(".$strArea.") ".$strPrefix."-".$strNumber;
+
+        return ($strPhone);
     }
 
 }

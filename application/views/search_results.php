@@ -1,3 +1,9 @@
+<?php $this->load->helper('form'); ?>
+<script src='http://jquery-star-rating-plugin.googlecode.com/svn/trunk/jquery.js' type="text/javascript"></script>
+<script src='http://jquery-star-rating-plugin.googlecode.com/svn/trunk/jquery.rating.js' type="text/javascript" language="javascript"></script>
+<script src='http://jquery-star-rating-plugin.googlecode.com/svn/trunk/jquery.MetaData.js' type="text/javascript" language="javascript"></script>
+<link href='http://jquery-star-rating-plugin.googlecode.com/svn/trunk/jquery.rating.css' type="text/css" rel="stylesheet"/>
+
 <div class="main-content">
 
 <h1>Search Results for "<?php echo $this->session->userdata('terms') ?>" near <?php echo $this->session->userdata('city'); ?>, <?php echo $this->session->userdata('state') ?> </h1><br>
@@ -23,7 +29,19 @@
     <div style="text-align: left; "> <?php  echo $search['PhoneNumber'] ?></div>
     <div style="position:absolute; top:20; right:5;"><?php if ($search['Order']== 1) { echo '<a href="/home/add_connection/'; echo $search['SourceId']; echo '">Add to Connections</a>'; }?></div>
     <div style="position:absolute; top:35; right:5;"><?php if ($search['Order']== 1) { echo '<a href="/connect/profile/'; echo $search['SourceId']; echo '">View Full Profile</a>'; }?></div>
+    <div style="position:absolute; top:50; right:5;">
 
+        <?php
+        $class = 'class="star" disabled="disabled"';
+            if ($search['Order']== 1 && $search['Rating'] > 0) {
+             echo form_radio('rating', '1', (1 == $search['Rating']) ? TRUE : FALSE, $class);
+             echo form_radio('rating', '2', (2 == $search['Rating']) ? TRUE : FALSE, $class);
+             echo form_radio('rating', '3', (3 == $search['Rating']) ? TRUE : FALSE, $class);
+             echo form_radio('rating', '4', (4 == $search['Rating']) ? TRUE : FALSE, $class);
+             echo form_radio('rating', '5', (5 == $search['Rating']) ? TRUE : FALSE, $class);
+            }
+        ?>
+    </div>
 
 
 </div>

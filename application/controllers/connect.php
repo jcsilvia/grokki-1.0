@@ -80,7 +80,7 @@ class Connect extends CI_Controller {
         else
         {
             //If no session, redirect to login page
-            $this->not_logged_in();
+            redirect('home', 'location');
         }
 
     }
@@ -123,7 +123,7 @@ class Connect extends CI_Controller {
         else
         {
             //If no session, redirect to login page
-            $this->not_logged_in();
+            redirect('home', 'location');
         }
 
 
@@ -167,7 +167,7 @@ class Connect extends CI_Controller {
         else
         {
             //If no session, redirect to login page
-            $this->not_logged_in();
+            redirect('home', 'location');
         }
 
     }
@@ -210,7 +210,7 @@ class Connect extends CI_Controller {
         else
         {
             //If no session, redirect to login page
-            $this->not_logged_in();
+            redirect('home', 'location');
         }
 
     }

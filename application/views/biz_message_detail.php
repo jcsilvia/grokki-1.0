@@ -1,3 +1,10 @@
+<?php $this->load->helper('form'); ?>
+<script src='http://jquery-star-rating-plugin.googlecode.com/svn/trunk/jquery.js' type="text/javascript"></script>
+<script src='http://jquery-star-rating-plugin.googlecode.com/svn/trunk/jquery.rating.js' type="text/javascript" language="javascript"></script>
+<script src='http://jquery-star-rating-plugin.googlecode.com/svn/trunk/jquery.MetaData.js' type="text/javascript" language="javascript"></script>
+<link href='http://jquery-star-rating-plugin.googlecode.com/svn/trunk/jquery.rating.css' type="text/css" rel="stylesheet"/>
+
+
 <div class="main-content">
 
     <h1>Messages</h1><br>
@@ -27,7 +34,14 @@
             <div style="text-align: left;position:absolute;left:0;top:170;">Phone: <?php echo $phone ?></div>
             <div style="text-align: left;position:absolute;left:275;top:170;">Address: <?php echo $business->Address1 ?><?php if($business->Address2) { echo ', '; echo $business->Address2; } ?></div>
             <div style="text-align: left;position:absolute;left:340;top:190;"><?php echo $business->City ?>, <?php echo $business->State ?> <?php echo $business->Zipcode ?></div>
-
+            <div style="text-align: left;position:absolute;right:90;top:170;">Rating:</div>
+            <div style="text-align: left;position:absolute;right:0;top:170;">
+                <?php $class = 'class="star" disabled="disabled"'; echo form_radio('rating', '1', (1 == $rating->Rating) ? set_radio('active', $rating->Rating, TRUE) : set_radio('rating', '1'), $class); ?>
+                <?php $class = 'class="star" disabled="disabled"'; echo form_radio('rating', '2', (2 == $rating->Rating) ? set_radio('active', $rating->Rating, TRUE) : set_radio('rating', '2'), $class); ?>
+                <?php $class = 'class="star" disabled="disabled"'; echo form_radio('rating', '3', (3 == $rating->Rating) ? set_radio('active', $rating->Rating, TRUE) : set_radio('rating', '3'), $class); ?>
+                <?php $class = 'class="star" disabled="disabled"'; echo form_radio('rating', '4', (4 == $rating->Rating) ? set_radio('active', $rating->Rating, TRUE) : set_radio('rating', '4'), $class); ?>
+                <?php $class = 'class="star" disabled="disabled"'; echo form_radio('rating', '5', (5 == $rating->Rating) ? set_radio('active', $rating->Rating, TRUE) : set_radio('rating', '5'), $class); ?>
+            </div>
         </div>
 
 

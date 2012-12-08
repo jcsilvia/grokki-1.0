@@ -135,7 +135,10 @@ public function get_message_details()
 
                             if ($data['messages']->IsBusiness == 1)
                                 {
+
+                                    $this->load->model('Connect_model');
                                     $data['business'] = $this->Message_model->get_business($data['messages']->SenderId);
+                                    $data['rating'] = $this->Connect_model->get_ratings($data['messages']->SenderId);
                                     //format the phone number before we send it to the view
                                     $phone = $this->phone($data['business']->PhoneNumber);
                                     $data['phone'] = $phone;
