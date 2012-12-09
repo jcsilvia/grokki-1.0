@@ -27,8 +27,8 @@
     <div style="text-align:left; "> <?php  echo $search['Address'] ?></div>
     <div style="text-align:left; "> <?php  echo $search['City']; echo ', '; echo $search['State']; echo ' '; echo $search['Zipcode']?></div>
     <div style="text-align: left; "> <?php  echo $search['PhoneNumber'] ?></div>
-    <div style="position:absolute; top:20; right:5;"><?php if ($search['Order']== 1) { echo '<a href="/home/add_connection/'; echo $search['SourceId']; echo '">Add to Connections</a>'; }?></div>
-    <div style="position:absolute; top:35; right:5;"><?php if ($search['Order']== 1) { echo '<a href="/connect/profile/'; echo $search['SourceId']; echo '">View Full Profile</a>'; }?></div>
+    <div style="position:absolute; top:20; right:5;"><?php if ($search['Order']== 1 && $search['SourceId']) { echo '<a href="/home/add_connection/'; echo $search['SourceId']; echo '">Add to Connections</a>'; }?></div>
+    <div style="position:absolute; top:35; right:5;"><?php if ($search['Order']== 1 && $search['SourceId'] ) { echo '<a href="/connect/profile/'; echo $search['SourceId']; echo '">View Full Profile</a>'; }?></div>
     <div style="position:absolute; top:50; right:5;">
 
         <?php

@@ -42,13 +42,13 @@
 								<p><strong><?php  echo $message['SenderName'] ?> ::
 								   <?php  echo $message['CategoryName'] ?></strong>
 								</p>
-								<p><strong>future: snippet of the message?</strong></p>
+
 								<p class="ui-li-aside"><strong><?php  echo $message['DateFormatted'] ?></strong></p>
 						<?php } else { ?>
 							<p><?php  echo $message['SenderName'] ?> ::
 							   <?php  echo $message['CategoryName'] ?>
 							</p>
-							<p>future: snippet of the message?</p>
+
 							<p class="ui-li-aside"><?php  echo $message['DateFormatted'] ?></p>
 						<?php } ?>
 					</a></li>
