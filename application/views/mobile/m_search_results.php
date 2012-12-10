@@ -17,24 +17,28 @@
     <?php $this->load->view('mobile/m_header.php'); ?>
 
 	<div data-role="content">	
-		
+
 		<div class="ui-grid-a">
 			<div class="ui-block-a">Search results for "<?php echo $this->session->userdata('terms') ?>" 
 				near <?php echo $this->session->userdata('city'); ?>, <?php echo $this->session->userdata('state') ?></div>
 	        <div class="ui-block-b" align="right">
+				<div style="font-weight: bold; text-align: right; padding-top: 10;">
+					<a href="/search">New Search</a>
+				</div>
 				<div>
 			        <?php
 			        if (count($searches) > 0) {
 			            echo $total;
 			            echo ' results found';
 			        }
-			        ?>	
-				</div>
-				<div style="font-weight: bold; text-align: right; padding-top: 10;">
-					<a href="/search"><img src="/images/searchicon.png" alt="New Search"></a>
+			        ?>
 				</div>
 			</div>
 		</div>
+		<br/>
+		<div class="text" style="text-align: right; padding-top: 10;"> 
+			<?php echo $links; ?> 
+		</div>		
 
 		<div class="ui-grid-solo">
 			<ul data-role="listview" data-inset="true">
