@@ -39,6 +39,7 @@ class Connect extends CI_Controller {
             //load views
 		   	include 'mobile.php';	
 		   	if(Mobile::is_mobile()) {
+		       $data['connectionCount'] = $this->Connect_model->get_connected_categories();
                $this->load->view('mobile/m_connect', $data);
 
 			} else {
@@ -57,6 +58,34 @@ class Connect extends CI_Controller {
         }
 
     }
+
+	//all the connections within a given category for the logged in user
+	public function listings()
+	{
+        // get the message details for a given message id stripped from the url
+        $categoryid = $this->uri->segment(3,0);
+
+        // check for the session
+        if($this->session->userdata('memberid'))
+        {
+            $data['title'] = 'Connections';
+            $data['username'] = $this->session->userdata('username');
+
+            $this->load->model('Connect_model');
+            $data['connections'] = $this->Connect_model->get_connections_for_catergory($categoryid);
+
+		   	include 'mobile.php';	
+		   	if(Mobile::is_mobile()) {
+               $this->load->view('mobile/m_profile_connections', $data);
+			} 
+        }
+        else
+        {
+            //If no session, redirect to login page
+            redirect('home', 'location');
+        }
+	}
+
 
     public function delete()
     {

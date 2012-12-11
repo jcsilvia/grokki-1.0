@@ -18,7 +18,9 @@
 
 	<div data-role="content">	
 		
-		<div><h4>Connections</h4></div>
+		<div class="ui-grid-a">
+			<div class="ui-block-a">Connections</div>
+		</div>
 		
 		<div class="ui-grid-solo">
 			<ul data-role="listview" data-inset="true">
@@ -26,18 +28,14 @@
 				<?php if (count($connections) < 1)
 		        	echo '<li><div style="font-weight: bold; text-align: center;">You have no connections.</div></li>';
 		        ?>
+		
+		     <?php foreach ($connectionCount as $connectionCnt): ?>
+				<li><a href="/connect/listings/<?php  echo $connectionCnt['CategoryId'] ?>">
+					<div><?php  echo $connectionCnt['CategoryName'] ?></div>
+					<span class="ui-li-count"><?php  echo $connectionCnt['CatCount'] ?></span>
+				</a></li>			
+		     <?php endforeach ?>
 				
-		        <?php foreach ($connections as $connection): ?>
-					<li>
-						<?php  echo $connection['BusinessName'] ?><br/>
-						<?php  echo $connection['CategoryName'] ?><br/>
-						<?php  echo $connection['City']; echo ', '; echo $connection['State']; ?><br/>
-						<a href="/connect/message/<?php  echo $connection['MemberId'] ?>">Message Directly</a><br/>
-						<a href="/connect/profile/<?php  echo $connection['MemberId'] ?>">View Profile</a><br/>
-						<a href="/connect/review/<?php  echo $connection['MemberId'] ?>">Add Review</a><br/>
-						<a href="/connect/delete/<?php  echo $connection['MemberId'] ?>">Delete Connection</a>
-					</li>
-		        <?php endforeach ?>
 			</ul>
 		</div>
 

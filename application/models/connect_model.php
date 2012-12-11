@@ -140,4 +140,37 @@ class Connect_model extends CI_Model {
 
 
     }
+
+	//function to fetch the categories for a user, grouped by the count of businesses of that type
+    public function get_connected_categories()
+    {
+        $this->db->select('categories.categoryId as CategoryId, categories.categoryName as CategoryName, count(member_associations.associateId) as CatCount', FALSE);
+        $this->db->from('members');
+        $this->db->join('member_associations', 'members.MemberId = member_associations.MemberId', 'inner');
+        $this->db->join('business_categories', 'business_categories.MemberId = member_associations.AssociateId', 'inner');
+        $this->db->join('categories', 'categories.CategoryId = business_categories.CategoryId', 'inner');
+        $this->db->where('members.MemberId', $this->session->userdata('memberid'));
+		$this->db->group_by('categories.categoryName');
+
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+	//function to fetch all the connections for a given category and member
+    public function get_connections_for_catergory($categoryId)
+    {
+        $this->db->select('member_associations.AssociateId as MemberId, members.UserName as UserName, members.BusinessName as BusinessName, addresses.City as City, addresses.State as State, member_associations.CreatedDate as CreatedDate, date_format(member_associations.CreatedDate, "%b-%d-%Y") as DateFormatted, categories.CategoryName as CategoryName',FALSE);
+        $this->db->from('member_associations');
+        $this->db->join('members', 'members.MemberId = member_associations.AssociateId', 'inner');
+        $this->db->join('addresses', 'addresses.MemberId = members.MemberId', 'inner');
+        $this->db->join('business_categories', 'business_categories.MemberId = members.MemberId', 'inner');
+        $this->db->join('categories', 'categories.CategoryId = business_categories.CategoryId', 'inner');
+        $this->db->where('categories.CategoryId', $categoryId);
+        $this->db->order_by("CreatedDate", "desc");
+        $this->db->limit($limit, $start);
+
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
 }

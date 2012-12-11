@@ -16,7 +16,6 @@
 
     <?php $this->load->view('mobile/m_header.php'); ?>
 
-
 	<div data-role="content">	
 		
 		<div class="ui-grid-a">
