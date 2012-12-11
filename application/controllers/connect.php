@@ -135,10 +135,16 @@ class Connect extends CI_Controller {
 
             if ($this->form_validation->run() === FALSE)
             {
-                $this->load->view('templates/header', $data);
-                $this->load->view('templates/sub_nav.php', $data);
-                $this->load->view('connect_review', $data);
-                $this->load->view('templates/footer');
+			   	include 'mobile.php';	
+			   	if(Mobile::is_mobile()) {
+	               $this->load->view('mobile/m_connect_review', $data);
+
+				} else {
+                	$this->load->view('templates/header', $data);
+                	$this->load->view('templates/sub_nav.php', $data);
+                	$this->load->view('connect_review', $data);
+                	$this->load->view('templates/footer');
+				}
             }
             else
             {
@@ -180,10 +186,16 @@ class Connect extends CI_Controller {
 
             if ($this->form_validation->run() === FALSE)
             {
-                $this->load->view('templates/header', $data);
-                $this->load->view('templates/sub_nav.php', $data);
-                $this->load->view('connect_message', $data);
-                $this->load->view('templates/footer');
+			   	include 'mobile.php';	
+			   	if(Mobile::is_mobile()) {
+	               $this->load->view('mobile/m_connect_message', $data);
+
+				} else {
+                	$this->load->view('templates/header', $data);
+                	$this->load->view('templates/sub_nav.php', $data);
+                	$this->load->view('connect_message', $data);
+                	$this->load->view('templates/footer');
+				}
             }
             else
             {

@@ -18,7 +18,7 @@
 </head> 
 <body> 
 	
-<div data-role="page">
+<div data-role="page" class="type-interior">
 
     <?php $this->load->view('mobile/m_header.php'); ?>
 	<?php $this->load->helper('form'); ?>
@@ -31,16 +31,27 @@
 		
 		<div>
 			<label for="messagearea">
-					<div>Business Name: <?php echo $profile->BusinessName ?></div><br/>
-					<div>Grokki User: <?php  echo $profile->UserName ?></div><br/>
-					<div>Address: <?php  echo $profile->Address1 ?><br/>
+				<div data-role="fieldcontain">
+					<label for="name">Business Name: </label> <?php echo $profile->BusinessName ?>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="name">Grokki User: </label> <?php echo $profile->UserName ?>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="name">Address: </label> <?php  echo $profile->Address1 ?><br/>
 			         	<?php  echo $profile->City ?>,
 			         	<?php  echo $profile->State ?>
-			         	<?php  echo $profile->ZipCode ?></div><br/>
-					<div>Phone: <?php  echo $phone ?></div><br/>
-					<div>Date Joined: <?php  echo $profile->DateFormatted ?></div><br/>
-					<div>Point of Contact: <?php  echo $profile->ContactName ?></div>
-					<br/>
+			         	<?php  echo $profile->ZipCode ?>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="name">Phone: </label> <?php  echo $phone ?>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="name">Date Joined: </label> <?php  echo $profile->DateFormatted ?>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="name">Point of Contact: </label> <?php  echo $profile->ContactName ?>
+				</div>
 			</label>
 		</div>	
 		<br/><br/>
@@ -57,8 +68,9 @@
 		
 		<div>
 			<div data-role="controlgroup" data-type="horizontal" >
-				<a href="javascript:history.back()" data-role="button" data-icon="back">Back</a>
-				<a href="/home/delete_message" data-role="button" data-icon="delete">Delete</a>
+				<a href="/connect/message/<?php echo $profile->MemberId ?>" data-role="button" data-icon="back">Message</a>
+				<a href="/connect/review/<?php echo $profile->MemberId ?>" data-role="button" data-icon="delete">Review</a>
+				<a href="/connect/delete/<?php echo $profile->MemberId ?>" data-role="button" data-icon="delete">Delete</a>
 			</div>			
 		</div>
 		
