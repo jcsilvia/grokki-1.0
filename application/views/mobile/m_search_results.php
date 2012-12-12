@@ -23,7 +23,7 @@
 				near <?php echo $this->session->userdata('city'); ?>, <?php echo $this->session->userdata('state') ?></div>
 	        <div class="ui-block-b" align="right">
 				<div style="font-weight: bold; text-align: right; padding-top: 10;">
-					<a href="/search">New Search</a>
+					<a href="/search/">New Search</a>
 				</div>
 				<div>
 			        <?php
@@ -46,7 +46,7 @@
 					<li>
 						<?php  echo $search['BusinessName'] ?><br/>
 						<?php  echo $search['Address'] ?><br/>
-						<?php  echo $search['City']; echo ', '; echo $search['State']; echo ' '; echo $search['Zipcode']?><br/>
+						<?php  echo $search['City']; if ($search['SourceId']) {echo ', ';} echo $search['State']; echo ' '; echo $search['Zipcode']?><br/>
 						<?php  echo $search['PhoneNumber'] ?>
 					</li>
 		        <?php endforeach ?>

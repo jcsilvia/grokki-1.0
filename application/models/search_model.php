@@ -17,8 +17,8 @@ class Search_model extends CI_Model {
 
             $sql =
                 "SELECT * FROM (
-                  (SELECT 1 AS 'Order',m.MemberId AS 'SourceId',m.BusinessName, a.Address1 AS 'Address', a.City, a.State, a.Zipcode, a.PhoneNumber, m.UserName AS 'ContactName', ifnull(round(avg(rt.rating)), 0) AS 'Rating'
-                  FROM addresses a, business_categories bc, tags t, members m left join member_ratings rt on m.MemberId = rt.MemberId
+                  (SELECT 1 AS 'Order',m.MemberId AS 'SourceId',m.BusinessName, a.Address1 AS 'Address', a.City, a.State, a.Zipcode, a.PhoneNumber, m.UserName AS 'ContactName', (SELECT ifnull(round(avg(mr.rating)), 0) from member_ratings mr where m.memberid = mr.memberid) AS 'Rating'
+                  FROM addresses a, business_categories bc, tags t, members m
                   WHERE m.MemberId = a.MemberId
                     AND m.MemberId = bc.MemberId
                     AND m.MemberId = t.MemberId
