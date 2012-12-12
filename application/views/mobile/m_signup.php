@@ -44,7 +44,7 @@
 				<?php echo form_error('zipcode'); ?>
 			</div>
 			<div>
-				<label><input type="checkbox" name="is_business" /> Is a business account</label>
+				<label><input type="checkbox" name="is_business" value=1 /> Is a business account</label>
 			</div>
 			<div>
 		        Already have an account? <a href="/login/">Sign in here.</a>
