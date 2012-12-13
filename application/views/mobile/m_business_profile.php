@@ -13,7 +13,7 @@
 </head> 
 <body> 
 	
-<div data-role="page" class="type-interior">
+<div data-role="page" class="type-interior" >
 
     <?php $this->load->view('mobile/m_header.php'); ?>
 	<?php $this->load->helper('form'); ?>

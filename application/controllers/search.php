@@ -132,7 +132,7 @@ public function results()
             //implement pagination and pass the correct parameters to the model
             $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 
-            $data['title'] = 'Search Results';
+            $data['title'] = 'Search';
             $data['username'] = $this->session->userdata('username');
 
             $config['total_rows'] = $this->Search_model->count_all_search_results();

@@ -27,6 +27,10 @@
 		<div>
 			<?php echo form_open('connect/review') ?>
 			
+			<script src='http://jquery-star-rating-plugin.googlecode.com/svn/trunk/jquery.rating.js' type="text/javascript" language="javascript"></script>
+			<script src='http://jquery-star-rating-plugin.googlecode.com/svn/trunk/jquery.MetaData.js' type="text/javascript" language="javascript"></script>
+			<link href='http://jquery-star-rating-plugin.googlecode.com/svn/trunk/jquery.rating.css' type="text/css" rel="stylesheet"/>
+
             <p>Rating:</p>
             <div style="position:absolute; top:13; left:50;">
                 <input name="rating" type="radio" class="star" value="1"/>

@@ -143,10 +143,16 @@ public function get_message_details()
                                     $phone = $this->phone($data['business']->PhoneNumber);
                                     $data['phone'] = $phone;
 
-                                    $this->load->view('templates/header', $data);
-                                    $this->load->view('templates/sub_nav.php', $data);
-                                    $this->load->view('biz_message_detail', $data);
-                                    $this->load->view('templates/footer');
+								   include 'mobile.php';	
+								   if(Mobile::is_mobile()) {
+						               $this->load->view('mobile/m_biz_message_detail', $data);
+
+									} else {
+                                    	$this->load->view('templates/header', $data);
+                                    	$this->load->view('templates/sub_nav.php', $data);
+                                    	$this->load->view('biz_message_detail', $data);
+                                    	$this->load->view('templates/footer');
+									}
                                 }
                             else
                                 {
@@ -238,10 +244,16 @@ public function reply_message()
 
             if ($this->form_validation->run() === FALSE)
                 {
-                    $this->load->view('templates/header', $data);
-                    $this->load->view('templates/sub_nav.php', $data);
-                    $this->load->view('reply_message', $data);
-                    $this->load->view('templates/footer');
+					include 'mobile.php';	
+					if(Mobile::is_mobile()) {
+			        	$this->load->view('mobile/m_reply_message', $data);
+
+					} else {
+                    	$this->load->view('templates/header', $data);
+                    	$this->load->view('templates/sub_nav.php', $data);
+                    	$this->load->view('reply_message', $data);
+                    	$this->load->view('templates/footer');
+					}
                 }
             else
                 {
