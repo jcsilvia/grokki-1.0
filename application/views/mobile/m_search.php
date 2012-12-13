@@ -19,7 +19,7 @@
 	<div data-role="content">
 		
 		<div class="ui-grid-a">
-			<div class="ui-block-a">What are you looking for?</div>
+			What are you looking for?
 		</div>		
 
 		<?php $this->load->helper('form'); ?>

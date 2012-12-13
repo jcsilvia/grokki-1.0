@@ -1,4 +1,4 @@
-<div data-role="header" data-theme="d">
+<div data-role="header" data-theme="a">
 	
 	<div class="ui-grid-a">
 		<div class="ui-block-a">
