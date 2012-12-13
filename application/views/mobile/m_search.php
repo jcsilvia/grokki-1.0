@@ -18,7 +18,9 @@
 
 	<div data-role="content">
 		
-	    <div><h4>What are you looking for?</h4></div>
+		<div class="ui-grid-a">
+			<div class="ui-block-a">What are you looking for?</div>
+		</div>		
 
 		<?php $this->load->helper('form'); ?>
 	    <?php echo form_open('search') ?>
