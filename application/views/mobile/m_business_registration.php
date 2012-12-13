@@ -11,8 +11,8 @@
 	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
 	<script type="text/javascript" src="js/jquery-templ.js"></script>
 </head> 
-<body> 
-	
+<body>
+<?php $this->load->view('analytics_tracking.php'); ?>
 <div data-role="page">
 
     <?php $this->load->view('mobile/m_header.php'); ?>

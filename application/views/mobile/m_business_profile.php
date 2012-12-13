@@ -11,8 +11,8 @@
 	<script type="text/javascript" src="js/jquery-templ.js"></script>
 	
 </head> 
-<body> 
-	
+<body>
+<?php $this->load->view('analytics_tracking.php'); ?>
 <div data-role="page" class="type-interior" >
 
     <?php $this->load->view('mobile/m_header.php'); ?>

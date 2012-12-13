@@ -12,6 +12,7 @@
         </style>
     </head>
     <body>
+    <?php $this->load->view('analytics_tracking.php'); ?>
         <div class="container">
             <div class="header">
                         <div class="logo" align="left">
