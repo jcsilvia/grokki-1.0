@@ -60,6 +60,15 @@ class Connect_model extends CI_Model {
 
     }
 
+	//returns 1 if the logged in user is already connected to the given business
+    public function is_connnected($businessid)
+    {
+        $this->db->from('member_associations');
+        $this->db->where('member_associations.MemberId', $this->session->userdata('memberid'));
+        $this->db->where('member_associations.associateId', $businessid);
+        $query = $this->db->count_all_results();
+        return $query;
+    }
 
 
     public function get_latest_reviews($associateid)

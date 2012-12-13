@@ -335,7 +335,7 @@ public function add_connection()
             else
                 $this->session->set_flashdata('flashSuccess', 'Connection already exists.');
 
-            redirect('home', 'refresh');
+            redirect('home', 'location');
 
         }
         else

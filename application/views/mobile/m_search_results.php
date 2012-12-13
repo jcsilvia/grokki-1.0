@@ -44,10 +44,21 @@
 			<ul data-role="listview" data-inset="true">
 				<?php foreach ($searches as $search): ?>
 					<li>
-						<?php  echo $search['BusinessName'] ?><br/>
+						<?php if ($search['Order']== 1) {
+							echo '<a href="/search/profile/'; echo $search["SourceId"]; echo '">';
+							echo    '<div style="color:red;">'; 
+							echo $search["BusinessName"];
+							echo '</div>';						
+							} else {
+								echo $search["BusinessName"];
+								echo '<br/>';
+							}
+						?>
 						<?php  echo $search['Address'] ?><br/>
-						<?php  echo $search['City']; if ($search['SourceId']) {echo ', ';} echo $search['State']; echo ' '; echo $search['Zipcode']?><br/>
-						<?php  echo $search['PhoneNumber'] ?>
+						<?php if ($search['Order']== 1) {
+							echo '</a>'; 
+							}
+						?>
 					</li>
 		        <?php endforeach ?>
 			</ul>

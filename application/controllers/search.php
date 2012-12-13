@@ -167,6 +167,37 @@ public function results()
         }
     }
 
+    public function profile()
+    {
+        // get the message details for a given message id stripped from the url
+        $associateid = $this->uri->segment(3,0);
+
+        // check for the session
+        if($this->session->userdata('memberid'))
+        {
+            $data['title'] = 'Search';
+            $data['username'] = $this->session->userdata('username');
+
+            $this->load->model('Connect_model');
+            $data['profile'] = $this->Connect_model->get_profile($associateid);
+            $data['alreadyConnected'] = $this->Connect_model->is_connnected($associateid);
+
+            //format the phone number before we send it to the view
+            $phone = $this->phone($data['profile']->PhoneNumber);
+            $data['phone'] = $phone;
+
+		   	include 'mobile.php';	
+		   	if(Mobile::is_mobile()) {
+               $this->load->view('mobile/m_business_profile', $data);
+			}
+        }
+        else
+        {
+            //If no session, redirect to login page
+            redirect('home', 'location');
+        }
+
+    }
 
     function phone ($str)
     {
