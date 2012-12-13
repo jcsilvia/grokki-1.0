@@ -3,7 +3,8 @@
         <div class="text-container">
         <div class="welcome-text">
             <h1>Welcome to grokki.com</h1>
-            <p>We're fundamentally changing the way consumers and local businesses connect.<br>
+            <p>We're fundamentally changing the way consumers and local businesses connect.<br><br>
+                Open Beta now available for the Greater Boston area.
                 </p>
         </div>
         <div class="link-container">

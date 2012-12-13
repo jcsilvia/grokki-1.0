@@ -17,9 +17,10 @@
     <?php $this->load->view('mobile/m_header.php'); ?>
 
 	<div data-role="content">	
-		<div class="ui-grid-a">
+		<div>
 			<h4>Welcome to grokki.com</h4>
             <p>We're fundamentally changing the way consumers and local businesses connect.</p>
+            <p>Open Beta now available for the Greater Boston area.</p>
 		</div>
 		<a href="/signup/" data-role="button">Sign up</a>
 		<a href="/login/" data-role="button">Sign in</a>
