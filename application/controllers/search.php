@@ -144,11 +144,6 @@ public function results()
             $data['per_page'] = $config['per_page'];
             $data['searches'] = $this->Search_model->search($config["per_page"], $page);
 
-            //format the phone number before we send it to the view
-            foreach ($data['profile'] as $key => $val) {
-            $data['profile'][$key]->PhoneNumber = $this->phone($data['profile'][key]->PhoneNumber);
-            }
-
 
 		   	include 'mobile.php';	
 		   	if(Mobile::is_mobile()) {

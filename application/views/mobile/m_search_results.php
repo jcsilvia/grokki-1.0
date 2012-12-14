@@ -1,4 +1,5 @@
-<!DOCTYPE html> 
+<?php $this->load->helper('text'); ?>
+<!DOCTYPE html>
 <html> 
 <head> 
 	<meta charset="utf-8">
@@ -55,6 +56,7 @@
 							}
 						?>
 						<?php  echo $search['Address'] ?><br/>
+                        <?php $phone = phone($search['PhoneNumber']);  echo $phone;?>
 						<?php if ($search['Order']== 1) {
 							echo '</a>'; 
 							}
