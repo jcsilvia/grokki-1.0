@@ -10,9 +10,9 @@ class Mobile {
 		$ipod = strpos($_SERVER['HTTP_USER_AGENT'],"iPod");
 
 		//for test purpose
-		$firefox = strpos($_SERVER['HTTP_USER_AGENT'],"Firefox");
-        if ($iphone || $android || $palmpre || $ipod || $berry || $firefox == true)
-        //if ($iphone || $android || $palmpre || $ipod || $berry)
+		//$firefox = strpos($_SERVER['HTTP_USER_AGENT'],"Firefox");
+        //if ($iphone || $android || $palmpre || $ipod || $berry || $firefox == true)
+        if ($iphone || $android || $palmpre || $ipod || $berry)
 		{ 
 		  return true;
 		}
