@@ -9,7 +9,7 @@
     <div class="content_text">
         <h1>Sign in to Grokki</h1>
     </div>
-    <div style="text-align: right; position:absolute;top:120;left:230;"><p><a href="/email/forgot_password">Forgot Password</a></p></div>
+    <div style="text-align: right; position:absolute;top:120;left:230;"><p><a href="/login/forgot_password">Forgot Password</a></p></div>
     <div class="login_form" >
         <p>
             <label for="username">Username or Email</label>

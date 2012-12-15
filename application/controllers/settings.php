@@ -188,7 +188,7 @@ class Settings extends CI_Controller {
             $this->Settings_model->change_validation_string($validation_string);
 
             $subject = 'Grokki.com Email Validation';
-            $message = 'Click the link below to validate the email used to register for Grokki.com. <br><br>' . anchor('/email/confirmation/' . $validation_string, 'Click here to validate email.') . '<br><br>Regards, <br>The Grokki.com team';
+            $message = 'Click the link below to validate the email used to register for Grokki.com. <br><br>' . anchor('/email/confirmation_email/' . $validation_string, 'Click here to validate email.') . '<br><br>Regards, <br>The Grokki.com team';
 
             $config = Array(
                 'protocol' => 'smtp',

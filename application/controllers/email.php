@@ -12,7 +12,7 @@ class Email extends CI_Controller {
 
 
 
-    public function confirmation()
+    public function confirmation_email()
         {
             $validation_string = $this->uri->segment(3);
 
@@ -47,9 +47,35 @@ class Email extends CI_Controller {
             }
         }
 
-    public function forgot_password()
+    public function reset_password()
+    {
+        $validation_string = $this->uri->segment(3);
+
+        if ($validation_string == '')
         {
+            $data['err'] = 'The validation string was incorrect. We are unable to change your password.';
+            $data['title'] = 'Error';
+            $this->load->view('templates/header');
+            $this->load->view('templates/err_msg.php');
+            $this->load->view('templates/footer');
 
         }
+
+        else
+        {
+            $data['validation'] = $validation_string;
+            $data['title'] = 'Login';
+            $data['msg'] = NULL;
+
+            $this->load->view('templates/header', $data);
+            $this->load->view('reset_password.php', $data);
+            $this->load->view('templates/footer');
+
+        }
+
+
+
+
+    }
 
 }

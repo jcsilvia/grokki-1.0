@@ -37,7 +37,7 @@
 	            </div>
 			</div>
 			<div data-role="fieldcontain" >
-		        Forgot Password? <a href="/email/forgot_password">reset here</a>
+		        Forgot Password? <a href="/login/forgot_password">Reset here</a>
 			</div>		
 			<div data-role="fieldcontain" >
 		        Don't have an account? <a href="/signup/">Create one here</a>
