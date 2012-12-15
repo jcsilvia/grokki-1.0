@@ -14,7 +14,7 @@
             <label for="password1">Enter new password</label>
             <input type="text" name="password1" size="20" value="<?php echo set_value('password1'); ?>"/>
             <?php echo form_error('password1'); ?><br><br>
-            <label for="password">Confirm new password</label>
+            <label for="password2">Confirm new password</label>
             <input type="text" name="password2" size="20" value="<?php echo set_value('password2'); ?>"/>
             <?php echo form_error('password2'); ?>
             <div class="error">
