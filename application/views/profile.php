@@ -70,8 +70,18 @@
 
 
 </div>
+    <div style="position:absolute; left:80;top:375;">
 
-    <div style="position:relative;">
+        <?php
+        echo '<img border="0" src="//maps.googleapis.com/maps/api/staticmap?center=';
+        echo $profile->Address1; echo ','; echo $profile->City; echo ','; echo $profile->State;
+        echo '&markers=color:red%7Clabel:G%7C'; echo $profile->Address1; echo ','; echo $profile->City; echo ','; echo $profile->State;
+        echo '&zoom=16&size=600x300&key=AIzaSyBOIxN_iEcuMDdEz5xesWkGjCyxqHZXRpE&sensor=false" />';
+        ?>
+
+    </div>
+
+    <div style="position:absolute;left:80;top:700;">
         <?php foreach ($reviews as $review): ?>
             <div style="position:relative; border-bottom: #000000; border-bottom-style: solid; border-bottom-width: 1; width: 500;">
             <div><p><b>Reviewer:</b> <?php  echo $review['Reviewer'] ?> </p></div>

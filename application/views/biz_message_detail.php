@@ -44,12 +44,15 @@
             </div>
         </div>
 
+    </div>
 
+    <div style="position:absolute; left:80;top:375;">
 
-
-
-
-
-
+        <?php
+            echo '<img border="0" src="//maps.googleapis.com/maps/api/staticmap?center=';
+            echo $business->Address1; echo ','; echo $business->City; echo ','; echo $business->State;
+            echo '&markers=color:red%7Clabel:G%7C'; echo $business->Address1; echo ','; echo $business->City; echo ','; echo $business->State;
+            echo '&zoom=16&size=600x300&key=AIzaSyBOIxN_iEcuMDdEz5xesWkGjCyxqHZXRpE&sensor=false" />';
+        ?>
 
     </div>
