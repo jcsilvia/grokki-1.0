@@ -28,7 +28,7 @@ public function index($msg = NULL)
 
                 if ($this->form_validation->run() === FALSE)
                 {
-
+                   $this->output->nocache(); // set http header to disable caching if user hits back button
 				   include 'mobile.php';	
 				   if(Mobile::is_mobile()) {
 		               $this->load->view('mobile/m_login', $data);
@@ -51,7 +51,7 @@ public function index($msg = NULL)
                     else
                     {
                         $data['msg'] = 'Invalid username or password';
-
+                        $this->output->nocache(); // set http header to disable caching if user hits back button
 					   	include 'mobile.php';	
 					   	if(Mobile::is_mobile()) {
 			               $this->load->view('mobile/m_login', $data);
@@ -87,7 +87,7 @@ public function index($msg = NULL)
 
             if ($this->form_validation->run() === FALSE)
             {
-
+                $this->output->nocache(); // set http header to disable caching if user hits back button
                 include 'mobile.php';
                 if(Mobile::is_mobile()) {
                     $this->load->view('mobile/m_forgot_password', $data);
@@ -131,6 +131,7 @@ public function index($msg = NULL)
 
                     }
 
+                $this->output->nocache(); // set http header to disable caching if user hits back button
                 include 'mobile.php';
                 if(Mobile::is_mobile()) {
                     $this->load->view('mobile/password_resent', $data);
@@ -165,7 +166,7 @@ public function index($msg = NULL)
                     $this->form_validation->set_rules('password1', 'Password', 'trim|required|xss_clean|min_length[8]|max_length[15]');
                     $this->form_validation->set_rules('password2', 'Password', 'trim|required|xss_clean|min_length[8]|max_length[15]');
 
-
+                    $this->output->nocache(); // set http header to disable caching if user hits back button
                     if ($this->form_validation->run() === FALSE)
                         {
 

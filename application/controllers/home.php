@@ -42,6 +42,7 @@ function index()
                  $data['total'] = $config['total_rows'];
                  $data['per_page'] = $config['per_page'];
 
+               $this->output->nocache(); // set http header to disable caching if user hits back button
 			   	include 'mobile.php';	
 			   	if(Mobile::is_mobile()) {
 	               $this->load->view('mobile/m_home', $data);
@@ -241,7 +242,7 @@ public function reply_message()
             $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
             $this->form_validation->set_rules('content', 'Content', 'trim|required|xss_clean');
 
-
+            $this->output->nocache(); // set http header to disable caching if user hits back button
             if ($this->form_validation->run() === FALSE)
                 {
 					include 'mobile.php';	
@@ -289,7 +290,7 @@ public function create_message()
                 $this->form_validation->set_rules('state', 'State', 'trim|required|xss_clean');
                 $this->form_validation->set_rules('category', 'Category', 'trim|required|xss_clean');
 
-
+                $this->output->nocache(); // set http header to disable caching if user hits back button
                 if ($this->form_validation->run() === FALSE)
                 {
                     $data['categories'] = $this->Message_model->load_business_categories();
@@ -345,8 +346,9 @@ public function add_connection()
                 $this->session->set_flashdata('flashSuccess', 'Connection added');
             }
             else
+            {
                 $this->session->set_flashdata('flashSuccess', 'Connection already exists.');
-
+            }
             redirect('home', 'location');
 
         }

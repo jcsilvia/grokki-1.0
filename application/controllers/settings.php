@@ -46,7 +46,7 @@ class Settings extends CI_Controller {
                 $this->form_validation->set_rules('tags', 'Tags', 'trim|xss_clean|min_length[4]|max_length[75]|required');
             }
 
-
+            $this->output->nocache(); // set http header to disable caching if user hits back button
             if ($this->form_validation->run() === FALSE)
             {
                 //load views
@@ -100,7 +100,7 @@ class Settings extends CI_Controller {
             $this->form_validation->set_rules('newpassword2', 'new Password', 'trim|required|xss_clean|min_length[8]|max_length[15]');
 
 
-
+            $this->output->nocache(); // set http header to disable caching if user hits back button
             if ($this->form_validation->run() === FALSE)
             {
                 $this->load->view('templates/header', $data);
@@ -149,6 +149,7 @@ class Settings extends CI_Controller {
             $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
             $this->form_validation->set_rules('email', 'new Email', 'trim|required|valid_email|max_length[50]|xss_clean|update_unique[members.EmailAddress.MemberId.'. $this->session->userdata('memberid') .']');
 
+            $this->output->nocache(); // set http header to disable caching if user hits back button
             if ($this->form_validation->run() === FALSE)
             {
                 $this->load->view('templates/header', $data);

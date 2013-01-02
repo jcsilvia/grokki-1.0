@@ -125,6 +125,13 @@ class Connect_model extends CI_Model {
     public function rate()
     {
 
+        $this->db->from('member_ratings');
+        $this->db->where('member_ratings.ReviewerId', $this->input->post('senderid'));
+        $this->db->where('member_ratings.MemberId', $this->input->post('associateid'));
+        $query = $this->db->count_all_results();
+
+        if ($query == NULL || $query < 1)
+        {
         $data = array(
             'ReviewerId' => $this->input->post('senderid'),
             'Rating' => $this->input->post('rating'),
@@ -133,11 +140,26 @@ class Connect_model extends CI_Model {
         $this->db->insert('member_ratings', $data);
         return TRUE;
 
+        }
+
+        else
+
+        {
+            return FALSE;
+        }
 
     }
 
     public function review()
     {
+
+        $this->db->from('member_reviews');
+        $this->db->where('member_reviews.ReviewerId', $this->input->post('senderid'));
+        $this->db->where('member_reviews.MemberId', $this->input->post('associateid'));
+        $query = $this->db->count_all_results();
+
+        if ($query == NULL || $query < 1)
+        {
 
         $data = array(
             'ReviewerId' => $this->input->post('senderid'),
@@ -147,6 +169,13 @@ class Connect_model extends CI_Model {
         $this->db->insert('member_reviews', $data);
         return TRUE;
 
+        }
+
+        else
+
+        {
+            return FALSE;
+        }
 
     }
 

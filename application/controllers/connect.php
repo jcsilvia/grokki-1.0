@@ -132,7 +132,7 @@ class Connect extends CI_Controller {
             $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
             $this->form_validation->set_rules('content', 'Content', 'trim|required|xss_clean');
 
-
+            $this->output->nocache(); // set http header to disable caching if user hits back button
             if ($this->form_validation->run() === FALSE)
             {
 			   	include 'mobile.php';	
@@ -148,9 +148,18 @@ class Connect extends CI_Controller {
             }
             else
             {
-                $this->Connect_model->review();
-                $this->Connect_model->rate();
-                $this->session->set_flashdata('flashSuccess', 'Review created.');
+                $review_success = $this->Connect_model->review();
+                $rate_success = $this->Connect_model->rate();
+
+                if ($review_success == TRUE || $rate_success == TRUE)
+                {
+                    $this->session->set_flashdata('flashSuccess', 'Review created.');
+                }
+                else
+                {
+                    $this->session->set_flashdata('flashSuccess', 'Review already exists.');
+                }
+
                 redirect('connect', 'location');
             }
 
@@ -183,7 +192,7 @@ class Connect extends CI_Controller {
             $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
             $this->form_validation->set_rules('content', 'Content', 'trim|required|xss_clean');
 
-
+            $this->output->nocache(); // set http header to disable caching if user hits back button
             if ($this->form_validation->run() === FALSE)
             {
 			   	include 'mobile.php';	

@@ -41,9 +41,10 @@ public function index()
             $subject = 'Grokki.com Email Confirmation';
             $message = 'Thanks for signing up for Grokki.com. Click the link below to validate the email used to register. <br><br>' . anchor('/email/confirmation_email/' . $validation_string, 'Click here to validate email.') . '<br><br>Regards, <br>The Grokki.com team';
 
+            $this->output->nocache(); // set http header to disable caching if user hits back button
             if ($this->form_validation->run() === FALSE)
                 {
-	
+
 				   include 'mobile.php';	
 				   if(Mobile::is_mobile()) {
 		               $this->load->view('mobile/m_signup');
@@ -72,6 +73,7 @@ public function index()
                             $this->Signup_model->register_user($validation_string);
                             $this->send_grok_email($email_to, $subject, $message);
                             $results['categories'] = $this->Signup_model->load_business_categories();
+
 
 						   include 'mobile.php';	
 						   if(Mobile::is_mobile()) {
@@ -111,10 +113,11 @@ public function business_reg()
             $this->form_validation->set_rules('lname', 'Last Name', 'trim|xss_clean|min_length[2]|max_length[50]|required');
             $this->form_validation->set_rules('tags', 'Tags', 'trim|xss_clean|min_length[4]|max_length[75]|required');
 
-
+            $this->output->nocache(); // set http header to disable caching if user hits back button
             if ($this->form_validation->run() === FALSE)
                 {
                     $results['categories'] = $this->Signup_model->load_business_categories();
+
 
 					include 'mobile.php';	
 					if(Mobile::is_mobile()) {
