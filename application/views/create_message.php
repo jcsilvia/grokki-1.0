@@ -1,37 +1,30 @@
 <?php $this->load->helper('form'); ?>
 
 <div class="main-content">
-
-    <h1>Compose New Message</h1><br>
+<div class="content">
+    <div class="title"><h1>Compose New Message</h1></div>
 
 
     <?php echo form_open('home/create_message') ?>
 
-    <div style="position:relative;   height: 200px; width: 595px;
-    padding-left:5px;
-    padding-right:5px;
-    background-color:#d3d3d3;
-    border-style:solid;
-    border-width:thin;
-    border-color:black;
-    border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;">
+    <div class="new_message_form">
 
-        <div style="position:absolute; top:0;left:50;">
+        <div>
             <p>
-            <label for="category">Message Category:</label>
+            <label for="category">Category:</label>
             <?php echo form_dropdown('category', $categories, set_value('category'), 'id="category"') ?>
             <?php echo form_error('category'); ?>
             </p>
         </div>
 
-        <div style="position:absolute; top:50;left:50;">
+        <div>
             <p>
                 <label for="city">Near City:</label>
                 <input type="text" name="city" size="25" value="<?php echo $city->city; ?>" />
                 <?php echo form_error('city'); ?>
             </p>
         </div>
-        <div style="position:absolute; top:50;left:325;">
+        <div style="position: absolute; top:80; right: 150;">
             <p><label for="state">State:</label>
 
 
@@ -101,22 +94,25 @@
             </p>
         </div>
 
-        <div class="message_form" style="position:absolute; top:100; left:50; ">
+        <div class="message_textarea">
             <p>
-                <textarea name="content" style="width:500px;height:70px;border:1px solid;border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;" onfocus="this.value=''; setbg('#e5fff3');" onblur="setbg('white')">Enter your message here...
+                <textarea name="content" style="width:475px;height:80px;border:1px solid;border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;" onfocus="this.value=''; setbg('#e5fff3');" onblur="setbg('white')">Enter your message here...
                 </textarea>
                 <?php echo form_error('content'); ?>
             </p>
+
         </div>
         <input type="hidden" name="senderid" value="<?php  echo $this->session->userdata('memberid'); ?>">
 
 
 
     </div>
-    <div style="position: absolute;top:300;left:50;">
+    <div>
         <p>
-            <input class="button_login_form" type="submit" name="submit" value="Send Message" />
+            <input class="button_signup_form" type="submit" name="submit" value="Send Message" />
         </p>
     </div>
 
     <?php echo form_close() ?>
+
+</div>

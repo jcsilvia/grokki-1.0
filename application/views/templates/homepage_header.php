@@ -50,7 +50,8 @@
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 </script>
-<div class="container">
+<div class="wrap">
+
     <div class="header">
         <div class="logo" align="left">
             <img src="/images/grokki_logo_icon_red.gif" alt="grokki logo">

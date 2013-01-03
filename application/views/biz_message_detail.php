@@ -6,14 +6,14 @@
 
 
 <div class="main-content">
+    <div class="content">
+        <div class="home_title"><h1>Messages</h1></div>
 
-    <h1>Messages</h1><br>
-
-    <div style="position: absolute;top:60;left:25;"><p><b>From:</b></p></div><div style="position: absolute;top:60;left:300;"><p><b>Category:</b></b></p></div><div style="position: absolute;top:60;left:655;"><p><b>Received:</b></p></div>
 
 
     <div class="profile-window">
 
+        <div style="text-align:left;"><p><b>From:</b></p></div><div style="text-align:center; position:absolute;left:320;top:44;"><p><b>Category:</b></b></p></div><div style="text-align: right; position:absolute;right:50;top:44;"><p><b>Received:</b></p></div>
 
 
 
@@ -24,7 +24,7 @@
             <div style="text-align: right; position:absolute;top:20;"><a href="javascript:history.back()">Back</a></div>
             <div style="text-align: center; position:absolute;right:0;top:20;"><a href="/home/delete_message/<?php echo $messages->MessageId ?>">Delete</a></div>
             <div style="text-align: left; position: absolute;left:275;top:20;"><a href="/home/reply_message/<?php echo $messages->MessageId ?>">Reply</a></div>
-            <div style="text-align: left; position: absolute; left:0;top: 40;">Message: <?php  echo $messages->Content ?></div>
+            <div style="text-align: left; position: absolute; left:0;top: 50;">Message: <?php  echo $messages->Content ?></div>
 
             <div style="border-color:#808080;border-width:thin;border-top-style: solid;position:absolute; top:140;left:0;width: 710px"></div>
             <div style="text-align: left;position:absolute;left:0;top:150;">Business: <?php echo $business->BusinessName ?></div>
@@ -46,7 +46,7 @@
 
     </div>
 
-    <div style="position:absolute; left:80;top:375;">
+        <div class="map_window">
 
         <?php
             echo '<img border="0" src="//maps.googleapis.com/maps/api/staticmap?center=';
@@ -56,3 +56,4 @@
         ?>
 
     </div>
+        <div style="min-height: 50px;"><p></p></div>

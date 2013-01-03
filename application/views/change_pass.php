@@ -1,12 +1,13 @@
 <?php $this->load->helper('form'); ?>
 
-<div class="main-content" xmlns="http://www.w3.org/1999/html">
+<div class="main-content">
+    <div class="content">
 
-    <h1>Settings - Change Password</h1><br>
+    <div class="title"><h1>Settings - Change Password</h1></div>
 
     <?php echo form_open('settings/change_password') ?>
 
-    <div style="text-align: right; position:absolute;top:100;left:475;"><p><a href="javascript:history.back()">Back</a></p></div>
+    <div style="text-align: right; position:absolute;top:45;right:200;"><p><a href="javascript:history.back()">Back</a></p></div>
     <div class="form" >
         <p>
             <label for="username">Previous Password:</label>
@@ -31,10 +32,12 @@
     </div>
     <div>
         <p>
-            <input class="button" type="submit" name="submit" value="Update Password" />
+            <input class="button_login_form" type="submit" name="submit" value="Update Password" />
         </p>
     </div>
 
 
 
     <?php echo form_close() ?>
+
+    </div>

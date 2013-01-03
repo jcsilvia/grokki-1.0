@@ -1,12 +1,13 @@
 <?php $this->load->helper('form'); ?>
 
 <div class="main-content">
+    <div class="content">
 
-    <h1>Profile Settings</h1><br>
+        <div class="title"><h1>Profile Settings</h1></div>
 
     <?php echo form_open('settings/index') ?>
 
-    <div style="text-align: right; position:absolute;top:100;left:475;"><p><a href="javascript:history.back()">Back</a></p></div>
+    <div style="text-align: right; position:absolute;top:45;right:200;"><p><a href="javascript:history.back()">Back</a></p></div>
     <div class="form" >
         <p>
             <label for="username">Username:</label>
@@ -29,10 +30,11 @@
     </div>
     <div>
         <p>
-            <input class="button" type="submit" name="submit" value="Update Profile" />
+            <input class="button_signup_form" type="submit" name="submit" value="Update Profile" />
         </p>
     </div>
 
 
 
     <?php echo form_close() ?>
+   </div>

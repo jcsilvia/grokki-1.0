@@ -6,8 +6,8 @@
 
 
 <div class="main-content">
-
-    <h1>Connections - Profile for <?php  echo $profile->BusinessName ?></h1><br>
+<div class="content">
+    <div class="home_title"><h1>Connections - Profile for <?php  echo $profile->BusinessName ?></h1></div>
 
 
 <div class="profile-window">
@@ -70,7 +70,7 @@
 
 
 </div>
-    <div style="position:absolute; left:80;top:375;">
+    <div class="map_window">
 
         <?php
         echo '<img border="0" src="//maps.googleapis.com/maps/api/staticmap?center=';
@@ -81,7 +81,7 @@
 
     </div>
 
-    <div style="position:absolute;left:80;top:700;">
+    <div class="review_window">
         <?php foreach ($reviews as $review): ?>
             <div style="position:relative; border-bottom: #000000; border-bottom-style: solid; border-bottom-width: 1; width: 500;">
             <div><p><b>Reviewer:</b> <?php  echo $review['Reviewer'] ?> </p></div>
@@ -90,3 +90,5 @@
             </div>
         <?php endforeach ?>
     </div>
+</div>
+<div style="min-height: 50px;"><p></p></div>

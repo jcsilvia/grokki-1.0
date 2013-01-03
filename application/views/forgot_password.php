@@ -2,11 +2,13 @@
 
 <div class="main-content">
 
+    <div class="content">
+
     <?php echo form_open('/login/forgot_password') ?>
 
 
 
-    <div class="content_text">
+    <div class="title">
         <h1>Forgot your password?</h1>
     </div>
     <div class="login_form" >
@@ -26,3 +28,5 @@
 
 
     <?php echo form_close() ?>
+
+    </div>

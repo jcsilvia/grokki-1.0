@@ -24,7 +24,7 @@ public function index()
 
                 //config for pagination class
                 $config['base_url'] = base_url() . "search/results";
-                $config['per_page'] = 6;
+                $config['per_page'] = 10;
                 $config['uri_segment'] = 3;
                 $config['next_link'] = '>';
                 $config['prev_link'] = '<';

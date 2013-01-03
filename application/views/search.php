@@ -1,36 +1,29 @@
 <?php $this->load->helper('form'); ?>
 
 <div class="main-content">
-
-    <h1>What are you looking for?</h1><br>
+<div class="content">
+  <div class="title">  <h1>What are you looking for?</h1></div>
 
 
     <?php echo form_open('search') ?>
 
-    <div style="position:relative;   height: 175px; width: 595px;
-    padding-left:5px;
-    padding-right:5px;
-    background-color:#d3d3d3;
-    border-style:solid;
-    border-width:thin;
-    border-color:black;
-    border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;">
+    <div class="new_message_form">
 
-        <div style="position:absolute; top:0;left:50;">
+        <div>
             <p>
                 <label for="category">Search Category:</label>
                 <?php echo form_dropdown('category', $categories, set_value('category'), 'id="category"') ?>
                 <?php echo form_error('category'); ?>
             </p>
         </div>
-        <div style="position:absolute; top:50;left:50;">
+        <div>
             <p>
                 <label for="city">Near City:</label>
                 <input type="text" name="city" size="25" value="<?php echo $city->city; ?>" />
                 <?php echo form_error('city'); ?>
             </p>
         </div>
-        <div style="position:absolute; top:50;left:325;">
+        <div style="position: absolute; top:80; right: 150;">
             <p><label for="state">State:</label>
 
 
@@ -99,9 +92,9 @@
                 <?php echo form_error('state'); ?>
             </p>
         </div>
-        <div class="message_form" style="position:absolute; top:100; left:50; ">
+        <div class="search_textbox">
             <p>
-                <input type="text" name="content" value=" Enter business name or search terms here..." style="width:400px;height:25px;border:1px solid;border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;" onfocus="this.value=''; setbg('#e5fff3');" onblur="setbg('white')">
+                <input type="text" name="content" value=" Enter business name or search terms here..." style="width:400px;height:25px;border:1px solid;border-radius: 5px 5px 5px 5px; -moz-border-radius: 5px 5px 5px 5px; -webkit-border-radius: 5px 5px 5px 5px;" onfocus="this.value=''; setbg('#e5fff3');" onblur="setbg('white')">
                 <?php echo form_error('content'); ?>
             </p>
         </div>
@@ -110,11 +103,12 @@
 
 
     </div>
-    <div style="position: absolute;top:275;left:50;">
+    <div>
         <p>
-            <input class="button_login_form" type="submit" name="submit" value="Search" />
+            <input class="button_signup_form" type="submit" name="submit" value="Search" />
         </p>
     </div>
 
     <?php echo form_close() ?>
 
+</div>

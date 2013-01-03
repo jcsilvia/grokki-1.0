@@ -2,11 +2,14 @@
 
 <div class="main-content">
 
+<div class="content">
+
+
 <?php echo form_open('signup/index') ?>
 
 
-
-<div><h1>Sign up with Grokki today.</h1></div>
+<div>
+<div class="title"><h1>Sign up with Grokki today.</h1></div>
 <div class="form" >
 <p>
 <label for="username">Username</label>
@@ -38,9 +41,11 @@
 </div>
 <div>
 <p>
-<input class="button" type="submit" name="submit" value="Create my account" />
+<input class="button_signup_form" type="submit" name="submit" value="Create my account" />
 </p>
+</div>
 </div>
 <?php echo form_close() ?>
 
 
+</div>

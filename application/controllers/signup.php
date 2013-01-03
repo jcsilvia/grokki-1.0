@@ -108,7 +108,7 @@ public function business_reg()
             $this->form_validation->set_rules('address2', 'Address 2', 'trim|xss_clean|max_length[50]');
             $this->form_validation->set_rules('city', 'City', 'trim|xss_clean|max_length[50]|required');
             $this->form_validation->set_rules('state', 'State', 'trim|xss_clean|required');
-            $this->form_validation->set_rules('phone', 'Phone', 'trim|xss_clean|min_length[10]|max_length[11]|required');
+            $this->form_validation->set_rules('phone', 'Phone', 'trim|xss_clean|min_length[10]|max_length[10]|required');
             $this->form_validation->set_rules('fname', 'First Name', 'trim|xss_clean|min_length[2]|max_length[50]|required');
             $this->form_validation->set_rules('lname', 'Last Name', 'trim|xss_clean|min_length[2]|max_length[50]|required');
             $this->form_validation->set_rules('tags', 'Tags', 'trim|xss_clean|min_length[4]|max_length[75]|required');

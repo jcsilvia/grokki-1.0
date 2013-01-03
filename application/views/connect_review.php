@@ -6,12 +6,14 @@
 
 <div class="main-content">
 
-    <h1>Connections - Rate / Review <?php if (isset($profile->BusinessName)) {echo $profile->BusinessName;}?></h1><br>
+    <div class="content">
 
-    <div style="position: absolute;top:60;left:25;"><p><b>Business:</b></p></div><div style="position: absolute;top:60;left:300;"><p><b>Category:</b></b></p></div><div style="position: absolute;top:60;left:655;"><p><b>Location:</b></p></div>
+    <div class="home_title"><h1>Connections - Rate / Review <?php if (isset($profile->BusinessName)) {echo $profile->BusinessName;}?></h1></div>
+
 
 
     <div class="messages-window">
+        <div style="text-align:left;"><p><b>Business:</b></p></div><div style="text-align:center; position:absolute;left:320;top:44;"><p><b>Category:</b></b></p></div><div style="text-align: right; position:absolute;right:50;top:44;"><p><b>Location:</b></p></div>
 
 
         <div class="message-detail">
@@ -29,10 +31,10 @@
 
     <?php echo form_open('connect/review') ?>
 
-    <div style="position:relative;">
-        <div class="message_form" style="position:absolute; top:20; left:110; ">
+    <div>
+        <div class="message_form">
             <p>Rating:</p>
-                <div style="position:absolute; top:13; left:50;">
+                <div style="position: absolute; left:200; top:165;">
                 <input name="rating" type="radio" class="star" value="1"/>
                 <input name="rating" type="radio" class="star" value="2"/>
                 <input name="rating" type="radio" class="star" value="3" checked="checked"/>
@@ -42,16 +44,16 @@
 
 
             <div>
-                    <textarea name="content" style="width:500px;height:70px;border:1px solid;border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;" onfocus="this.value=''; setbg('#e5fff3');" onblur="setbg('white')">Enter your review here...
+                <textarea name="content" style="width:500px;height:70px;border:1px solid;border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;" onfocus="this.value=''; setbg('#e5fff3');" onblur="setbg('white')">Enter your review here...
                 </textarea>
                 <?php echo form_error('content'); ?>
-                </div>
+             </div>
 
         </div>
         <input type="hidden" name="senderid" value="<?php  echo $this->session->userdata('memberid') ?>">
 
         <input type="hidden" name="associateid" value="<?php  echo $profile->MemberId ?>">
-        <div style="position: absolute;top:130;left:110;">
+        <div>
             <p>
                 <input class="button_login_form" type="submit" name="submit" value="Submit Review" />
             </p>
@@ -60,3 +62,5 @@
 
 
     <?php echo form_close() ?>
+
+    </div>

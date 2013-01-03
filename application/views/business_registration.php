@@ -2,30 +2,14 @@
 
 <div class="main-content">
 
+<div class="content">
 <?php echo form_open('signup/business_reg') ?>
 
 
 <div class="form-container">
-    <div><h1>Your business account has been created.</h1></div>
-    <div><p>Now we just need a few more details about your business and we'll be ready to<br> start connecting you with consumers in your area.</p></div>
-        <div class="marketing-text" style="
-        font-size:.95em;
-        color:white;
-        position:absolute;
-        left:550;
-        top:85;
-        width:250px;
-        padding:5px;
-        background-color:rgba(0,0,0,0.85);
-        border-style:solid;
-        border-width:thin;
-        border-color:black;
-        border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;">
-            <p><b>70% of all mobile searches</b> <br>result in action within 1 hour. 70% of online searches result in action in one month. (Mobile Marketer, 2012)<p/>
-            <p><b>9 out of 10 mobile searches</b> <br>lead to action, over half leading to purchase. (Search Engine Land, 2012)</p>
-            <p><b>61% of local searches</b> <br>on a mobile phone result in a phone call. (Google, 2012)</p>
-            <p><b>52% of all mobile ads</b> <br>result in a phone call. (xAd, 2012)</p>
-        </div>
+    <div class="title"><h1>Your business account has been created.</h1></div>
+    <div class="title"><p>Now we just need a few more details about your business and we'll be ready to<br> start connecting you with consumers in your area.</p></div>
+
     <div class="form" >
         <p>
             <label for="businessname">Business Name</label>
@@ -136,9 +120,11 @@
 
     <div>
         <p>
-            <input class="button" type="submit" name="submit" value="Complete my registration" />
+            <input class="button_signup_form" type="submit" name="submit" value="Complete my registration" />
         </p>
     </div>
+
     </div>
 <?php echo form_close() ?>
-
+<div style="min-height: 50px;"><p></p></div>
+</div>

@@ -1,12 +1,11 @@
 <div class="main-content">
+<div class="content">
+    <div class="home_title"><h1>Messages</h1></div>
 
-    <h1>Messages</h1><br>
 
-
-    <div style="position: absolute;top:60;left:25;"><p><b>From:</b></p></div><div style="position: absolute;top:60;left:300;"><p><b>Category:</b></b></p></div><div style="position: absolute;top:60;left:655;"><p><b>Received:</b></p></div>
 
     <div class="messages-window">
-
+        <div style="text-align:left;"><p><b>From:</b></p></div><div style="text-align:center; position:absolute;left:320;top:44;"><p><b>Category:</b></b></p></div><div style="text-align: right; position:absolute;right:50;top:44;"><p><b>Received:</b></p></div>
 
 
 
@@ -26,7 +25,9 @@
                     }
                 ?>
             </div>
-            <div style="text-align: left; position: absolute; left:0;top: 40;">Message: <?php  echo $messages->Content ?></div>
+            <div style="text-align: left; position: absolute; left:0;top: 50; width:700;">Message: <?php  echo $messages->Content ?>
+
+            </div>
 
 
         </div>
@@ -40,3 +41,4 @@
 
 
     </div>
+</div>

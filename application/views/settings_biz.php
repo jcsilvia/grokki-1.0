@@ -1,8 +1,9 @@
 <?php $this->load->helper('form'); ?>
 
 <div class="main-content">
+    <div class="content">
 
-    <h1>Profile Settings</h1><br>
+    <div class="title"><h1>Profile Settings</h1></div>
 
     <?php echo form_open('settings/index') ?>
 
@@ -143,7 +144,7 @@
     </div>
     <div>
         <p>
-            <input class="button" type="submit" name="submit" value="Update Profile" />
+            <input class="button_signup_form" type="submit" name="submit" value="Update Profile" />
         </p>
     </div>
 
@@ -151,3 +152,5 @@
 
     <?php echo form_close() ?>
 
+    </div>
+    <div style="min-height: 50px;"><p></p></div>
