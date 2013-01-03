@@ -385,3 +385,11 @@ p {
     margin-left: auto;
     margin-right: auto;
 }
+
+.connect-detail {
+    position:relative;
+    border-color:#808080;
+    border-width:thin;
+    border-bottom-style: solid;
+    height:65px;
+}

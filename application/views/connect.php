@@ -14,7 +14,7 @@
         ?>
         <?php foreach ($connections as $connection): ?>
 
-        <div class="message-detail">
+        <div class="connect-detail">
             <div style="text-align:left;"> <?php  echo $connection['BusinessName'] ?></div>
             <div style="text-align:center; position:absolute;left:275;top:0;"> <?php  echo $connection['CategoryName'] ?></div>
             <div style="text-align: right; position:absolute;right:0;top:0;"> <?php  echo $connection['City']; echo ', '; echo $connection['State']; ?></div>
