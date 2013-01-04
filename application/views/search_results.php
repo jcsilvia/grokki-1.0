@@ -8,17 +8,16 @@
 <div class="main-content">
     <div class="content">
 
-<div class="home_title"><h1>Search Results for "<?php echo $this->session->userdata('terms') ?>" near <?php echo $this->session->userdata('city'); ?>, <?php echo $this->session->userdata('state') ?> </h1></div>
-
-
 
 <div class="search_result_box">
+    <div class="search_title"><h1>Search Results for "<?php echo $this->session->userdata('terms') ?>" near <?php echo $this->session->userdata('city'); ?>, <?php echo $this->session->userdata('state') ?> </h1></div>
+
 <p>
 <?php if (count($searches) < 1)
     echo '<div class="text" style="font-weight: bold; text-align: center; padding-top: 10;">There are no results.</div>';
 ?>
 <?php
-    echo '<div class="text" style="font-weight: bold; text-align: center; padding-top: 10; padding-bottom: 10"><a href="/search">Perform Another Search</a></div>';
+    echo '<div class="text" style="font-weight: bold; text-align: center; padding-bottom: 15"><a href="/search">Perform Another Search</a></div>';
 ?>
 <?php foreach ($searches as $search): ?>
 
@@ -44,7 +43,7 @@
     </div>
     <div style="position: absolute; top: 2;right:200;">
         <?php if ($search['Order']== 1 && $search['SourceId']) {
-        echo '<img border="0" src="//maps.googleapis.com/maps/api/staticmap?center=';
+        echo '<img border="1" src="//maps.googleapis.com/maps/api/staticmap?center=';
         echo $search['Address']; echo ','; echo $search['City']; echo ','; echo $search['State'];
         echo '&markers=color:red%7Clabel:G%7C'; echo $search['Address']; echo ','; echo $search['City']; echo ','; echo $search['State'];
         echo '&zoom=15&size=295x90&key=AIzaSyBOIxN_iEcuMDdEz5xesWkGjCyxqHZXRpE&sensor=false" />';

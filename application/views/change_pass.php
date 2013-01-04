@@ -3,12 +3,13 @@
 <div class="main-content">
     <div class="content">
 
-    <div class="title"><h1>Settings - Change Password</h1></div>
+
 
     <?php echo form_open('settings/change_password') ?>
 
-    <div style="text-align: right; position:absolute;top:45;right:200;"><p><a href="javascript:history.back()">Back</a></p></div>
+    <div style="text-align: right; position:absolute;top:60;right:170;"><p><a href="javascript:history.back()">Back</a></p></div>
     <div class="form" >
+        <div class="title"><h1>Change Password</h1></div>
         <p>
             <label for="username">Previous Password:</label>
             <input type="password" name="oldpassword" size="20" value="<?php echo set_value('oldpassword'); ?>"/>

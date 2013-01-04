@@ -2,14 +2,15 @@
 
 <div class="main-content">
 
+    <div style="min-height: 50px;"></div>
+
     <?php echo form_open('/login/reset_password') ?>
 
 
-
-    <div class="content_text">
-        <h1>Change your password.</h1>
-    </div>
     <div class="login_form" >
+        <div class="content_text">
+            <h1>Change your password.</h1>
+        </div>
         <p>
             <label for="password1">Enter new password</label>
             <input type="text" name="password1" size="20" value="<?php echo set_value('password1'); ?>"/>

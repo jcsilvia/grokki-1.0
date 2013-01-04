@@ -3,12 +3,12 @@
 <div class="main-content">
     <div class="content">
 
-    <div class="title"><h1>Profile Settings</h1></div>
 
     <?php echo form_open('settings/index') ?>
 
 
     <div class="form" >
+        <div class="title"><h1>Profile Settings</h1></div>
         <p>
             <label for="username">Username:</label>
             <input type="text" name="username" size="20" value="<?php if (isset($username)) echo set_value('username',$username); ?>"/>
@@ -153,4 +153,4 @@
     <?php echo form_close() ?>
 
     </div>
-    <div style="min-height: 50px;"><p></p></div>
+    <div style="min-height: 50px;"></div>

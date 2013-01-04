@@ -4,13 +4,15 @@
 
 <div class="content">
 
+    <div style="min-height: 50px;"></div>
 
 <?php echo form_open('signup/index') ?>
 
 
 <div>
-<div class="title"><h1>Sign up with Grokki today.</h1></div>
+
 <div class="form" >
+    <div class="title"><h1>Sign up with Grokki today.</h1></div>
 <p>
 <label for="username">Username</label>
 <input type="text" name="username" size="20" value="<?php echo set_value('username'); ?>"/>
@@ -49,3 +51,4 @@
 
 
 </div>
+    <div style="min-height: 50px;"><p></p></div>

@@ -2,13 +2,13 @@
 
 <div class="main-content">
 <div class="content">
-    <div class="title"><h1>Compose New Message</h1></div>
+
 
 
     <?php echo form_open('home/create_message') ?>
 
     <div class="new_message_form">
-
+        <div class="title"><h1>Compose New Message</h1></div>
         <div>
             <p>
             <label for="category">Category:</label>
@@ -116,3 +116,4 @@
     <?php echo form_close() ?>
 
 </div>
+    <div style="min-height: 50px;"></div>

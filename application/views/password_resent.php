@@ -2,7 +2,7 @@
 
 <div class="content">
 
-<div style="min-height: 100px;"><p></p></div>
+<div style="min-height: 100px;"></div>
 
     <div class="password_resent">
         <h1>We've sent password reset instructions to your email address.</h1>

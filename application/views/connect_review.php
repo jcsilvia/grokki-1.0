@@ -8,12 +8,11 @@
 
     <div class="content">
 
-    <div class="home_title"><h1>Connections - Rate / Review <?php if (isset($profile->BusinessName)) {echo $profile->BusinessName;}?></h1></div>
-
 
 
     <div class="messages-window">
-        <div style="text-align:left;"><p><b>Business:</b></p></div><div style="text-align:center; position:absolute;left:320;top:44;"><p><b>Category:</b></b></p></div><div style="text-align: right; position:absolute;right:50;top:44;"><p><b>Location:</b></p></div>
+        <div class="home_title"><h1>Rate and Review <?php if (isset($profile->BusinessName)) {echo $profile->BusinessName;}?></h1></div>
+        <div style="text-align:left;"><p><b>Business:</b></p></div><div style="text-align:center; position:absolute;left:320;top:55;"><p><b>Category:</b></b></p></div><div style="text-align: right; position:absolute;right:50;top:55;"><p><b>Location:</b></p></div>
 
 
         <div class="message-detail">
@@ -27,14 +26,14 @@
         </div>
 
 
-    </div>
+
 
     <?php echo form_open('connect/review') ?>
 
     <div>
         <div class="message_form">
             <p>Rating:</p>
-                <div style="position: absolute; left:200; top:165;">
+                <div style="position: absolute; left:200; top:159;">
                 <input name="rating" type="radio" class="star" value="1"/>
                 <input name="rating" type="radio" class="star" value="2"/>
                 <input name="rating" type="radio" class="star" value="3" checked="checked"/>
@@ -55,12 +54,13 @@
         <input type="hidden" name="associateid" value="<?php  echo $profile->MemberId ?>">
         <div>
             <p>
-                <input class="button_login_form" type="submit" name="submit" value="Submit Review" />
+                <input class="button_review_form" type="submit" name="submit" value="Submit Review" />
             </p>
         </div>
     </div>
-
+    </div>
 
     <?php echo form_close() ?>
 
     </div>
+    <div style="min-height: 50px;"></div>

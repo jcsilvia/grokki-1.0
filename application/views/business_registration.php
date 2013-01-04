@@ -3,14 +3,16 @@
 <div class="main-content">
 
 <div class="content">
+    <div style="min-height: 50px;"></div>
 <?php echo form_open('signup/business_reg') ?>
 
 
 <div class="form-container">
-    <div class="title"><h1>Your business account has been created.</h1></div>
-    <div class="title"><p>Now we just need a few more details about your business and we'll be ready to<br> start connecting you with consumers in your area.</p></div>
+
 
     <div class="form" >
+        <div class="title"><h1>Your business account has been created.</h1>
+        <p>Now we just need a few more details about your business and we'll be ready to<br> start connecting you with consumers in your area.</p></div>
         <p>
             <label for="businessname">Business Name</label>
             <input type="text" name="businessname" size="50" value="<?php echo set_value('businessname'); ?>"/>
@@ -126,5 +128,6 @@
 
     </div>
 <?php echo form_close() ?>
-<div style="min-height: 50px;"><p></p></div>
+
 </div>
+    <div style="min-height: 50px;"></div>

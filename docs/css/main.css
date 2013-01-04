@@ -4,6 +4,10 @@ html, body {
     height:100%;
 }
 
+body {
+    background-color: #A2BD62;
+
+}
 
 .wrap {
     min-height: 100%;
@@ -21,8 +25,8 @@ html, body {
     height:80px;
     margin-top:-80px;
     position: relative;
-    background-color:rgba(0,0,0,0.85);
-    border-radius: 10px 10px 0px 0px; -moz-border-radius: 10px 10px 0px 0px; -webkit-border-radius: 10px 10px 0px 0px;
+    background-color:rgba(0,0,0,.99);
+    box-shadow: 0px -6px 2px rgba(0,0,0,0.4); -moz-box-shadow: 0px -6px 2px rgba(0,0,0,0.4); -webkit-box-shadow: 0px -6px 2px rgba(0,0,0,0.4);
 }
 
 .footer a:link {text-decoration:none;color:white;}
@@ -31,11 +35,12 @@ html, body {
 .footer a:active {text-decoration:none;color:white;}
 
 .header {
-    background-color: rgba(0,0,0,0.85);
+    background-color: rgba(0,0,0,.99);
     border-radius: 0px 0px 10px 10px; -moz-border-radius: 0px 0px 10px 10px; -webkit-border-radius: 0px 0px 10px 10px;
-    height: 40px;
+    height: 44px;
     width: 100%;
     margin:0;
+    box-shadow: 0px 5px 2px rgba(0,0,0,0.4); -moz-box-shadow: 0px 5px 2px rgba(0,0,0,0.4); -webkit-box-shadow: 0px 5px 2px rgba(0,0,0,0.4);
 }
 
 .header a:link {text-decoration:none;color:white;}
@@ -72,13 +77,14 @@ p {
 
 .logo {
     padding-left:10px;
+    padding-top: 2px;
 }
 
 .logout {
     color:white;
     font-family:"helvetica",sans-serif;
     padding-right:10px;
-    padding-top: 10px;
+    padding-top: 12px;
     font-size:1em;
     font-weight: bold;
     position:absolute;
@@ -90,7 +96,7 @@ p {
     color:white;
     font-family:"helvetica",sans-serif;
     padding-right:10px;
-    padding-top: 10px;
+    padding-top: 12px;
     font-size:1em;
     font-weight: bold;
     position:absolute;
@@ -101,31 +107,39 @@ p {
 .button {
     font-size:1.25em;
     font-family:"helvetica",sans-serif;
-    background-color:#d3d3d3;
+    background-color:#6495ed;
     border:1px solid;
     border-radius: 5px 5px 5px 5px;
     left: 50px;
+    color:#ffffff;
+    border-color: #000000;
 }
 
 .login_button {
-    font-size:1em;
+    font-size:1.15em;
     font-family:"helvetica",sans-serif;
-    background-color:#d3d3d3;
+    background-color:#6495ed;
     border:1px solid;
     border-radius: 5px 5px 5px 5px;
     left: 50px;
+    color:#ffffff;
+    border-color: #000000;
 }
 
 .button:hover {
-    background-color:#a9a9a9;
+    background-color:#1e90ff;
+    color:#ffffff;
+    border-color: #000000;
 }
 
 .login_button:hover {
-    background-color:#a9a9a9;
+    background-color:#1e90ff;
+    color:#ffffff;
+    border-color: #000000;
 }
 .username {
     position:absolute;
-    top:40;
+    top:48;
     right:10;
     width:175px;
     text-align: right;
@@ -136,7 +150,7 @@ p {
 
 .flashMsg {
     position:absolute;
-    top:28;
+    top:36;
     right:100;
     width:250px;
     text-align: right;
@@ -154,8 +168,11 @@ p {
     color:white;
     font-family:"helvetica",sans-serif;
     font-size:0.9em;
-    position: relative;
-    text-align: center;
+    position: absolute;
+    text-align: left;
+    bottom: 5px;
+    left:5px;
+    min-width:33%;
 }
 
 .support{
@@ -163,15 +180,21 @@ p {
     font-family:"helvetica",sans-serif;
     font-size:0.9em;
     position: relative;
+    top: 45px;
     text-align: center;
+    min-width:33%;
+
 }
 
 .copyright {
     color:white;
     font-family:"helvetica",sans-serif;
     font-size:0.9em;
-    position: relative;
-    text-align: center;
+    position: absolute;
+    text-align: right;
+    bottom: 5px;
+    right:5px;
+    min-width:33%;
 }
 
 .content {
@@ -192,9 +215,9 @@ p {
     margin-left: auto;
     margin-right: auto;
     width:710px;
-    min-height: 150px;
+    min-height: 200px;
     padding:5px;
-    background-color:#d3d3d3;
+    background-color:#ffffff;
     border-style:solid;
     border-width:thin;
     border-color:black;
@@ -217,7 +240,7 @@ p {
     margin-right: auto;
     padding: 5px;
     width:500px;
-    background-color:#d3d3d3;
+    background-color:#ffffff;
     border-style:solid;
     border-width:thin;
     border-color:black;
@@ -227,16 +250,19 @@ p {
 .button_login_form {
     position: absolute;
     left:145px;
-    font-size:1.25em;
+    font-size:1.15em;
     font-family:"helvetica",sans-serif;
-    background-color:#d3d3d3;
+    background-color:#6495ed;
     border:1px solid;
     border-radius: 5px 5px 5px 5px;
-
+    color:#ffffff;
+    border-color: #000000;
 }
 
 .button_login_form:hover {
-    background-color:#a9a9a9;
+    background-color:#1e90ff;
+    color:#ffffff;
+    border-color: #000000;
 }
 
 .title {
@@ -244,6 +270,9 @@ p {
     width:500px;
     margin-left: auto;
     margin-right: auto;
+    border-bottom: #808080;
+    border-width:thin;
+    border-bottom-style: solid;
 }
 
 .form {
@@ -252,7 +281,7 @@ p {
     width:500px;
     padding-left:5px;
     padding-right:5px;
-    background-color:#d3d3d3;
+    background-color:#ffffff;
     border-style:solid;
     border-width:thin;
     border-color:black;
@@ -262,21 +291,23 @@ p {
 .button_signup_form {
     position: absolute;
     left:145px;
-    font-size:1.25em;
+    font-size:1.15em;
     font-family:"helvetica",sans-serif;
-    background-color:#d3d3d3;
+    background-color:#6495ed;
     border:1px solid;
     border-radius: 5px 5px 5px 5px;
-
+    color:#ffffff;
+    border-color: #000000;
 }
 
 .button_signup_form:hover {
-    background-color:#a9a9a9;
+    background-color:#1e90ff;
+    color:#ffffff;
+    border-color: #000000;
 }
 
 .password_resent {
     width:650px;
-
     margin-top: auto;
 
 }
@@ -296,9 +327,12 @@ p {
 
 .home_title {
 
-    width:720px;
+    width:710px;
     margin-left: auto;
     margin-right: auto;
+    border-bottom: #808080;
+    border-width:thin;
+    border-bottom-style: solid;
 }
 
 .message_form {
@@ -311,9 +345,9 @@ p {
     margin-left: auto;
     margin-right: auto;
     width:710px;
-    min-height: 250px;
+    min-height: 300px;
     padding:5px;
-    background-color:#d3d3d3;
+    background-color:#ffffff;
     border-style:solid;
     border-width:thin;
     border-color:black;
@@ -341,7 +375,7 @@ p {
     width: 500px;
     padding-left:5px;
     padding-right:5px;
-    background-color:#d3d3d3;
+    background-color:#ffffff;
     border-style:solid;
     border-width:thin;
     border-color:black;
@@ -376,7 +410,8 @@ p {
 }
 
 .search_result_box {
-    background-color:#d3d3d3;border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;
+    background-color:#ffffff;
+    border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;
     min-height: 100px;
     width: 700px;
     border-style:solid;
@@ -384,6 +419,7 @@ p {
     border-color:black;
     margin-left: auto;
     margin-right: auto;
+    padding:5px;
 }
 
 .connect-detail {
@@ -392,4 +428,33 @@ p {
     border-width:thin;
     border-bottom-style: solid;
     height:65px;
+}
+
+.button_review_form {
+    position: absolute;
+    left:39px;
+    top:295px;
+    font-size:1.15em;
+    font-family:"helvetica",sans-serif;
+    background-color:#6495ed;
+    border:1px solid;
+    border-radius: 5px 5px 5px 5px;
+    color:#ffffff;
+    border-color: #000000;
+}
+
+.button_review_form:hover {
+    background-color:#1e90ff;
+    color:#ffffff;
+    border-color: #000000;
+}
+
+.search_title {
+
+    width:700px;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: #808080;
+    border-width:thin;
+    border-bottom-style: solid;
 }

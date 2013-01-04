@@ -4,14 +4,15 @@
 
     <div class="content">
 
+        <div style="min-height: 50px;"></div>
+
     <?php echo form_open('/login/forgot_password') ?>
 
 
-
-    <div class="title">
-        <h1>Forgot your password?</h1>
-    </div>
     <div class="login_form" >
+        <div class="title">
+            <h1>Forgot your password?</h1>
+        </div>
         <p>
             <label for="username">Enter username or email</label>
             <input type="text" name="username" size="50" value="<?php echo set_value('username'); ?>"/>

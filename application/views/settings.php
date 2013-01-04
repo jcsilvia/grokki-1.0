@@ -3,12 +3,13 @@
 <div class="main-content">
     <div class="content">
 
-        <div class="title"><h1>Profile Settings</h1></div>
+
 
     <?php echo form_open('settings/index') ?>
 
-    <div style="text-align: right; position:absolute;top:45;right:200;"><p><a href="javascript:history.back()">Back</a></p></div>
+    <div style="text-align: right; position:absolute;top:60;right:170;"><p><a href="javascript:history.back()">Back</a></p></div>
     <div class="form" >
+        <div class="title"><h1>Profile Settings</h1></div>
         <p>
             <label for="username">Username:</label>
             <input type="text" name="username" size="20" value="<?php echo set_value('username',$profile->UserName); ?>"/>
@@ -38,3 +39,4 @@
 
     <?php echo form_close() ?>
    </div>
+    <div style="min-height: 50px;"></div>

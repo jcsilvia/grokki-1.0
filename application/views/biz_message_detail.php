@@ -7,13 +7,13 @@
 
 <div class="main-content">
     <div class="content">
-        <div class="home_title"><h1>Messages</h1></div>
+
 
 
 
     <div class="profile-window">
-
-        <div style="text-align:left;"><p><b>From:</b></p></div><div style="text-align:center; position:absolute;left:320;top:44;"><p><b>Category:</b></b></p></div><div style="text-align: right; position:absolute;right:50;top:44;"><p><b>Received:</b></p></div>
+        <div class="home_title"><h1>Message Details</h1></div>
+        <div style="text-align:left;"><p><b>From:</b></p></div><div style="text-align:center; position:absolute;left:320;top:55;"><p><b>Category:</b></b></p></div><div style="text-align: right; position:absolute;right:50;top:55;"><p><b>Received:</b></p></div>
 
 
 
@@ -49,11 +49,11 @@
         <div class="map_window">
 
         <?php
-            echo '<img border="0" src="//maps.googleapis.com/maps/api/staticmap?center=';
+            echo '<img border="1" src="//maps.googleapis.com/maps/api/staticmap?center=';
             echo $business->Address1; echo ','; echo $business->City; echo ','; echo $business->State;
             echo '&markers=color:red%7Clabel:G%7C'; echo $business->Address1; echo ','; echo $business->City; echo ','; echo $business->State;
             echo '&zoom=16&size=600x300&key=AIzaSyBOIxN_iEcuMDdEz5xesWkGjCyxqHZXRpE&sensor=false" />';
         ?>
 
     </div>
-        <div style="min-height: 50px;"><p></p></div>
+        <div style="min-height: 50px;"></div>

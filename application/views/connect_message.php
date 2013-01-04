@@ -2,12 +2,13 @@
 
 <div class="main-content">
 <div class="content">
-    <div class="home_title"><h1>Connections - Send Direct Message</h1></div>
+
 
 
 
     <div class="messages-window">
-        <div style="text-align:left;"><p><b>Business:</b></p></div><div style="text-align:center; position:absolute;left:320;top:44;"><p><b>Category:</b></b></p></div><div style="text-align: right; position:absolute;right:50;top:44;"><p><b>Location:</b></p></div>
+        <div class="home_title"><h1>Send Direct Message</h1></div>
+        <div style="text-align:left;"><p><b>Business:</b></p></div><div style="text-align:center; position:absolute;left:320;top:55;"><p><b>Category:</b></b></p></div><div style="text-align: right; position:absolute;right:50;top:55;"><p><b>Location:</b></p></div>
 
 
         <div class="message-detail">
@@ -50,3 +51,4 @@
     <?php echo form_close() ?>
 
 </div>
+    <div style="min-height: 50px;"></div>

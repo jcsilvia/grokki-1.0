@@ -2,13 +2,13 @@
 
 <div class="main-content">
 <div class="content">
-  <div class="title">  <h1>What are you looking for?</h1></div>
+
 
 
     <?php echo form_open('search') ?>
 
     <div class="new_message_form">
-
+        <div class="title">  <h1>What are you looking for?</h1></div>
         <div>
             <p>
                 <label for="category">Search Category:</label>
@@ -23,7 +23,7 @@
                 <?php echo form_error('city'); ?>
             </p>
         </div>
-        <div style="position: absolute; top:80; right: 150;">
+        <div style="position: absolute; top:95; right: 150;">
             <p><label for="state">State:</label>
 
 
@@ -112,3 +112,4 @@
     <?php echo form_close() ?>
 
 </div>
+    <div style="min-height: 50px;"></div>

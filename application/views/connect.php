@@ -1,13 +1,14 @@
 <div class="main-content">
 <div class="content">
-    <div class="home_title"><h1>Connections</h1></div>
+
 
 
 
 
     <div class="messages-window">
+        <div class="home_title"><h1>Connections</h1></div>
         <?php if (count($connections) > 0)
-        echo '<div style="text-align:left;"><p><b>Business:</b></p></div><div style="text-align:center; position:absolute;left:320;top:44;"><p><b>Category:</b></b></p></div><div style="text-align: right; position:absolute;right:50;top:44;"><p><b>Location:</b></p></div>';
+        echo '<div style="text-align:left;"><p><b>Business:</b></p></div><div style="text-align:center; position:absolute;left:320;top:55;"><p><b>Category:</b></b></p></div><div style="text-align: right; position:absolute;right:50;top:55;"><p><b>Location:</b></p></div>';
         ?>
         <?php if (count($connections) < 1)
         echo '<div style="font-weight: bold; text-align: center;">You have no connections.</div>';
@@ -38,4 +39,4 @@
 
     </div>
 </div>
-<div style="min-height: 50px;"><p></p></div>
+<div style="min-height: 50px;"></div>

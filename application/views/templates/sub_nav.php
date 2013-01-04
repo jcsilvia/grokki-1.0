@@ -27,3 +27,4 @@
 ?>
 </div>
 <div class="username"><?php echo $username ?> </div>
+<div style="min-height: 20px;"></div>

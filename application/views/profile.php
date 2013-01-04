@@ -7,11 +7,11 @@
 
 <div class="main-content">
 <div class="content">
-    <div class="home_title"><h1>Connections - Profile for <?php  echo $profile->BusinessName ?></h1></div>
+
 
 
 <div class="profile-window">
-
+    <div class="home_title"><h1>Profile for <?php  echo $profile->BusinessName ?></h1></div>
 <div style="position: relative">
     <p>
        <a href="javascript:history.back()">Back</a>
@@ -73,7 +73,7 @@
     <div class="map_window">
 
         <?php
-        echo '<img border="0" src="//maps.googleapis.com/maps/api/staticmap?center=';
+        echo '<img border="1" src="//maps.googleapis.com/maps/api/staticmap?center=';
         echo $profile->Address1; echo ','; echo $profile->City; echo ','; echo $profile->State;
         echo '&markers=color:red%7Clabel:G%7C'; echo $profile->Address1; echo ','; echo $profile->City; echo ','; echo $profile->State;
         echo '&zoom=16&size=600x300&key=AIzaSyBOIxN_iEcuMDdEz5xesWkGjCyxqHZXRpE&sensor=false" />';
@@ -91,4 +91,4 @@
         <?php endforeach ?>
     </div>
 </div>
-<div style="min-height: 50px;"><p></p></div>
+<div style="min-height: 50px;"></div>

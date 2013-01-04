@@ -4,13 +4,14 @@
 
 <div class="content">
 
-
+    <div style="min-height: 50px;"></div>
 
 <?php echo form_open('login/index') ?>
 
 <div>
-    <div class="title"><h1>Sign in to Grokki</h1></div>
+
     <div class="login_form" >
+        <div class="title"><h1>Sign in to Grokki</h1></div>
         <p>
             <label for="username">Username or Email</label>
             <input type="text" name="username" size="20" value="<?php echo set_value('username'); ?>"/>
@@ -25,7 +26,7 @@
             </div>
         </p>
         <div><p>Don't have an account? <a href="/signup/"> Create one here.</a></p></div>
-        <div style="text-align: right; position:absolute;top:90;left:350;"><p><a href="/login/forgot_password">Forgot Password</a></p></div>
+        <div style="text-align: right; position:absolute;top:155;left:350;"><p><a href="/login/forgot_password">Forgot Password</a></p></div>
     </div>
     <div>
         <p>
