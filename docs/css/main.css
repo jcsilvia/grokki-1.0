@@ -307,8 +307,17 @@ p {
 }
 
 .password_resent {
-    width:650px;
+    width:600px;
     margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left:5px;
+    padding-right:5px;
+    background-color:#ffffff;
+    border-style:solid;
+    border-width:thin;
+    border-color:black;
+    border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;
 
 }
 

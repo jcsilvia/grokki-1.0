@@ -5,8 +5,8 @@
         {
             if($title == 'Home') {echo '<b>Home</b>    <a href="/settings/">     Settings    </a><a href="/reports/">    Reports    </a><a href="/coupons/">    Coupons    </a>';}
             elseif($title == 'Settings') {echo '<a href="/home/">Home    </a>    <b>Settings</b>    <a href="/reports/">    Reports    </a><a href="/coupons/">    Coupons    </a>';}
-            elseif($title == 'Reports') {echo ' <a href="/home/">Home    </a><a href="/settings/">    Settings    </a>    <b>Reports</b><a href="/coupons/">    Coupons    </a>';}
-            elseif($title == 'Coupons') {echo ' <a href="/home/">Home    </a><a href="/settings/">    Settings    </a>    <b>Reports</b>    <b>Coupons</b>';}
+            elseif($title == 'Reports')  {echo '<a href="/home/">Home    </a><a href="/settings/">     Settings    </a>    <b>Reports</b>    <a href="/coupons/">    Coupons    </a>';}
+            elseif($title == 'Coupons')  {echo '<a href="/home/">Home    </a><a href="/settings/">     Settings    </a><a href="/reports/">    Reports    </a>    <b>Coupons</b>    ';}
             else {echo '<a href="/home/">Home     </a><a href="/settings/">     Settings    </a><a href="/reports/">    Reports    </a><a href="/coupons/">    Coupons    </a>';}
         }
     else
