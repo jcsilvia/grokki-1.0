@@ -6,7 +6,7 @@
 
     <?php echo form_open('settings/change_email') ?>
 
-    <div style="text-align: right; position:absolute;top:60;right:170;"><p><a href="javascript:history.back()">Back</a></p></div>
+    <div class="settings_back_button""><p><a href="javascript:history.back()">Back</a></p></div>
     <div class="form" >
         <div class="title"><h1>Change Email</h1></div>
         <p>
@@ -14,14 +14,14 @@
             <input type="text" name="email" size="50" value="<?php echo set_value('email'); ?>"/>
             <?php echo form_error('email'); ?>
         </p>
-
+        <div>
+            <p>
+                <input class="button_login_form" type="submit" name="submit" value="Update Email" />
+            </p>
+        </div>
 
     </div>
-    <div>
-        <p>
-            <input class="button_login_form" type="submit" name="submit" value="Update Email" />
-        </p>
-    </div>
+
 
 
 

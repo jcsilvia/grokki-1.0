@@ -23,12 +23,13 @@
             </div>
         </p>
             <input type="hidden" name="validation_string" value="<?php echo $validation ?>"></hidden>
+        <div>
+            <p>
+                <input class="button_login_form" type="submit" name="submit" value="Submit" />
+            </p>
+        </div>
     </div>
-    <div>
-        <p>
-            <input class="button_login_form" type="submit" name="submit" value="Submit" />
-        </p>
-    </div>
+
 
 
 

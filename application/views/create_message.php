@@ -24,7 +24,7 @@
                 <?php echo form_error('city'); ?>
             </p>
         </div>
-        <div style="position: absolute; top:80; right: 150;">
+        <div class="new_message_state">
             <p><label for="state">State:</label>
 
 
@@ -104,14 +104,14 @@
         </div>
         <input type="hidden" name="senderid" value="<?php  echo $this->session->userdata('memberid'); ?>">
 
-
+        <div>
+            <p>
+                <input class="button_signup_form" type="submit" name="submit" value="Send Message" />
+            </p>
+        </div>
 
     </div>
-    <div>
-        <p>
-            <input class="button_signup_form" type="submit" name="submit" value="Send Message" />
-        </p>
-    </div>
+
 
     <?php echo form_close() ?>
 

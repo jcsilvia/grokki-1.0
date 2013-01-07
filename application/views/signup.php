@@ -40,15 +40,16 @@
 <p>
         Already have an account? <a href="/login/">Sign in here.</a>
 </p>
+    <div>
+        <p>
+            <input class="button_signup_form" type="submit" name="submit" value="Create my account" />
+        </p>
+    </div>
 </div>
-<div>
-<p>
-<input class="button_signup_form" type="submit" name="submit" value="Create my account" />
-</p>
-</div>
+
 </div>
 <?php echo form_close() ?>
 
 
 </div>
-    <div style="min-height: 50px;"><p></p></div>
+    <div style="min-height: 50px;"></div>

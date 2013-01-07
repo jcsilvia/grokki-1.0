@@ -118,13 +118,15 @@
             <input type="text" name="tags" size="75" value="<?php echo set_value('tags'); ?>" />
             <?php echo form_error('tags'); ?>
         </p>
+
+        <div>
+            <p>
+                <input class="button_signup_form" type="submit" name="submit" value="Complete my registration" />
+            </p>
+        </div>
     </div>
 
-    <div>
-        <p>
-            <input class="button_signup_form" type="submit" name="submit" value="Complete my registration" />
-        </p>
-    </div>
+
 
     </div>
 <?php echo form_close() ?>

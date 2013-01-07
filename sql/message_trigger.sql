@@ -6,7 +6,7 @@
 * rollback. The possibility of data inserts by trigger even if a rollback is issued on the messages table. 
 */
 
-DROP TRIGGER `grokki`.messages_insert_trg;
+DROP TRIGGER If EXISTS `grokki`.messages_insert_trg;
 
 CREATE TRIGGER `grokki`.`messages_insert_trg` AFTER INSERT
     ON grokki.messages FOR EACH ROW
@@ -51,4 +51,16 @@ BEGIN
      
      END IF;
      END IF;   
+END;
+
+DROP TRIGGER IF EXISTS `grokki`.`search_log_insert_trigger`;
+
+CREATE TRIGGER `grokki`.`search_log_insert_trigger` BEFORE INSERT
+    ON grokki.search_log FOR EACH ROW
+BEGIN
+
+    SET new.SearchYear = year(now());
+    SET new.SearchMonth = month(now());
+    SET new.SearchDay = day(now());
+
 END;

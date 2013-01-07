@@ -88,6 +88,7 @@ public function index()
                         $data['total'] = $config['total_rows'];
                         $data['per_page'] = $config['per_page'];
                         $data['searches'] = $this->Search_model->search($config["per_page"], $page);
+                        $this->Search_model->log_search_parameters(); //log the search data for analysis
 
 					   	include 'mobile.php';	
 					   	if(Mobile::is_mobile()) {

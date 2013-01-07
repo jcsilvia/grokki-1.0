@@ -7,7 +7,7 @@
 
     <?php echo form_open('settings/change_password') ?>
 
-    <div style="text-align: right; position:absolute;top:60;right:170;"><p><a href="javascript:history.back()">Back</a></p></div>
+    <div class="settings_back_button"><p><a href="javascript:history.back()">Back</a></p></div>
     <div class="form" >
         <div class="title"><h1>Change Password</h1></div>
         <p>
@@ -29,12 +29,12 @@
             </div>
         </p>
 
+        <div>
+            <p>
+                <input class="button_login_form" type="submit" name="submit" value="Update Password" />
+            </p>
+        </div>
 
-    </div>
-    <div>
-        <p>
-            <input class="button_login_form" type="submit" name="submit" value="Update Password" />
-        </p>
     </div>
 
 

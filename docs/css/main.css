@@ -248,8 +248,6 @@ p {
 }
 
 .button_login_form {
-    position: absolute;
-    left:145px;
     font-size:1.15em;
     font-family:"helvetica",sans-serif;
     background-color:#6495ed;
@@ -289,8 +287,7 @@ p {
 }
 
 .button_signup_form {
-    position: absolute;
-    left:145px;
+
     font-size:1.15em;
     font-family:"helvetica",sans-serif;
     background-color:#6495ed;
@@ -440,9 +437,7 @@ p {
 }
 
 .button_review_form {
-    position: absolute;
-    left:39px;
-    top:295px;
+    
     font-size:1.15em;
     font-family:"helvetica",sans-serif;
     background-color:#6495ed;
@@ -466,4 +461,21 @@ p {
     border-bottom: #808080;
     border-width:thin;
     border-bottom-style: solid;
+}
+
+.new_message_state {
+    position: absolute;
+    top:95; right: 160;
+}
+
+.settings_back_button {
+    text-align: right;
+    position:absolute;
+    top:60;
+    right:170;
+}
+
+.search_state {
+    position: absolute;
+    top:95; right: 150;
 }

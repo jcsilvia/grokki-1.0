@@ -25,14 +25,19 @@
             <?php echo $msg ?>
             </div>
         </p>
+        <div><p>Forgot your password? <a href="/login/forgot_password"> Reset it here.</a></p></div>
         <div><p>Don't have an account? <a href="/signup/"> Create one here.</a></p></div>
-        <div style="text-align: right; position:absolute;top:155;left:350;"><p><a href="/login/forgot_password">Forgot Password</a></p></div>
+
+
+
+        <div>
+            <p>
+                <input class="button_login_form" type="submit" name="submit" value="Sign in" />
+            </p>
+        </div>
+
     </div>
-    <div>
-        <p>
-            <input class="button_login_form" type="submit" name="submit" value="Sign in" />
-        </p>
-    </div>
+
 </div>
 
 <?php echo form_close() ?>

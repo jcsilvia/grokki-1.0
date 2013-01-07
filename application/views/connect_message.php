@@ -21,34 +21,35 @@
 
         </div>
 
+        <?php echo form_open('connect/message') ?>
 
-    </div>
-
-    <?php echo form_open('connect/message') ?>
-
-    <div>
-        <div class="message_form">
-            <p>
-                <textarea name="content" style="width:500px;height:70px;border:1px solid;border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;" onfocus="this.value=''; setbg('#e5fff3');" onblur="setbg('white')">Enter your message here...
-                </textarea>
-                <?php echo form_error('content'); ?>
-            </p>
-    </div>
-        <input type="hidden" name="senderid" value="<?php  echo $this->session->userdata('memberid') ?>">
-        <input type="hidden" name="categoryid" value="<?php  echo $profile->CategoryId ?>">
-        <input type="hidden" name="associateid" value="<?php  echo $profile->MemberId ?>">
         <div>
-            <p>
-                <input class="button_login_form" type="submit" name="submit" value="Send Reply" />
-            </p>
+            <div class="message_form">
+                <p>
+                    <textarea name="content" style="width:500px;height:70px;border:1px solid;border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;" onfocus="this.value=''; setbg('#e5fff3');" onblur="setbg('white')">Enter your message here...
+                    </textarea>
+                    <?php echo form_error('content'); ?>
+                </p>
+                <input type="hidden" name="senderid" value="<?php  echo $this->session->userdata('memberid') ?>">
+                <input type="hidden" name="categoryid" value="<?php  echo $profile->CategoryId ?>">
+                <input type="hidden" name="associateid" value="<?php  echo $profile->MemberId ?>">
+                <div>
+                    <p>
+                        <input class="button_login_form" type="submit" name="submit" value="Send Reply" />
+                    </p>
+                </div>
+            </div>
+
+
+
+
         </div>
 
 
-
+        <?php echo form_close() ?>
     </div>
 
 
-    <?php echo form_close() ?>
 
 </div>
     <div style="min-height: 50px;"></div>

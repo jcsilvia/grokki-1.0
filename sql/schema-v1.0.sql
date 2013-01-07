@@ -257,3 +257,46 @@ CREATE TABLE `grokki`.`tags` (
 ) ENGINE = MyISAM DEFAULT CHARSET=utf8;
 
 CREATE FULLTEXT INDEX fulltxt_tag_idx ON grokki.tags (BusinessName, Tags);
+
+#table for storing coupons
+CREATE TABLE `grokki`.`coupons` (
+   CouponId BIGINT(19) NOT NULL AUTO_INCREMENT,
+   MemberId BIGINT(19) NOT NULL,
+   CouponCode VARCHAR(20),
+   Title VARCHAR(50) NOT NULL,
+   Description VARCHAR(255) NOT NULL,
+  PRIMARY KEY (CouponId),
+  KEY `coupons_mid_idx` (`MemberId`)
+) ENGINE = InnoDB DEFAULT CHARSET=utf8;
+
+#table to store coupon dates
+CREATE TABLE `grokki`.`coupon_activity` (
+   CouponActivityId BIGINT(19) NOT NULL AUTO_INCREMENT,
+   CouponId BIGINT(19) NOT NULL,
+   StartDate DATETIME NOT NULL,
+   EndDate DATETIME,
+  PRIMARY KEY (CouponActivityId)
+) ENGINE = InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `grokki`.`coupon_activity`
+  ADD INDEX coupon_act_cid_idx (CouponId);
+
+#Log table for searches
+CREATE TABLE `grokki`.`search_log` (
+   SearchLogId BIGINT(19) NOT NULL AUTO_INCREMENT,
+   MemberId BIGINT(19) NOT NULL,
+   CategoryId INT(10),
+   City VARCHAR(50),
+   State VARCHAR(50),
+   ZipCode VARCHAR(10),
+   GeoLat DECIMAL(10,6),
+   GeoLng DECIMAL(10,6),
+   SearchTerms VARCHAR(255),
+   CreatedDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+   SearchYear INT(4),
+   SearchMonth INT(2),
+   SearchDay INT(2),
+  PRIMARY KEY (SearchLogId),
+  KEY `searchlog_mid_idx` (`MemberId`),
+  KEY `searchlog_cid_idx` (`CategoryId`)
+) ENGINE = MyISAM DEFAULT CHARSET=utf8;

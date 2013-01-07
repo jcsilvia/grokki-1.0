@@ -23,7 +23,7 @@
                 <?php echo form_error('city'); ?>
             </p>
         </div>
-        <div style="position: absolute; top:95; right: 150;">
+        <div class="search_state">
             <p><label for="state">State:</label>
 
 
@@ -100,16 +100,16 @@
         </div>
         <input type="hidden" name="senderid" value="<?php  echo $this->session->userdata('memberid'); ?>">
 
+        <div>
+            <p>
+                <input class="button_signup_form" type="submit" name="submit" value="Search" />
+            </p>
+        </div>
 
+        <?php echo form_close() ?>
 
     </div>
-    <div>
-        <p>
-            <input class="button_signup_form" type="submit" name="submit" value="Search" />
-        </p>
-    </div>
 
-    <?php echo form_close() ?>
 
 </div>
     <div style="min-height: 50px;"></div>

@@ -19,11 +19,12 @@
             <?php echo form_error('username'); ?>
         </p>
         <div><p>Have an account? <a href="/login/"> Login here.</a></p></div>
-    </div>
-    <div>
-        <p>
-            <input class="button_login_form" type="submit" name="submit" value="Submit" />
-        </p>
+        <div>
+            <p>
+                <input class="button_login_form" type="submit" name="submit" value="Submit" />
+            </p>
+        </div>
+
     </div>
 
 

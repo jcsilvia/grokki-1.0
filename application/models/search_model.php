@@ -79,5 +79,19 @@ class Search_model extends CI_Model {
 
     }
 
-
+    public function log_search_parameters()
+    {
+        $data = array(
+            'MemberId' => $this->session->userdata('memberid'),
+            'CategoryId' => $this->input->post('category'),
+            'City' => $this->input->post('city'),
+            'State' => $this->input->post('state'),
+            'SearchTerms' => $this->input->post('content')
+            //'GeoLat' => $GeoLat,
+            //'GeoLng' => $GeoLng,
+            //'Zipcode' => $zip
+        );
+        $this->db->insert('search_log', $data);
+        return TRUE;
+    }
 }

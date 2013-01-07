@@ -7,7 +7,7 @@
 
     <?php echo form_open('settings/index') ?>
 
-    <div style="text-align: right; position:absolute;top:60;right:170;"><p><a href="javascript:history.back()">Back</a></p></div>
+    <div class="settings_back_button"><p><a href="javascript:history.back()">Back</a></p></div>
     <div class="form" >
         <div class="title"><h1>Profile Settings</h1></div>
         <p>
@@ -27,16 +27,16 @@
             <?php echo form_error('zipcode'); ?>
         </p>
 
+        <div>
+            <p>
+                <input class="button_signup_form" type="submit" name="submit" value="Update Profile" />
+            </p>
+        </div>
 
+
+
+        <?php echo form_close() ?>
     </div>
-    <div>
-        <p>
-            <input class="button_signup_form" type="submit" name="submit" value="Update Profile" />
-        </p>
-    </div>
 
-
-
-    <?php echo form_close() ?>
    </div>
     <div style="min-height: 50px;"></div>
