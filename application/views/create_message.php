@@ -8,7 +8,7 @@
     <?php echo form_open('home/create_message') ?>
 
     <div class="new_message_form">
-        <div class="title"><h1>Compose New Message</h1></div>
+        <div class="title"><h1>What are you looking for?</h1><p>Enter a message with what you need and we'll make sure it gets to grokki business partners in your area.</p></div>
         <div>
             <p>
             <label for="category">Category:</label>

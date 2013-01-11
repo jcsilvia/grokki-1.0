@@ -265,6 +265,7 @@ CREATE TABLE `grokki`.`coupons` (
    CouponCode VARCHAR(20),
    Title VARCHAR(50) NOT NULL,
    Description VARCHAR(255) NOT NULL,
+   CreatedDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (CouponId),
   KEY `coupons_mid_idx` (`MemberId`)
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8;
@@ -273,8 +274,10 @@ CREATE TABLE `grokki`.`coupons` (
 CREATE TABLE `grokki`.`coupon_activity` (
    CouponActivityId BIGINT(19) NOT NULL AUTO_INCREMENT,
    CouponId BIGINT(19) NOT NULL,
+   MemberId BIGINT(19) NOT NULL,
    StartDate DATETIME NOT NULL,
    EndDate DATETIME,
+   CreatedDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (CouponActivityId)
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 

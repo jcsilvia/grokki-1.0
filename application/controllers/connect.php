@@ -236,9 +236,11 @@ class Connect extends CI_Controller {
             $data['username'] = $this->session->userdata('username');
 
             $this->load->model('Connect_model');
+            $this->load->model('Coupon_model');
             $data['profile'] = $this->Connect_model->get_profile($associateid);
             $data['reviews'] = $this->Connect_model->get_latest_reviews($associateid);
             $data['rating'] = $this->Connect_model->get_ratings($associateid);
+            $data['coupons'] = $this->Coupon_model->get_active_coupon($associateid);
 
             //format the phone number before we send it to the view
             $phone = $this->phone($data['profile']->PhoneNumber);

@@ -15,7 +15,7 @@
         <p>Now we just need a few more details about your business and we'll be ready to<br> start connecting you with consumers in your area.</p></div>
         <p>
             <label for="businessname">Business Name</label>
-            <input type="text" name="businessname" size="50" value="<?php echo set_value('businessname'); ?>"/>
+            <input title="The name of your business. Maximum 50 characters." type="text" name="businessname" size="50" value="<?php echo set_value('businessname'); ?>"/>
             <?php echo form_error('businessname'); ?>
         </p>
         <p>
@@ -25,7 +25,7 @@
         </p>
         <p>
             <label for="address1">Address 1</label>
-            <input type="text" name="address1" size="50" value="<?php echo set_value('address1'); ?>" />
+            <input title="The street address of the primary location of your business." type="text" name="address1" size="50" value="<?php echo set_value('address1'); ?>" />
             <?php echo form_error('address1'); ?>
         </p>
         <p>
@@ -35,7 +35,7 @@
         </p>
         <p>
             <label for="city">City</label>
-            <input type="text" name="city" size="50" value="<?php echo set_value('city'); ?>" />
+            <input title="The town or city where your business is located." type="text" name="city" size="50" value="<?php echo set_value('city'); ?>" />
             <?php echo form_error('city'); ?>
         </p>
         <p>
@@ -100,22 +100,22 @@
         </p>
         <p>
             <label for="phone">Primary Phone</label>
-            <input type="text" name="phone" value="<?php echo set_value('phone'); ?>" />
+            <input title="The 10-digit phone number for your business. No dashes, spaces or parenthesis." type="text" name="phone" value="<?php echo set_value('phone'); ?>" />
             <?php echo form_error('phone'); ?>
         </p>
         <p>
             <label for="fname">Primary Contact First Name</label>
-            <input type="text" name="fname" size="25" value="<?php echo set_value('fname'); ?>" />
+            <input title="The first name of the primary contact for your business." type="text" name="fname" size="25" value="<?php echo set_value('fname'); ?>" />
             <?php echo form_error('fname'); ?>
         </p>
         <p>
             <label for="lname">Primary Contact Last Name</label>
-            <input type="text" name="lname" size="25" value="<?php echo set_value('lname'); ?>" />
+            <input title="The last name of the primary contact for your business." type="text" name="lname" size="25" value="<?php echo set_value('lname'); ?>" />
             <?php echo form_error('lname'); ?>
         </p>
         <p>
             <label for="tags">Tag your business</label>
-            <input type="text" name="tags" size="75" value="<?php echo set_value('tags'); ?>" />
+            <input title="Enter a list of comma-separated keywords that describe your business. For example, a car dealer might use Ford, Lincoln, New car, Pre-owned car, New truck, Pre-owned truck." type="text" name="tags" size="75" value="<?php echo set_value('tags'); ?>" />
             <?php echo form_error('tags'); ?>
         </p>
 

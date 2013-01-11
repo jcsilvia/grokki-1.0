@@ -11,7 +11,7 @@
         <div class="title"><h1>Change Email</h1></div>
         <p>
             <label for="username">New Email:</label>
-            <input type="text" name="email" size="50" value="<?php echo set_value('email'); ?>"/>
+            <input title="The primary email address you would like to use for communication with grokki. Changing your email address will require you to validate the new email." type="text" name="email" size="50" value="<?php echo set_value('email'); ?>"/>
             <?php echo form_error('email'); ?>
         </p>
         <div>

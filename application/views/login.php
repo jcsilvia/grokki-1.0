@@ -14,12 +14,12 @@
         <div class="title"><h1>Sign in to Grokki</h1></div>
         <p>
             <label for="username">Username or Email</label>
-            <input type="text" name="username" size="20" value="<?php echo set_value('username'); ?>"/>
+            <input title="Enter your username or the email address used to sign up with grokki." type="text" name="username" size="20" value="<?php echo set_value('username'); ?>"/>
             <?php echo form_error('username'); ?>
         </p>
         <p>
             <label for="password">Password</label>
-            <input type="password" name="password" size="15" />
+            <input title="Minimum 8 characters. Password is case-sensitive." type="password" name="password" size="15" />
             <?php echo form_error('password'); ?>
             <div class="error">
             <?php echo $msg ?>

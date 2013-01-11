@@ -3,11 +3,11 @@
 
     if ($this->session->userdata('is_business') == 1 )
         {
-            if($title == 'Home') {echo '<b>Home</b>    <a href="/settings/">     Settings    </a><a href="/reports/">    Reports    </a><a href="/coupons/">    Coupons    </a>';}
-            elseif($title == 'Settings') {echo '<a href="/home/">Home    </a>    <b>Settings</b>    <a href="/reports/">    Reports    </a><a href="/coupons/">    Coupons    </a>';}
-            elseif($title == 'Reports')  {echo '<a href="/home/">Home    </a><a href="/settings/">     Settings    </a>    <b>Reports</b>    <a href="/coupons/">    Coupons    </a>';}
-            elseif($title == 'Coupons')  {echo '<a href="/home/">Home    </a><a href="/settings/">     Settings    </a><a href="/reports/">    Reports    </a>    <b>Coupons</b>    ';}
-            else {echo '<a href="/home/">Home     </a><a href="/settings/">     Settings    </a><a href="/reports/">    Reports    </a><a href="/coupons/">    Coupons    </a>';}
+            if($title == 'Home') {echo '<b>Home</b>    <a href="/settings/">     Settings    </a><a href="/profile/">    Profile    </a><a href="/coupons/">    Coupons    </a>';}
+            elseif($title == 'Settings') {echo '<a href="/home/">Home    </a>    <b>Settings</b>    <a href="/profile/">    Profile    </a><a href="/coupons/">    Coupons    </a>';}
+            elseif($title == 'Profile')  {echo '<a href="/home/">Home    </a><a href="/settings/">     Settings    </a>    <b>Profile</b>    <a href="/coupons/">    Coupons    </a>';}
+            elseif($title == 'Coupons')  {echo '<a href="/home/">Home    </a><a href="/settings/">     Settings    </a><a href="/profile/">    Profile    </a>    <b>Coupons</b>    ';}
+            else {echo '<a href="/home/">Home     </a><a href="/settings/">     Settings    </a><a href="/profile/">    Profile    </a><a href="/coupons/">    Coupons    </a>';}
         }
     else
         {

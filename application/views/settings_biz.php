@@ -8,10 +8,10 @@
 
 
     <div class="form" >
-        <div class="title"><h1>Profile Settings</h1></div>
+        <div class="title"><h1>Profile Settings</h1><p>Manage your account profile, settings, and change your password.</p></div>
         <p>
             <label for="username">Username:</label>
-            <input type="text" name="username" size="20" value="<?php if (isset($username)) echo set_value('username',$username); ?>"/>
+            <input title="Must be at least 5 characters." type="text" name="username" size="20" value="<?php if (isset($username)) echo set_value('username',$username); ?>"/>
             <?php echo form_error('username'); ?>
         </p>
         <p>
@@ -22,12 +22,12 @@
         </p>
         <p>
             <label for="zipcode">Zipcode:</label>
-            <input type="text" name="zipcode" size="6" value="<?php if (isset($profile->ZipCode)) echo set_value('zipcode',$profile->ZipCode); ?>" />
+            <input title="The 5-digit zip for the primary location of your business." type="text" name="zipcode" size="6" value="<?php if (isset($profile->ZipCode)) echo set_value('zipcode',$profile->ZipCode); ?>" />
             <?php echo form_error('zipcode'); ?>
         </p>
         <p>
             <label for="businessname">Business Name</label>
-            <input type="text" name="businessname" size="50" value="<?php if (isset($profile->BusinessName)) echo set_value('businessname',$profile->BusinessName); ?>"/>
+            <input title="The name of your business. Maximum 50 characters." type="text" name="businessname" size="50" value="<?php if (isset($profile->BusinessName)) echo set_value('businessname',$profile->BusinessName); ?>"/>
             <?php echo form_error('businessname'); ?>
         </p>
         <p>
@@ -41,7 +41,7 @@
         </p>
         <p>
             <label for="address1">Address 1</label>
-            <input type="text" name="address1" size="50" value="<?php if (isset($profile->Address1)) echo set_value('address1',$profile->Address1); ?>" />
+            <input title="The street address of the primary location of your business." type="text" name="address1" size="50" value="<?php if (isset($profile->Address1)) echo set_value('address1',$profile->Address1); ?>" />
             <?php echo form_error('address1'); ?>
         </p>
         <p>
@@ -51,7 +51,7 @@
         </p>
         <p>
             <label for="city">City</label>
-            <input type="text" name="city" size="50" value="<?php if (isset($profile->City)) echo set_value('city',$profile->City); ?>" />
+            <input title="The town or city where your business is located." type="text" name="city" size="50" value="<?php if (isset($profile->City)) echo set_value('city',$profile->City); ?>" />
             <?php echo form_error('city'); ?>
         </p>
         <p>
@@ -122,31 +122,33 @@
         </p>
         <p>
             <label for="phone">Primary Phone</label>
-            <input type="text" name="phone" value="<?php if (isset($profile->PhoneNumber)) echo set_value('phone',$profile->PhoneNumber); ?>" />
+            <input title="The 10-digit phone number for your business. No dashes, spaces or parenthesis." type="text" name="phone" value="<?php if (isset($profile->PhoneNumber)) echo set_value('phone',$profile->PhoneNumber); ?>" />
             <?php echo form_error('phone'); ?>
         </p>
         <p>
             <label for="fname">Primary Contact First Name</label>
-            <input type="text" name="fname" size="25" value="<?php if (isset($profile->FirstName)) echo set_value('fname',$profile->FirstName); ?>" />
+            <input title="The first name of the primary contact for your business." type="text" name="fname" size="25" value="<?php if (isset($profile->FirstName)) echo set_value('fname',$profile->FirstName); ?>" />
             <?php echo form_error('fname'); ?>
         </p>
         <p>
             <label for="lname">Primary Contact Last Name</label>
-            <input type="text" name="lname" size="25" value="<?php if (isset($profile->LastName)) echo set_value('lname',$profile->LastName); ?>" />
+            <input title="The last name of the primary contact for your business." type="text" name="lname" size="25" value="<?php if (isset($profile->LastName)) echo set_value('lname',$profile->LastName); ?>" />
             <?php echo form_error('lname'); ?>
         </p>
         <p>
             <label for="tags">Tag your business</label>
-            <input type="text" name="tags" size="75" value="<?php if (isset($profile->Tags)) echo set_value('tags',$profile->Tags); ?>" />
+            <input title="Enter a list of comma-separated keywords that describe your business. For example, a car dealer might use Ford, Lincoln, New car, Pre-owned car, New truck, Pre-owned truck." type="text" name="tags" size="75" value="<?php if (isset($profile->Tags)) echo set_value('tags',$profile->Tags); ?>" />
             <?php echo form_error('tags'); ?>
         </p>
 
+        <div>
+            <p>
+                <input class="button_signup_form" type="submit" name="submit" value="Update Profile" />
+            </p>
+        </div>
+
     </div>
-    <div>
-        <p>
-            <input class="button_signup_form" type="submit" name="submit" value="Update Profile" />
-        </p>
-    </div>
+
 
 
 

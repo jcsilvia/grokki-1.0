@@ -8,7 +8,7 @@
     <?php echo form_open('search') ?>
 
     <div class="new_message_form">
-        <div class="title">  <h1>What are you looking for?</h1></div>
+        <div class="title">  <h1>Search for a business.</h1><p>Search grokki business partners as an alternative to messaging. You can always save a business partner to your connections for use later.</p></div>
         <div>
             <p>
                 <label for="category">Search Category:</label>

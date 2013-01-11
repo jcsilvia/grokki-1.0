@@ -12,17 +12,17 @@
         <div class="title"><h1>Change Password</h1></div>
         <p>
             <label for="username">Previous Password:</label>
-            <input type="password" name="oldpassword" size="20" value="<?php echo set_value('oldpassword'); ?>"/>
+            <input title="Must be at least 8 characters and no longer than 15 characters. Password is case-sensitive." type="password" name="oldpassword" size="20" value="<?php echo set_value('oldpassword'); ?>"/>
             <?php echo form_error('oldpassword'); ?>
         </p>
         <p>
             <label for="username">New Password:</label>
-            <input type="password" name="newpassword1" size="20" value="<?php echo set_value('newpassword1'); ?>"/>
+            <input title="Must be at least 8 characters and no longer than 15 characters. Password is case-sensitive." type="password" name="newpassword1" size="20" value="<?php echo set_value('newpassword1'); ?>"/>
             <?php echo form_error('newpassword1'); ?>
         </p>
         <p>
             <label for="username">Confirm New Password:</label>
-            <input type="password" name="newpassword2" size="20" value="<?php echo set_value('newpassword2'); ?>"/>
+            <input title="Must be at least 8 characters and no longer than 15 characters. Password is case-sensitive." type="password" name="newpassword2" size="20" value="<?php echo set_value('newpassword2'); ?>"/>
             <?php echo form_error('newpassword2'); ?>
             <div class="error">
                 <?php echo $msg ?>

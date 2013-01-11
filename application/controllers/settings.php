@@ -25,7 +25,6 @@ class Settings extends CI_Controller {
 
             //set form validation rules
             $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
-            //$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|max_length[20]|xss_clean|');
             $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|max_length[20]|xss_clean|update_unique[members.UserName.MemberId.'. $this->session->userdata('memberid') .']');
             $this->form_validation->set_rules('zipcode', 'Zipcode', 'trim|required|min-length[5]|numeric|xss_clean|valid_value[zipcodes.zip]');
 

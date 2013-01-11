@@ -6,9 +6,9 @@
 
 
     <div class="messages-window">
-        <div class="home_title"><h1>Messages</h1></div>
+        <div class="home_title"><h1>Messages</h1><p>View, manage and respond to messages from grokki users and business partners.</p></div>
         <?php if (count($messages) > 0)
-        echo '<div style="text-align:left;"><p><b>From:</b></p></div><div style="text-align:center; position:absolute;left:320;top:55;"><p><b>Category:</b></b></p></div><div style="text-align: right; position:absolute;right:50;top:55;"><p><b>Received:</b></p></div>';
+        echo '<div><div class="messages_heading_from"><p><b>From:</b></p></div><div class="messages_heading_category"><p><b>Category:</b></b></p></div><div class="messages_heading_received"><p><b>Received:</b></p></div></div>';
         ?>
     <?php if (count($messages) < 1)
     echo '<div style="font-weight: bold; text-align: center;">There are no messages.</div>';

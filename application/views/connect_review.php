@@ -11,8 +11,8 @@
 
 
     <div class="messages-window">
-        <div class="home_title"><h1>Rate and Review <?php if (isset($profile->BusinessName)) {echo $profile->BusinessName;}?></h1></div>
-        <div style="text-align:left;"><p><b>Business:</b></p></div><div style="text-align:center; position:absolute;left:320;top:55;"><p><b>Category:</b></b></p></div><div style="text-align: right; position:absolute;right:50;top:55;"><p><b>Location:</b></p></div>
+        <div class="home_title"><h1>Rate and Review <?php if (isset($profile->BusinessName)) {echo $profile->BusinessName;}?></h1><p>Rate and review grokki partners you've done business with. Note that you're only allowed to rate and review a specific business once.</p></div>
+        <div><div class="ratings_heading_from"><p><b>From:</b></p></div><div class="ratings_heading_category"><p><b>Category:</b></b></p></div><div class="ratings_heading_received"><p><b>Received:</b></p></div></div>
 
 
         <div class="message-detail">
@@ -33,7 +33,7 @@
     <div>
         <div class="message_form">
             <p>Rating:</p>
-                <div style="position: absolute; left:200; top:159;">
+                <div class="ratings-star-rating">
                 <input name="rating" type="radio" class="star" value="1"/>
                 <input name="rating" type="radio" class="star" value="2"/>
                 <input name="rating" type="radio" class="star" value="3" checked="checked"/>

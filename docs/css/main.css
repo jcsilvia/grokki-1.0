@@ -215,7 +215,7 @@ p {
     margin-left: auto;
     margin-right: auto;
     width:710px;
-    min-height: 200px;
+    min-height: 250px;
     padding:5px;
     background-color:#ffffff;
     border-style:solid;
@@ -231,7 +231,7 @@ p {
     position:relative;
     border-color:#808080;
     border-width:thin;
-    border-bottom-style: solid;
+    border-bottom-style: dotted;
     height:45px;
 }
 
@@ -341,6 +341,8 @@ p {
     border-bottom-style: solid;
 }
 
+
+
 .message_form {
     width: 500px;
     margin-left: auto;
@@ -350,8 +352,8 @@ p {
 .profile-window {
     margin-left: auto;
     margin-right: auto;
-    width:710px;
-    min-height: 300px;
+    width:595px;
+    min-height: 350px;
     padding:5px;
     background-color:#ffffff;
     border-style:solid;
@@ -366,14 +368,19 @@ p {
     margin-left: auto;
     margin-right: auto;
     width:600px;
-    padding:10px;
+    padding:5px;
 }
 
 .review_window {
     margin-left: auto;
     margin-right: auto;
-    width:600px;
-    padding:10px;
+    width:595px;
+    padding:5px;
+    background-color:#ffffff;
+    border-style:solid;
+    border-width:thin;
+    border-color:black;
+    border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;
 }
 
 .new_message_form{
@@ -406,7 +413,7 @@ p {
     position:relative;
     border-color:#808080;
     border-width:thin;
-    border-bottom-style: solid;
+    border-bottom-style: dotted;
     font-family:"helvetica",sans-serif;
     font-size:.8em;
     padding-bottom: 5;
@@ -432,12 +439,12 @@ p {
     position:relative;
     border-color:#808080;
     border-width:thin;
-    border-bottom-style: solid;
+    border-bottom-style: dotted;
     height:65px;
 }
 
 .button_review_form {
-    
+
     font-size:1.15em;
     font-family:"helvetica",sans-serif;
     background-color:#6495ed;
@@ -478,4 +485,195 @@ p {
 .search_state {
     position: absolute;
     top:95; right: 150;
+}
+
+.active-coupon {
+    background-color:#fafad2;
+    border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;
+    min-height: 150px;
+    width: 200px;
+    border-style:dashed;
+    border-width:thin;
+    border-color:black;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.coupon-title{
+    font-weight: bold;
+    font-family:"helvetica",sans-serif;
+    font-size:1em;
+    text-align: center;
+    border-bottom: #000000;
+    border-bottom-style: dashed;
+    border-bottom-width: thin;
+    padding: 2px;
+}
+
+.coupon-description{
+    font-family:"helvetica",sans-serif;
+    font-size:.95em;
+    text-align: left;
+    padding: 4px;
+}
+
+.coupon-date{
+    font-family:"helvetica",sans-serif;
+    font-size:.60em;
+    text-align: center;
+    padding: 1px;
+}
+
+.coupon-code{
+    font-family:"helvetica",sans-serif;
+    font-size:.60em;
+    text-align: center;
+    padding: 1px;
+}
+.coupon-name{
+    font-family:"helvetica",sans-serif;
+    font-size:.95em;
+    text-align: center;
+    font-weight: bold;
+    padding: 2px;
+}
+
+.messages_heading_from{
+    text-align:left;
+}
+
+.messages_heading_category{
+    position: absolute;
+    top:87px;
+    left:320px;
+}
+
+.messages_heading_received{
+    position: absolute;
+    top:87px;
+    right:55px;
+}
+
+.ratings_heading_from{
+    text-align:left;
+}
+
+.ratings_heading_category{
+    position: absolute;
+    top:102px;
+    left:320px;
+}
+
+.ratings_heading_received{
+    position: absolute;
+    top:102px;
+    right:60px;
+}
+
+.ratings-star-rating{
+    position: absolute; left:200; top:205;
+}
+
+.tooltip {
+    background-color:#000;
+    border:1px solid #fff;
+    padding:10px 15px;
+    width:200px;
+    display:none;
+    color:#fff;
+    text-align:left;
+    font-size:12px;
+
+    /* outline radius for mozilla/firefox only */
+    -moz-box-shadow:0 0 10px #000;
+    -webkit-box-shadow:0 0 10px #000;
+}
+
+.modify_coupon_back_button {
+    text-align: right;
+    position:absolute;
+    top:85;
+    right:170;
+}
+
+.view_all_coupon_back_button {
+    text-align: right;
+    position:absolute;
+    top:85;
+    right:50;
+}
+
+.coupon-modify{
+    font-family:"helvetica",sans-serif;
+    font-size:.95em;
+    text-align: center;
+    padding: 4px;
+}
+
+.coupon-links {
+    position:absolute;
+    right:55;
+    bottom: 55;
+}
+
+.profile_star_rating {
+
+}
+
+.profile_title {
+
+    width:595px;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: #808080;
+    border-width:thin;
+    border-bottom-style: solid;
+}
+
+.message-detail-window {
+margin-left: auto;
+    margin-right: auto;
+    width:710px;
+    min-height: 350px;
+    padding:5px;
+    background-color:#ffffff;
+    border-style:solid;
+    border-width:thin;
+    border-color:black;
+    border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;
+    font-family:"helvetica",sans-serif;
+    font-size:.95em;
+}
+
+.biz_message_title {
+    width:710px;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: #808080;
+    border-width:thin;
+    border-bottom-style: solid;
+}
+
+.connect_heading_from{
+    text-align:left;
+}
+
+.connect_heading_category{
+    position: absolute;
+    top:102px;
+    left:320px;
+}
+
+.connect_heading_received{
+    position: absolute;
+    top:102px;
+    right:55px;
+}
+
+.coupon-window{
+    position: absolute;
+    right:75;
+    bottom: 95;
+
 }

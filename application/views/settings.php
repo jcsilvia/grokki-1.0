@@ -7,12 +7,12 @@
 
     <?php echo form_open('settings/index') ?>
 
-    <div class="settings_back_button"><p><a href="javascript:history.back()">Back</a></p></div>
+
     <div class="form" >
-        <div class="title"><h1>Profile Settings</h1></div>
+        <div class="title"><h1>Profile Settings</h1><p>Manage your account profile, settings, and change your password.</p></div>
         <p>
             <label for="username">Username:</label>
-            <input type="text" name="username" size="20" value="<?php echo set_value('username',$profile->UserName); ?>"/>
+            <input title="Must be at least 5 characters." type="text" name="username" size="20" value="<?php echo set_value('username',$profile->UserName); ?>"/>
             <?php echo form_error('username'); ?>
         </p>
         <p>
@@ -23,7 +23,7 @@
         </p>
         <p>
             <label for="zipcode">Zipcode:</label>
-            <input type="text" name="zipcode" size="6" value="<?php echo set_value('zipcode',$profile->ZipCode); ?>" />
+            <input title="The 5-digit zip for your primary location." type="text" name="zipcode" size="6" value="<?php echo set_value('zipcode',$profile->ZipCode); ?>" />
             <?php echo form_error('zipcode'); ?>
         </p>
 

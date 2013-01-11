@@ -1,11 +1,8 @@
-
-
-
-    <?php $this->load->helper('form'); ?>
-    <script src='http://jquery-star-rating-plugin.googlecode.com/svn/trunk/jquery.js' type="text/javascript"></script>
-    <script src='http://jquery-star-rating-plugin.googlecode.com/svn/trunk/jquery.rating.js' type="text/javascript" language="javascript"></script>
-    <script src='http://jquery-star-rating-plugin.googlecode.com/svn/trunk/jquery.MetaData.js' type="text/javascript" language="javascript"></script>
-    <link href='http://jquery-star-rating-plugin.googlecode.com/svn/trunk/jquery.rating.css' type="text/css" rel="stylesheet"/>
+<?php $this->load->helper('form'); ?>
+<script src='http://jquery-star-rating-plugin.googlecode.com/svn/trunk/jquery.js' type="text/javascript"></script>
+<script src='http://jquery-star-rating-plugin.googlecode.com/svn/trunk/jquery.rating.js' type="text/javascript" language="javascript"></script>
+<script src='http://jquery-star-rating-plugin.googlecode.com/svn/trunk/jquery.MetaData.js' type="text/javascript" language="javascript"></script>
+<link href='http://jquery-star-rating-plugin.googlecode.com/svn/trunk/jquery.rating.css' type="text/css" rel="stylesheet"/>
 
 
 <div class="main-content">
@@ -14,8 +11,8 @@
 
 
         <div class="profile-window">
-            <div class="profile_title"><h1>Profile for <?php  echo $profile->BusinessName ?></h1><p>Get profile information, maps, directions, coupons and reviews for grokki business partners.</p></div>
-            <div style="text-align: right"><a href="javascript:history.back()">Back</a></div>
+            <div class="profile_title"><h1>Profile for <?php  echo $profile->BusinessName ?></h1><p>See what users see when they view your profile information, maps, directions, coupons, and reviews. </p></div>
+
             <div>
                 <div >
                     <p>
@@ -94,7 +91,7 @@
             <?php
             echo '<img border="1" src="//maps.googleapis.com/maps/api/staticmap?center=';
             echo $profile->Address1; echo ','; echo $profile->City; echo ','; echo $profile->State;
-            echo '&markers=color:red%7Clabel:A%7C'; echo $profile->Address1; echo ','; echo $profile->City; echo ','; echo $profile->State;
+            echo '&markers=color:red%7Clabel:G%7C'; echo $profile->Address1; echo ','; echo $profile->City; echo ','; echo $profile->State;
             echo '&zoom=16&size=600x300&key=AIzaSyBOIxN_iEcuMDdEz5xesWkGjCyxqHZXRpE&sensor=false" />';
             ?>
 
